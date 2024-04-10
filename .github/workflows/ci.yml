@@ -50,7 +50,7 @@ jobs:
       #  run: bun run lint:eslint
 
       - name: Build
-        run: bun run build:no-cache
+        run: bun run docs:build
 
       - name: Get release dir path
         id: release-dir-path
