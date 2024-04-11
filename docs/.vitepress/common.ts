@@ -32,8 +32,6 @@ export const common = defineConfig({
   /* prettier-ignore */
   head: [
     ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicon.ico' }],
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/images/favicon.ico' }],
-    ['link', { rel: 'icon', type: 'image/png', href: '/images/favicon.ico' }],
     ['meta', { name: 'theme-color', content: '#5f67ee' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'en' }],

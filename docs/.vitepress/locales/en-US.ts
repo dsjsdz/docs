@@ -94,7 +94,9 @@ export const enUS = defineConfig({
   title: 'DingShang',
   lang: 'en-US',
   description: 'Dingshang Metal Products Co., Ltd., creating intelligent business terminals exclusively for you.',
-
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '../images/favicon.ico' }]
+  ],
   themeConfig: {
     nav: Nav,
     sidebar: {
