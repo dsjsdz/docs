@@ -1,41 +1,17 @@
 import { defineConfig } from 'vitepress'
 
+import { common as Common } from './common'
+
+import { enUS } from './locales/en-US'
+import { zhCN } from './locales/zh-CN'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ...Common,
   base: '/docs/',
-  title: "鼎商云开发平台",
-  description: "A VitePress Site",
-  themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
-
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/dsjsdz/docs' }
-    ],
-
-    footer: {
-      message: '© All rights reserved. 广州鼎商金属制品有限公司',
-      copyright: 'Powered dsjsdz.com. v1.0.0'
-    }
-  },
-
+  appearance: 'dark',
   locales: {
-    root: {
-      label: 'English',
-      lang: 'en'
-    }
+    root: { label: '简体中文', ...zhCN },
+    'en-US': { label: 'English', ...enUS }
   }
 })

@@ -157,6 +157,7 @@ dist-ssr
 # tauri
 src-tauri/target/debug/*
 
-#
+# vitepress
 docs/.vitepress/docs
 docs/.vitepress/dist
+docs/.vitepress/cache
