@@ -99,10 +99,10 @@ export const zhCN = defineConfig({
       '/': { base: '/', items: SidebarGuide }
     },
 
-    // editLink: {
-    //   pattern: 'https://github.com/dsjsdz/docs/edit/main/:path',
-    //   text: '在 GitHub 上编辑此页面'
-    // },
+    editLink: {
+      pattern: 'https://github.com/dsjsdz/docs/edit/main/docs/:path',
+      text: '在 GitHub 上编辑此页面'
+    },
 
     footer: {
       message: '© All rights reserved. 广州鼎商金属制品有限公司',

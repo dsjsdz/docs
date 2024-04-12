@@ -103,10 +103,10 @@ export const enUS = defineConfig({
       '/en-US/': { base: '/en-US/', items: SidebarGuide }
     },
 
-    // editLink: {
-    //   pattern: 'https://github.com/go-nunu/nunu/edit/feature/docs/docs/src/en/:path',
-    //   text: 'Edit this page on GitHub'
-    // },
+    editLink: {
+      pattern: 'https://github.com/dsjsdz/docs/edit/main/docs/:path',
+      text: 'Edit this page on GitHub'
+    },
 
     footer: {
       message: '© All rights reserved. Dingshang Metal Products Co., Ltd.',
