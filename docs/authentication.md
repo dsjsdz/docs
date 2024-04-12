@@ -15,9 +15,9 @@
 ##### 首先，[登录鼎商云管理系统](https://dash.awish.vip/dashboard/login)
 
 > 登录成功后，在您的左侧侧边栏依次点击，【商户管理】-> 【商户信息】，如下图所示:
-![merchant.png](./images/merchant.png)
+![merchant.png](/images/merchant.png)
 
-![merchant.png](./images/appid.jpg)
+![merchant.png](/images/appid.jpg)
 
 :::details 如果 `Header` 没有携带`Appid`、`AppSecret` 参数进行接口请求，会返回401错误。
 
