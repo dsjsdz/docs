@@ -14,33 +14,37 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
     collapsed: false,
     items: [
       { text: '引言', link: 'guide' },
-      { text: '快速开始', link: 'getting-started' }
+      { text: '快速开始', link: 'getting-started' },
+      { text: '接口约定', link: 'access_rule' },
+      { text: '参数加密', link: 'access_sign' },
+      { text: '错误代码', link: 'error_code' },
     ]
   },
   {
-    text: '商户',
+    text: '商户OpenAPI',
     collapsed: false,
     items: [
-      { text: '直连通道', link: 'direct' },
+      { text: '接口认证', link: 'authentication' },
       {
-        text: '商户入驻',
-        link: 'register',
+        text: '获取设备',
+        link: '',
         items: [
-          { text: '下单出货', link: 'http' },
-          { text: '归还产品', link: 'task' },
-          { text: '查询出货结果', link: 'job' },
-          { text: '根据货道号下发出货指令', link: 'migration' }
+          { text: '所有设备', link: 'list_machines' },
+          { text: '✈️ 单台设备', link: 'get_machine' },
+          { text: '✈️ 轮播图', link: 'list_banners' },
+          { text: '✈️ 产品列表', link: 'list_products' },
+          { text: '✈️ 主动下单', link: 'create_order' },
+          { text: '✈️ Typescript', link: 'typescript' },
+          { text: '-', link: '' },
+          { text: '-以下待完善', link: '' },
+          { text: '货道列表', link: 'list_floors' },
+          { text: '查询取货码状态查询', link: 'redis' },
+          { text: '根据设备生成取货码', link: 'redis' },
+          { text: '获取设备所有货道', link: 'redis' },
+          { text: '发送继电器指令', link: 'redis' },
+          { text: '取消取货码', link: 'redis' }
         ]
       },
-      { text: '接口认证', link: 'wire' },
-      { text: '注意事项', link: 'wire' },
-      { text: '快速开始', link: 'wire' }
-    ]
-  },
-  {
-    text: '订单',
-    collapsed: false,
-    items: [
       {
         text: '订单',
         link: '订单',
@@ -51,32 +55,11 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '根据货道号下发出货指令', link: 'migration' }
         ]
       },
-      {
-        text: '配置', link: 'config'
-      },
-      {
-        text: '设备',
-        link: 'repository',
-        items: [
-          { text: '获取设备列表', link: 'database' },
-          { text: '获取设备货道信息', link: 'redis' },
-          { text: '查询取货码状态查询', link: 'redis' },
-          { text: '根据设备生成取货码', link: 'redis' },
-          { text: '获取设备所有货道', link: 'redis' },
-          { text: '发送继电器指令', link: 'redis' },
-          { text: '取消取货码', link: 'redis' }
-        ]
-      },
-      {
-        text: '格子机',
-        link: 'repository',
-        items: [
-          { text: '二维码上报接口', link: 'database' },
-          { text: '一键满货接口', link: 'redis' }
-        ]
-      }
     ]
   },
+
+  { text: '直连API', link: 'access_redirect' },
+
   {
     text: '联系我们',
     collapsed: false,
@@ -91,6 +74,9 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
 export const zhCN = defineConfig({
   lang: 'zh-Hans',
   description: '广州鼎商金属制品有限公司，打造专属于您的智能商业终端机',
+  head: [
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: './images/favicon.ico' }]
+  ],
   themeConfig: {
     nav: Nav,
     logo: './images/favicon.ico',
