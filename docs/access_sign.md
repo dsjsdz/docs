@@ -58,3 +58,11 @@ eyJtYWNoaW5lX25vIjoiODY2ODM4MDYyNTM3NTQ5MiIsInNpZ24iOiIxODUzQzNFQUE0N0RGREY5RTJC
 
 ``sign`` 是不参与排序的！不参与排序的！不参与排序的！
 ::: code-group
+
++ 参数名ASCII码从小到大排序（字典序）
++ 如果参数的值为空不参与签名
++ 参数名区分大小写
++ sign参数不参与签名，将生成的签名与传参中的sign值作校验
+  
+> 可参考[微信支付文档的验签算法](https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_3)
+> 亦可[使用微信验签在线工具测试生成的签名是否正确](https://pay.weixin.qq.com/wiki/tools/signverify/)

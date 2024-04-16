@@ -33,6 +33,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '✈️ 单台设备', link: 'get_machine' },
           { text: '✈️ 轮播图', link: 'list_banners' },
           { text: '✈️ 产品列表', link: 'list_products' },
+          { text: '✈️ 商品分类', link: 'list_categories' },
           { text: '✈️ 主动下单', link: 'create_order' },
           { text: '✈️ Typescript', link: 'typescript' },
           { text: '-', link: '' },
