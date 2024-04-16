@@ -17,7 +17,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       { text: '快速开始', link: 'getting-started' },
       { text: '接口约定', link: 'access_rule' },
       { text: '参数加密', link: 'access_sign' },
-      { text: '错误代码', link: 'error_code' },
+      { text: '错误代码', link: 'error_code' }
     ]
   },
   {
@@ -34,28 +34,25 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '✈️ 轮播图', link: 'list_banners' },
           { text: '✈️ 产品列表', link: 'list_products' },
           { text: '✈️ 商品分类', link: 'list_categories' },
-          { text: '✈️ 主动下单', link: 'create_order' },
           { text: '✈️ Typescript', link: 'typescript' },
           { text: '-', link: '' },
           { text: '-以下待完善', link: '' },
           { text: '货道列表', link: 'list_floors' },
-          { text: '查询取货码状态查询', link: 'redis' },
-          { text: '根据设备生成取货码', link: 'redis' },
-          { text: '获取设备所有货道', link: 'redis' },
-          { text: '发送继电器指令', link: 'redis' },
-          { text: '取消取货码', link: 'redis' }
+          { text: '取货码状态查询', link: 'get_pickup_code_status' },
+          { text: '生成取货码', link: 'gen_pickup_code' },
+          { text: '取消取货码', link: 'unset_pickup_code' }
         ]
       },
       {
-        text: '订单',
-        link: '订单',
+        text: '订单&出货',
+        link: '订单&出货',
         items: [
-          { text: '下单出货', link: 'http' },
-          { text: '归还产品', link: 'task' },
-          { text: '查询出货结果', link: 'job' },
-          { text: '根据货道号下发出货指令', link: 'migration' }
+          { text: '主动下单', link: 'create_order' },
+          { text: '下单出货', link: 'gen_order_record' },
+          { text: '查询出货结果', link: 'get_order_status' },
+          { text: '根据货道号下发出货指令', link: '' }
         ]
-      },
+      }
     ]
   },
 

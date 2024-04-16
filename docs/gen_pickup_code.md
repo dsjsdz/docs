@@ -1,7 +1,7 @@
-# 获取货道列表
+# 生成取货码
 
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
 :::
 
-请使用[单台设备](get_machine.md)获取详情。
+待补充
