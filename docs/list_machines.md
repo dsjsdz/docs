@@ -100,8 +100,8 @@ echo "Response HTTP : " . $response->getStatusCode() ;
   "message": "ok",
   "data": [
     {
-      "name": "******",
-      "imei": "******",
+      "machine_name": "******",
+      "machine_no": "******",
       "is_online": true,
       "status": true,
       "address": "未知",
@@ -119,8 +119,8 @@ echo "Response HTTP : " . $response->getStatusCode() ;
 
 | 参数             | 类型      | 说明                    | 必传 |
 |----------------|---------|-----------------------|----|
-| name           | string  | 设备名称                  | ✓  |
-| imei           | string  | 4G设备 IMEI             | ✓  |
+| machine_name   | string  | 设备名称                  | ✓  |
+| machine_no     | string  | 4G设备 IMEI             | ✓  |
 | is_online      | boolean | 是否在线, 该字段不存在时 则 离线    | -  |
 | status         | boolean | 在运营中, 该字段不存在时 则 非运营中  | -  |
 | address        | string  | 设备地址, 该字段不存在时 则 没有设置  | -  |

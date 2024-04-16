@@ -6,7 +6,7 @@
 
 ```
 请求方式(METHOD): POST
-请求路径(URL): {url}/api/openapi/v1/rent/machines/imei  // 即: 4G设备 IMEI, 必传
+请求路径(URL): {url}/api/openapi/v1/rent/machines/{machine_no}  // 即: 4G设备 IMEI, 必传
 ```
 
 ## 对接示例
@@ -96,15 +96,12 @@ echo "Response HTTP : " . $response->getStatusCode();
   "code": 0,
   "message": "ok",
   "data": {
-    "name": "******",
+    "machine_name": "******",
     "address": "未知",
     "lng_lat": "116.549815,39.922273",
     "is_online": true,
-    "qrcode": "{url}/storage/qrcodes/3146276CB9B4D.png",
     "model_id": 1,
     "machine_type": 1,
-    "title": "拼多多",
-    "description": "拼多多创立于2015年4月，是上海本土成长的互联网企业。生于移动年代，拼多多以农产品零售平台起家，深耕农业，开创了以拼为特色的农产品零售的新模式，逐步发展成为以农副产品为鲜明特色的全品类综合性电商平台，是全球具备规模的纯移动电商平台。",
     "categories": [
       {
         "id": 1,
@@ -131,9 +128,16 @@ echo "Response HTTP : " . $response->getStatusCode();
         "title": "第五层"
       }
     ],
-    "logo": "{url}/storage/BqovIre6NE/0dfe0286-88c1-4eb0-89a2-7019820a9118.png",
     "announcement": {
-      "title": "866838062537549"
+      "title": "**********"
+    },
+    "merchant": {
+      "title": "拼多多",
+      "description": "拼多多创立于2015年4月，是上海本土成长的互联网企业。生于移动年代，拼多多以农产品零售平台起家，深耕农业，开创了以拼为特色的农产品零售的新模式，逐步发展成为以农副产品为鲜明特色的全品类综合性电商平台，是全球具备规模的纯移动电商平台。",
+      "logo": "{url}/storage/BqovIre6NE/0dfe0286-88c1-4eb0-89a2-7019820a9118.png",
+      "store_id": "505390*******",
+      "status": "VERIFIED",
+      "created_at": "2024-03-18 20:41:17"
     }
   }
 }
@@ -145,18 +149,16 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 | 参数           | 类型      | 说明                   | 必传 |
 |--------------|---------|----------------------|----|
-| name         | string  | 设备名称                 | ✓  |
+| machine_name | string  | 设备名称                 | ✓  |
 | address      | string  | 设备地址, 该字段不存在时 则 没有设置 | -  |
 | lng_lat      | string  | 经纬度, 该字段不存在时 则 没有设置  | -  |
 | is_online    | boolean | 是否在线, 该字段不存在时 则 离线   | -  |
-| qrcode       | string  | 二维码, 扫码可进入下单页面       | -  |
 | model_id     | int     | 设备类型                 | -  |
 | machine_type | int     | 售卖类型                 | -  |
-| title        | string  | 商户名称                 | -  |
-| description  | string  | 商户介绍                 | -  |
-| logo         | string  | 商户LOGO               | -  |
-| categories   | object  | 商品分类                 | -  |
+| cover_image  | string  | 门店图片                 | -  |
+| categories   | array   | 商品分类                 | -  |
 | announcement | object  | 轮播广告                 | -  |
+| merchant     | object  | 商户信息                 | -  |
 
 ## 售卖类型说明
 

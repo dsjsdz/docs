@@ -8,9 +8,19 @@
 
 ```
 请求方式(METHOD): POST
-请求路径(URL): {url}/api/openapi/v1/banners?imei=xxx  // 即: 4G设备 IMEI, 必传
+请求路径(URL): {url}/api/openapi/v1/banners
+请求参数(Argsments): payload: base64code
 注意: 默认查询条件: 已审核且可显示
 ```
+
+### <Badge type="danger" text="Payload" />
+
+| 参数         | 类型     | 说明        | 必传 |
+|------------|--------|-----------|----|
+| machine_no | string | 4G设备 IMEI | ✓  |
+| timestamp  | int    | 当前时间戳     | ✓  |
+
+[参数加密](access_sign.md)
 
 ## 对接示例
 
@@ -31,11 +41,14 @@ import (
 )
 
 func main() {
+	json := []byte(`{"payload": "eyJtYWNoaW5lX25vIjoiODY2ODM4MDYy*******YxNzM5QiIsInRpbWVzdGFtcCI6IjE3MTMyNTE3MjYifQ=="}`)
+	body := bytes.NewBuffer(json)
+	
 	// Create client
 	client := &http.Client{}
 
 	// Create request
-	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/banners?imei=xxx", nil)
+	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/banners", body)
 
 	// Headers
 	req.Header.Add("Appid", "ds*******")
@@ -82,7 +95,7 @@ $request = new Request(
             "Appid" => "ds*******************",
             "AppSecret" => "*******************",
         ],
-        "");
+        "{\"payload\":\"eyJtYWNoaW5lX25vIjoiODY2******jJBMjU5Q0IwMDYxNzM5QiIsInRpbWVzdGFtcCI6IjE3MTMyNTE3MjYifQ==\"}");
 
 $response = $client->send($request);
 echo "Response HTTP : " . $response->getStatusCode();
@@ -101,7 +114,7 @@ echo "Response HTTP : " . $response->getStatusCode();
   "data": [
     {
       "id": 2,
-      "status": "已审核",
+      "status": "APPROVED",
       "is_visible": true,
       "cover_image": "{url}/storage/BqoydfZzlk/8834b4af-5a50-45ca-ab07-1b376b2c0160.jpg",
       "sort_id": 2,
@@ -110,7 +123,7 @@ echo "Response HTTP : " . $response->getStatusCode();
     },
     {
       "id": 11,
-      "status": "已审核",
+      "status": "APPROVED",
       "is_visible": true,
       "cover_image": "{url}/storage/BqoydfZzlk/8834b4af-5a50-45ca-ab07-1b376b2c0160.jpg",
       "sort_id": 1,

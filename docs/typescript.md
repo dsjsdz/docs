@@ -23,10 +23,6 @@ export interface Category {
 }
 
 export interface Machine {
-  id: number
-  name: string
-  imei: string
-  shop_id?: number
   model_id?: number
   content_type?: number | string
   machine_type?: number | string
@@ -38,7 +34,6 @@ export interface Machine {
   tel?: string
   lng_lat?: string
   address?: string
-  qrcode?: string
   products?: Product[]
   announcement?: Announcement
   categories?: Category[]

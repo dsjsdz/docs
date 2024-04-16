@@ -9,15 +9,20 @@
 ```
 请求方式(METHOD): POST
 请求路径(URL): {url}/api/openapi/v1/products
-请求参数(Argsments): imei, page, per_page, category_id
+请求参数(Argsments): payload: base64code
 ```
+
+### <Badge type="danger" text="Payload" />
 
 | 参数          | 类型     | 说明                | 必传 |
 |-------------|--------|-------------------|----|
-| imei        | string | 4G设备 IMEI         | ✓  |
+| machine_no  | string | 4G设备 IMEI         | ✓  |
 | page        | int    | 分页, 默认: 1         | ✓  |
 | per_page    | int    | 分页大小, 默认: 10      | -  |
 | category_id | int    | 商品分类, 默认: 0, 即查所有 | -  |
+| timestamp   | int    | 当前时间戳             | ✓  |
+
+[参数加密](access_sign.md)
 
 ## 对接示例
 
@@ -37,12 +42,15 @@ import (
 	"net/http"
 )
 
-func main() {
+func main() {	
+    json := []byte(`{"payload": "eyJjYXRlZ29yeV9pZCI6MSwibWFjaGluZV*****iLCJwYWdlIjoxLCJwZXJfcGFnZSI6MTAsInNpZ24iOiIyMTlDMTZCREY0MkQzNjY4RkY1Qjg1QTMwRkU5N0Y1NCIsInRpbWVzdGFtcCI6IjE3MTMyNTU0MTEifQ=="}`)
+	body := bytes.NewBuffer(json)
+	
 	// Create client
 	client := &http.Client{}
 
 	// Create request
-	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/?imei=xxxx&page=1&per_page=10&category_id=1", nil)
+	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/?imei=xxxx&page=1&per_page=10&category_id=1", body)
 
 	// Headers
 	req.Header.Add("Appid", "ds*******")
@@ -89,7 +97,7 @@ $request = new Request(
             "Appid" => "ds*******************",
             "AppSecret" => "*******************",
         ],
-        "");
+        "{\"payload\":\"eyJjYXRlZ29yeV9pZCI6MSwibWFjaGluZV9ubyI6Ijg2NjgzODA2MjUzNzU0OTIiLCJwYWdlIjoxLCJwZXJ*****sInRpbWVzdGFtcCI6IjE3MTMyNTU0MTEifQ==\"}");
 
 $response = $client->send($request);
 echo "Response HTTP : " . $response->getStatusCode();
