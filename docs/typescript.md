@@ -23,6 +23,8 @@ export interface Category {
 }
 
 export interface Machine {
+  machine_no: string
+  machine_name: string
   model_id?: number
   content_type?: number | string
   machine_type?: number | string

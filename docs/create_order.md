@@ -13,8 +13,8 @@
 ```
 请求方式(METHOD): POST
 请求路径(URL): {url}/api/openapi/v1/orders
-请求参数(Argsments): imei, products
-eg: { imei: "xxxx", products: [ { product_id: 1, quantity: 1 } ] }
+请求参数(Argsments): machine_no, products
+eg: { machine_no: "xxxx", products: [ { product_id: 1, quantity: 1 } ] }
 ```
 
 <table>
@@ -25,9 +25,9 @@ eg: { imei: "xxxx", products: [ { product_id: 1, quantity: 1 } ] }
     <td>必传</td>
   </tr>
   <tr>
-    <td colspan="2">imei</td>
+    <td colspan="2">machine_no</td>
     <td>string</td>
-    <td>4G设备 IMEI</td>
+    <td>设备编号(定长8位数字字符串)</td>
     <td>✓</td>
   </tr>
   <tr>
@@ -150,9 +150,9 @@ echo "Response HTTP : " . $response->getStatusCode();
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数       | 类型  | 说明   | 必传 |
-|----------|-----|------|----|
-| order_id | int | 订单id | ✓  |
+| 参数     | 类型 | 说明   | 必传 |
+| -------- | ---- | ------ | ---- |
+| order_id | int  | 订单id | ✓    |
 
 ## 请求结果(失败)
 

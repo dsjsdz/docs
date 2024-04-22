@@ -14,13 +14,13 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数          | 类型     | 说明                | 必传 |
-|-------------|--------|-------------------|----|
-| machine_no  | string | 4G设备 IMEI         | ✓  |
-| page        | int    | 分页, 默认: 1         | ✓  |
-| per_page    | int    | 分页大小, 默认: 10      | -  |
-| category_id | int    | 商品分类, 默认: 0, 即查所有 | -  |
-| timestamp   | int    | 当前时间戳             | ✓  |
+| 参数        | 类型   | 说明                        | 必传 |
+| ----------- | ------ | --------------------------- | ---- |
+| machine_no  | string | 设备编号(定长8位数字字符串) | ✓    |
+| page        | int    | 分页, 默认: 1               | ✓    |
+| per_page    | int    | 分页大小, 默认: 10          | -    |
+| category_id | int    | 商品分类, 默认: 0, 即查所有 | -    |
+| timestamp   | int    | 当前时间戳                  | ✓    |
 
 [参数加密](access_sign.md)
 
@@ -50,7 +50,7 @@ func main() {
 	client := &http.Client{}
 
 	// Create request
-	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/?imei=xxxx&page=1&per_page=10&category_id=1", body)
+	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/products", body)
 
 	// Headers
 	req.Header.Add("Appid", "ds*******")
@@ -92,7 +92,7 @@ $client = new Client();
 
 $request = new Request(
         "POST",
-        "{url}/api/openapi/v1/products?imei=xxxx&page=1&per_page=10&category_id=1",
+        "{url}/api/openapi/v1/products",
         [
             "Appid" => "ds*******************",
             "AppSecret" => "*******************",
@@ -146,13 +146,13 @@ echo "Response HTTP : " . $response->getStatusCode();
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数           | 类型     | 说明   | 必传 |
-|--------------|--------|------|----|
-| data         | object | 产品内容 | ✓  |
-| total        | int    | 总记录数 | ✓  |
-| current_page | int    | 当前页码 | ✓  |
-| last_page    | int    | 最后一页 | ✓  |
-| per_page     | int    | 分页数  | ✓  |
+| 参数         | 类型   | 说明     | 必传 |
+| ------------ | ------ | -------- | ---- |
+| data         | object | 产品内容 | ✓    |
+| total        | int    | 总记录数 | ✓    |
+| current_page | int    | 当前页码 | ✓    |
+| last_page    | int    | 最后一页 | ✓    |
+| per_page     | int    | 分页数   | ✓    |
 
 ### 查询结果为空时，data 默认返回空数组
 

@@ -6,7 +6,7 @@
 
 ```
 请求方式(METHOD): POST
-请求路径(URL): {url}/api/openapi/v1/rent/machines/{machine_no}  // 即: 4G设备 IMEI, 必传
+请求路径(URL): {url}/api/openapi/v1/rent/machines/{machine_no}  // 即: 设备编号, 必传
 ```
 
 ## 对接示例

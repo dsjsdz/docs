@@ -15,10 +15,10 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数         | 类型     | 说明        | 必传 |
-|------------|--------|-----------|----|
-| machine_no | string | 4G设备 IMEI | ✓  |
-| timestamp  | int    | 当前时间戳     | ✓  |
+| 参数       | 类型   | 说明                        | 必传 |
+| ---------- | ------ | --------------------------- | ---- |
+| machine_no | string | 设备编号(定长8位数字字符串) | ✓    |
+| timestamp  | int    | 当前时间戳                  | ✓    |
 
 [参数加密](access_sign.md)
 
@@ -138,15 +138,15 @@ echo "Response HTTP : " . $response->getStatusCode();
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数          | 类型      | 说明            | 必传 |
-|-------------|---------|---------------|----|
-| id          | int     | 标识            | ✓  |
-| status      | string  | 审核状态(待审核,已审核) | -  |
-| is_visible  | boolean | 是否显示, 商户自己设置  | -  |
-| cover_image | string  | 附件的实际URL      | ✓  |
-| sort_id     | int     | 排序值           | ✓  |
-| hit_count   | int     | 点击数           | ✓  |
-| views_count | int     | 展现数           | ✓  |
+| 参数        | 类型    | 说明                    | 必传 |
+| ----------- | ------- | ----------------------- | ---- |
+| id          | int     | 标识                    | ✓    |
+| status      | string  | 审核状态(待审核,已审核) | -    |
+| is_visible  | boolean | 是否显示, 商户自己设置  | -    |
+| cover_image | string  | 附件的实际URL           | ✓    |
+| sort_id     | int     | 排序值                  | ✓    |
+| hit_count   | int     | 点击数                  | ✓    |
+| views_count | int     | 展现数                  | ✓    |
 
 ### 查询结果为空时，data 默认返回空数组
 

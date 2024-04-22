@@ -117,18 +117,18 @@ echo "Response HTTP : " . $response->getStatusCode() ;
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数             | 类型      | 说明                    | 必传 |
-|----------------|---------|-----------------------|----|
-| machine_name   | string  | 设备名称                  | ✓  |
-| machine_no     | string  | 4G设备 IMEI             | ✓  |
-| is_online      | boolean | 是否在线, 该字段不存在时 则 离线    | -  |
-| status         | boolean | 在运营中, 该字段不存在时 则 非运营中  | -  |
-| address        | string  | 设备地址, 该字段不存在时 则 没有设置  | -  |
-| notify_message | string  | 当前设备最后一次系统通知信息        | ✓  |
-| lng_lat        | string  | 经纬度, 该字段不存在时 则 没有设置   | -  |
-| created_at     | string  | 设备添加日期                | ✓  |
-| contact        | string  | 设备负责人, 该字段不存在时 则 没有设置 | -  |
-| tel            | string  | 负责人电话, 该字段不存在时 则 没有设置 | -  |
+| 参数           | 类型    | 说明                                   | 必传 |
+| -------------- | ------- | -------------------------------------- | ---- |
+| machine_name   | string  | 设备名称                               | ✓    |
+| machine_no     | string  | 设备编号(定长8位数字字符串)            | ✓    |
+| is_online      | boolean | 是否在线, 该字段不存在时 则 离线       | -    |
+| status         | boolean | 在运营中, 该字段不存在时 则 非运营中   | -    |
+| address        | string  | 设备地址, 该字段不存在时 则 没有设置   | -    |
+| notify_message | string  | 当前设备最后一次系统通知信息           | ✓    |
+| lng_lat        | string  | 经纬度, 该字段不存在时 则 没有设置     | -    |
+| created_at     | string  | 设备添加日期                           | ✓    |
+| contact        | string  | 设备负责人, 该字段不存在时 则 没有设置 | -    |
+| tel            | string  | 负责人电话, 该字段不存在时 则 没有设置 | -    |
 
 ### 查询结果为空时，data 默认返回空数组
 
