@@ -133,7 +133,8 @@ echo "Response HTTP : " . $response->getStatusCode();
         "channel": {
           "name": "A20",
           "cabinet_name": "A"
-        }
+        },
+        "max_total": 1
       }
     ],
     "total": 6,
@@ -186,7 +187,8 @@ echo "Response HTTP : " . $response->getStatusCode();
   "channel": {
     "name": "A20",
     "cabinet_name": "A"
-  }
+  },
+  "max_total": 1
 }
 ```
 
@@ -201,6 +203,12 @@ echo "Response HTTP : " . $response->getStatusCode();
     <td colspan="2">id</td>
     <td>int</td>
     <td>产品ID</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td colspan="2">max_total</td>
+    <td>int</td>
+    <td>可使用容量(非库存)</td>
     <td>✓</td>
   </tr>
   <tr>

@@ -46,12 +46,21 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       },
       {
         text: '订单&出货',
-        link: '订单&出货',
+        link: '',
         items: [
           { text: '主动下单', link: 'create_order' },
           { text: '下单出货', link: 'gen_order_record' },
           { text: '查询出货结果', link: 'get_order_status' },
           { text: '根据货道号下发出货指令', link: '' }
+        ]
+      },
+      {
+        text: '设备补货',
+        link: '',
+        items: [
+          { text: '单个补货', link: 'update_product_by_id' },
+          { text: '整层补货', link: 'update_product_by_category' },
+          { text: '整柜补货', link: 'update_product_by_machine' },
         ]
       }
     ]
