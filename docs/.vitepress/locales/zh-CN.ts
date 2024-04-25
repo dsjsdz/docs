@@ -31,6 +31,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         link: '',
         items: [
           { text: '所有设备', link: 'list_machines' },
+          { text: '- 货道列表', link: 'list_floors' },
           { text: '✈️ 单台设备', link: 'get_machine' },
           { text: '✈️ 轮播图', link: 'list_banners' },
           { text: '✈️ 产品列表', link: 'list_products' },
@@ -38,7 +39,6 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '✈️ Typescript', link: 'typescript' },
           { text: '-', link: '' },
           { text: '-以下待完善', link: '' },
-          { text: '货道列表', link: 'list_floors' },
           { text: '取货码状态查询', link: 'get_pickup_code_status' },
           { text: '生成取货码', link: 'gen_pickup_code' },
           { text: '取消取货码', link: 'unset_pickup_code' }
