@@ -19,18 +19,21 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数         | 类型     | 说明                               | 必传 |
-|------------|--------|----------------------------------|----|
-| machine_no | string | 设备编号(定长8位数字字符串)                  | ✓  |
-| method     | string | 固定值: `replenishment.machine.all` | ✓  |
-| timestamp  | int    | 当前时间戳                            | ✓  |
+| 参数           | 类型     | 说明                               | 必传 |
+|--------------|--------|----------------------------------|----|
+| machine_no   | string | 设备编号(定长8位数字字符串)                  | ✓  |
+| method       | string | 固定值: `replenishment.machine.all` | ✓  |
+| cabinet_name | string | 默认：`A`, 取值范围: [A-Z]              | ✓  |
+| timestamp    | int    | 当前时间戳                            | ✓  |
 
+``cabinet_name`` 柜名，默认：A，即主柜。
 
 ```json
 {
   "machine_no": "16****29",
   "method": "replenishment.category.id",
-  "timestamp": "1714030791"
+  "timestamp": "1714030791",
+  "cabinet_name": "A"
 }
 ```
 
