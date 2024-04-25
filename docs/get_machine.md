@@ -100,7 +100,11 @@ echo "Response HTTP : " . $response->getStatusCode();
     "address": "未知",
     "lng_lat": "116.549815,39.922273",
     "is_online": true,
-    "model_id": 1,
+    "model": {
+      "cabinet_names": [
+        "A"
+      ]
+    },
     "machine_type": 1,
     "categories": [
       {
@@ -147,18 +151,19 @@ echo "Response HTTP : " . $response->getStatusCode();
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数           | 类型      | 说明                   | 必传 |
-|--------------|---------|----------------------|----|
-| machine_name | string  | 设备名称                 | ✓  |
-| address      | string  | 设备地址, 该字段不存在时 则 没有设置 | -  |
-| lng_lat      | string  | 经纬度, 该字段不存在时 则 没有设置  | -  |
-| is_online    | boolean | 是否在线, 该字段不存在时 则 离线   | -  |
-| model_id     | int     | 设备类型                 | -  |
-| machine_type | int     | 售卖类型                 | -  |
-| cover_image  | string  | 门店图片                 | -  |
-| categories   | array   | 商品分类                 | -  |
-| announcement | object  | 轮播广告                 | -  |
-| merchant     | object  | 商户信息                 | -  |
+| 参数           | 类型      | 说明                                              | 必传 |
+|--------------|---------|-------------------------------------------------|----|
+| machine_name | string  | 设备名称                                            | ✓  |
+| address      | string  | 设备地址, 该字段不存在时 则 没有设置                            | -  |
+| lng_lat      | string  | 经纬度, 该字段不存在时 则 没有设置                             | -  |
+| is_online    | boolean | 是否在线, 该字段不存在时 则 离线                              | -  |
+| model_id     | int     | 设备类型id (v1.13.0删除，可使用model){style="color: red"} | -  |
+| model        | object  | 设备类型对象(v1.13.0新增) {style="color: green"}        | -  |
+| machine_type | int     | 售卖类型                                            | -  |
+| cover_image  | string  | 门店图片                                            | -  |
+| categories   | array   | 商品分类                                            | -  |
+| announcement | object  | 轮播广告                                            | -  |
+| merchant     | object  | 商户信息                                            | -  |
 
 ## 售卖类型说明
 
@@ -170,6 +175,19 @@ echo "Response HTTP : " . $response->getStatusCode();
 | 4 | 借用柜 |
 | 5 | 归还柜 |
 | 6 | 格子柜 |
+
+## 设备类型
+
+| 参数            | 类型    | 说明     | 必传 |
+|---------------|-------|--------|----|
+| id            | int   | 类型id   | -  |
+| cabinet_names | array | (各个)柜名 | ✓  |
+
+> `cabinet_names` 如果存在组合柜型(子母柜)等，则依次值为 `A`,`B` ...`Z`;
+
+> 最多支持12个组合柜(含主柜);
+
+> 其中`A`表示 主柜，简单柜子至少存在一个 `A`，此参数可使用在查询产品列表 [使用说明](list_products.md)。
 
 ## 请求结果(失败)
 

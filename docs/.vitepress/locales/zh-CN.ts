@@ -20,6 +20,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       { text: '错误代码', link: 'error_code' }
     ]
   },
+
   {
     text: '商户OpenAPI',
     collapsed: false,
@@ -53,6 +54,14 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '根据货道号下发出货指令', link: '' }
         ]
       }
+    ]
+  },
+
+  {
+    text: '后台Action',
+    collapsed: false,
+    items: [
+      { text: '设备模型', link: 'list_models' },
     ]
   },
 

@@ -14,13 +14,14 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数        | 类型   | 说明                        | 必传 |
-| ----------- | ------ | --------------------------- | ---- |
-| machine_no  | string | 设备编号(定长8位数字字符串) | ✓    |
-| page        | int    | 分页, 默认: 1               | ✓    |
-| per_page    | int    | 分页大小, 默认: 10          | -    |
-| category_id | int    | 商品分类, 默认: 0, 即查所有 | -    |
-| timestamp   | int    | 当前时间戳                  | ✓    |
+| 参数           | 类型     | 说明                                                             | 必传 |
+|--------------|--------|----------------------------------------------------------------|----|
+| machine_no   | string | 设备编号(定长8位数字字符串)                                                | ✓  |
+| page         | int    | 分页, 默认: 1                                                      | ✓  |
+| per_page     | int    | 分页大小, 默认: 10                                                   | -  |
+| category_id  | int    | 商品分类, 默认: 0, 即查所有                                              | -  |
+| cabinet_name | string | 柜号, 默认: A, 取值范围 [A-Z] <br />(v1.13.0新增) {style="color: green"} | -  |
+| timestamp    | int    | 当前时间戳                                                          | ✓  |
 
 [参数加密](access_sign.md)
 
@@ -130,7 +131,8 @@ echo "Response HTTP : " . $response->getStatusCode();
           "content": "<p>可口可乐</p>"
         },
         "channel": {
-          "name": "A20"
+          "name": "A20",
+          "cabinet_name": "A"
         }
       }
     ],
@@ -146,13 +148,13 @@ echo "Response HTTP : " . $response->getStatusCode();
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数         | 类型   | 说明     | 必传 |
-| ------------ | ------ | -------- | ---- |
-| data         | object | 产品内容 | ✓    |
-| total        | int    | 总记录数 | ✓    |
-| current_page | int    | 当前页码 | ✓    |
-| last_page    | int    | 最后一页 | ✓    |
-| per_page     | int    | 分页数   | ✓    |
+| 参数           | 类型     | 说明   | 必传 |
+|--------------|--------|------|----|
+| data         | object | 产品内容 | ✓  |
+| total        | int    | 总记录数 | ✓  |
+| current_page | int    | 当前页码 | ✓  |
+| last_page    | int    | 最后一页 | ✓  |
+| per_page     | int    | 分页数  | ✓  |
 
 ### 查询结果为空时，data 默认返回空数组
 
@@ -182,7 +184,8 @@ echo "Response HTTP : " . $response->getStatusCode();
     "content": "<p>可口可乐</p>"
   },
   "channel": {
-    "name": "A20"
+    "name": "A20",
+    "cabinet_name": "A"
   }
 }
 ```
@@ -269,7 +272,7 @@ echo "Response HTTP : " . $response->getStatusCode();
     <td>-</td>
   </tr>
   <tr>
-    <td rowspan="2">channel</td>
+    <td rowspan="3">channel</td>
     <td>-</td>
     <td>object</td>
     <td>货道信息</td>
@@ -278,7 +281,13 @@ echo "Response HTTP : " . $response->getStatusCode();
   <tr>
     <td>name</td>
     <td>string</td>
-    <td>货道号</td>
+    <td>货道名</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>cabinet_name</td>
+    <td>string</td>
+    <td>柜号 <Badge type="info" text="v1.13.0新增" /></td>
     <td>✓</td>
   </tr>
 </table>
