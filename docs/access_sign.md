@@ -15,7 +15,7 @@
   "xxxx":"xxxx"
 }
 ```
-排序后按照 (key&value)进行字符串拼接
+排序后按照 (key&value)进行字符串拼接，其中 xxx 表示任意对象(Object)参数key
 
 #### 生成字符串如下: 
 ```
@@ -48,8 +48,20 @@ sign: 4F82D7E4C7B3EAB43CAF9A482A7A8FB2
 
 #### 将以上对象进行 base64 编码，可得到 `Payload`
 ```
-eyJtYWNoaW5lX25vIjoiODY2ODM4MDYyNTM3NTQ5MiIsInNpZ24iOiIxODUzQzNFQUE0N0RGREY5RTJCNDJFRTAzMDcwM0I3NiIsInRpbWVzdGFtcCI6IjE3MTMyNTA5NzQifQ==
+ewogICJtYWNoaW5lX25vIjoiODY2ODM4MDYyNTM3NTQiLAogICJzaWduIjoiMTg1M0MzRUFBNDdERkRGOUUyQjQyRUUwMzA3MDNCNzYiLAogICJ0aW1lc3RhbXAiOiIxNzEzMjUwOTc0Igp9
 ```
+
+[在线解析base64编码](https://tool.chinaz.com/tools/base64.aspx)
+
+```json
+{
+  "machine_no":"86683806253754",
+  "sign":"1853C3EAA47DFDF9E2B42EE030703B76",
+  "timestamp":"1713250974"
+}
+```
+
+> `machine_no` 一般为 定长8位字符串数字, 8位以上字符串数字为特殊商户保留设备编号
 
 
 ## 注意事项
