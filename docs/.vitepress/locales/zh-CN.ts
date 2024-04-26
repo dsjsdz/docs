@@ -37,19 +37,18 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '✈️ 产品列表', link: 'list_products' },
           { text: '✈️ 商品分类', link: 'list_categories' },
           { text: '✈️ Typescript', link: 'typescript' },
-          { text: '-', link: '' },
-          { text: '-以下待完善', link: '' },
-          { text: '取货码状态查询', link: 'get_pickup_code_status' },
-          { text: '生成取货码', link: 'gen_pickup_code' },
-          { text: '取消取货码', link: 'unset_pickup_code' }
         ]
       },
       {
         text: '订单&出货',
         link: '',
         items: [
-          { text: '主动下单', link: 'create_order' },
-          { text: '下单出货', link: 'gen_order_record' },
+          { text: '主动下单', link: 'create_order_by_merchant' },
+          { text: '查询订单', link: 'get_order_by_id' },
+          { text: '更新订单', link: 'update_order_by_status' },
+          { text: '取消订单', link: 'cancel_order_by_status' },
+          { text: '超时订单', link: 'order_is_expired' },
+          { text: '订单出货', link: 'gen_order_record' },
           { text: '查询出货结果', link: 'get_order_status' },
           { text: '根据货道号下发出货指令', link: '' }
         ]
@@ -61,6 +60,15 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '单个补货', link: 'update_product_by_id' },
           { text: '整层补货', link: 'update_product_by_category' },
           { text: '整柜补货', link: 'update_product_by_machine' },
+        ]
+      },
+      {
+        text: '取货码',
+        link: '',
+        items: [
+          { text: '取货码查询', link: 'get_pickup_code_status' },
+          { text: '取货码生成', link: 'gen_pickup_code' },
+          { text: '取货码取消', link: 'unset_pickup_code' }
         ]
       }
     ]

@@ -1,20 +1,52 @@
-# 主动下单(待完善)
+# 主动下单
 
 接口不做缓存处理，20分钟内未支付的订单 对应的商品 会自动回退到商户设备。
 
 因不可控因素，无法保证设备能够100%正常出货。
 
-目前的处理逻辑是，用户下单，设备出货；未正常出货会主动通知(商户主动退款，返还用户未出货的金额，且进行排查)
+```
+处理逻辑: 
+【商户端】 用户下单 - 用户付款 - 出货 - 结单
+【平台端】 商户订单 - 更新订单(用户已付款) - 主动出货 - 反馈出货结果
+```
+![order.png](/images/order.png)
+
+## 订单情况说明
+
+#### A、用户已付款
+> 商户更新订单状态，支付成功后商户可以推送指令到设备进行出货，出货结果反馈给商户(未正常出货的，需商户自行处理，如: 主动退款)。
+
+带掉货检测的履带柜，光眼被遮挡每次出货只能出一个，不然第二个没法检测。{style="color:red; font-size: 13px"}
+
+#### B、用户取消订单
+> 商户更新订单状态(失效)，同时将原订单的下单数量返回给设备库存(需要商户自己主动更新数据)。
+
+#### C、订单20分钟未支付
+> 平台将订单状态更新(失效)，同时将原订单的下单数量返回给设备库存(设备需要商户自己主动更新数据)。
 
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
 :::
 
+注意: 本请求 参数 不加密
+
+
 ```
 请求方式(METHOD): POST
 请求路径(URL): {url}/api/openapi/v1/orders
-请求参数(Argsments): machine_no, products
-eg: { machine_no: "xxxx", products: [ { product_id: 1, quantity: 1 } ] }
+请求参数(Argsments): machine_no, products, trade_id, notify_url
+eg: 
+{ 
+    machine_no: "xxxx", 
+    notify_url: "xxxx", 
+    trade_id: "xxxx", 
+    products: [ 
+        { 
+            product_id: 1, 
+            quantity: 1 
+        } 
+    ] 
+}
 ```
 
 <table>
@@ -28,6 +60,18 @@ eg: { machine_no: "xxxx", products: [ { product_id: 1, quantity: 1 } ] }
     <td colspan="2">machine_no</td>
     <td>string</td>
     <td>设备编号(定长8位数字字符串)</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td colspan="2">notify_url</td>
+    <td>string</td>
+    <td>出货结果通知url</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td colspan="2">trade_id</td>
+    <td>string</td>
+    <td>商户端订单号</td>
     <td>✓</td>
   </tr>
   <tr>
@@ -51,6 +95,10 @@ eg: { machine_no: "xxxx", products: [ { product_id: 1, quantity: 1 } ] }
   </tr>
 </table>
 
+`trade_id` 传入非空 且具有唯一性 的字符串内容， 参考 uuid。
+
+`notify_url` 可访问的公网URL地址，请求方式 `post`，接收出货结果。
+
 ## 对接示例
 
 我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
@@ -70,8 +118,9 @@ import (
 )
 
 func main() {
-	json := []byte(`{"imei": "xxxx","products": [{"product_id": 1,"quantity": 1}]}`)
+	json := []byte(`{"machine_no": "xxxxxx","notify_url": "https://xxxxx","trade_id": "3f2a58ad69b74e86b8a1a3da6fd75cc1","products": [{"product_id": 121,"quantity": 1},{"product_id": 122,"quantity": 1},{"product_id": 131,"quantity": 1}]}`)
 	body := bytes.NewBuffer(json)
+
 	
 	// Create client
 	client := &http.Client{}
@@ -124,7 +173,7 @@ $request = new Request(
             "Appid" => "ds*******************",
             "AppSecret" => "*******************",
         ],
-        "{\"products\":[{\"product_id\":1,\"quantity\":1}],\"imei\":\"xxxxx\"}");
+        "{\"machine_no\":\"xxxx\",\"notify_url\":\"https://xxxxxx\",\"products\":[{\"product_id\":121,\"quantity\":1},{\"product_id\":122,\"quantity\":1},{\"product_id\":131,\"quantity\":1}],\"trade_id\":\"3f2a58ad69b74e86b8a1a3da6fd75cc1\"}");
 
 $response = $client->send($request);
 echo "Response HTTP : " . $response->getStatusCode();
@@ -160,8 +209,8 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ```json
 {
-  "code": 30002,
-  "message": "设备已离线",
+  "code": 60002,
+  "message": "商品已下架",
   "data": {}
 }
 ```
