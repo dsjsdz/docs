@@ -4,7 +4,7 @@
 
 ## 取消单个{id=single}
 
-`取货码id` 可从 [取货码查询](get_pickup_code_by_payload.md) 获取产品得到，即 `id`;
+`取货码id` 可从 [取货码查询](pickup_code_get.md) 获取产品得到，即 `id`;
 
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`

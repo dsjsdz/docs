@@ -36,7 +36,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '✈️ 轮播图', link: 'list_banners' },
           { text: '✈️ 产品列表', link: 'list_products' },
           { text: '✈️ 商品分类', link: 'list_categories' },
-          { text: '✈️ Typescript', link: 'typescript' },
+          { text: '✈️ Typescript', link: 'typescript' }
         ]
       },
       {
@@ -53,7 +53,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '订单出货', link: 'gen_order_record' },
           { text: '查询出货结果', link: 'get_order_status' },
           { text: '根据货道号下发出货指令', link: '' },
-          { text: 'notify_url 回调', link: 'notify_url' },
+          { text: 'notify_url 回调', link: 'notify_url' }
         ]
       },
       {
@@ -62,7 +62,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         items: [
           { text: '单个补货', link: 'update_product_by_id' },
           { text: '整层补货', link: 'update_product_by_category' },
-          { text: '整柜补货', link: 'update_product_by_machine' },
+          { text: '整柜补货', link: 'update_product_by_machine' }
         ]
       },
       {
@@ -70,10 +70,10 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         link: '',
         items: [
           { text: '>>>开启<<<', link: 'pickup_code_enabled' },
-          { text: '取货码生成', link: 'create_pickup_code_by_payload' },
-          { text: '取货码查询', link: 'get_pickup_code_by_payload' },
-          { text: '取货码取消', link: 'delete_pickup_code_by_payload' },
-          { text: '取货码使用', link: 'use_pickup_code' }
+          { text: '取货码生成', link: 'pickup_code_create' },
+          { text: '取货码查询', link: 'pickup_code_get' },
+          { text: '取货码取消', link: 'pickup_code_delete' },
+          { text: '取货码使用', link: 'pickup_code_update' }
         ]
       }
     ]
@@ -82,9 +82,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   {
     text: '后台Action',
     collapsed: false,
-    items: [
-      { text: '设备模型', link: 'list_models' },
-    ]
+    items: [{ text: '设备模型', link: 'list_models' }]
   },
 
   { text: '直连API', link: 'access_redirect' },
@@ -103,9 +101,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
 export const zhCN = defineConfig({
   lang: 'zh-Hans',
   description: '广州鼎商金属制品有限公司，打造专属于您的智能商业终端机',
-  head: [
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: './images/favicon.ico' }]
-  ],
+  head: [['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: './images/favicon.ico' }]],
   themeConfig: {
     nav: Nav,
     logo: './images/favicon.ico',
