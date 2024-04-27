@@ -69,9 +69,11 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         text: '取货码',
         link: '',
         items: [
-          { text: '取货码查询', link: 'get_pickup_code_status' },
-          { text: '取货码生成', link: 'gen_pickup_code' },
-          { text: '取货码取消', link: 'unset_pickup_code' }
+          { text: '>>>开启<<<', link: 'pickup_code_enabled' },
+          { text: '取货码生成', link: 'create_pickup_code_by_payload' },
+          { text: '取货码查询', link: 'get_pickup_code_by_payload' },
+          { text: '取货码取消', link: 'delete_pickup_code_by_payload' },
+          { text: '取货码使用', link: 'use_pickup_code' }
         ]
       }
     ]
