@@ -28,18 +28,21 @@
 | machine_no      | string | 设备编号(定长8位数字字符串)                                          | ✓    |
 | method          | string | 固定值: `pickup_code.product.id`                                     | ✓    |
 | product_id      | string | 产品id                                                               | ✓    |
-| expired_at      | string | 过期时间(格式: '2024-12-24 13:00:00', 默认时区是UTC)，空值则长期有效 | ✓    |
+| expired_at      | string | 过期时间(格式: '2024-12-24 13:00:00', 默认时区是GMT+8)，空值则长期有效 | ✓    |
 | <s>quantity</s> | string | 取货码使用可以取货数量，默认1，取值范围: [1, 产品最大容量]           | -    |
 | code_length     | string | 取货码生成长度，默认6，取值范围: [6-10]                              | -    |
 | count           | string | 生成取货码个数，默认1，取值范围: [1, 产品最大容量]                   | -    |
 | timestamp       | string | 当前时间戳                                                           | ✓    |
 
+### <Badge type="danger" text="更新" />
+
+> 过期时间(格式: '2024-12-24 13:00:00', 原默认时区是UTC)，现时区已经修复为: GTM+8，传递时间即存储时间。
 
 #### 注意 (payload参数类型: 字符串)
 
 因存在柜型不一致， `quantity` 目前仅为占用字段，传参不会被使用。
 
-`expired_at`: 长期有效时，可不传参数，如果传参，注意时区转换，默认UTC。
+`expired_at`: 长期有效时，可不传参数，如果传参。
 
 ```json
 {
@@ -182,7 +185,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 | --------------- | ------ | -------------------------------------------------------------------- | ---- |
 | machine_no      | string | 设备编号(定长8位数字字符串)                                          | ✓    |
 | method          | string | 固定值: `pickup_code.product.all`                                     | ✓    |
-| expired_at      | string | 过期时间(格式: '2024-12-24 13:00:00', 默认时区是UTC)，空值则长期有效 | ✓    |
+| expired_at      | string | 过期时间(格式: '2024-12-24 13:00:00', 默认时区是GMT+8)，空值则长期有效 | ✓    |
 | <s>quantity</s> | string | 取货码使用可以取货数量，默认1，取值范围: [1, 产品最大容量]           | -    |
 | code_length     | string | 取货码生成长度，默认6，取值范围: [6-10]                              | -    |
 | timestamp       | string | 当前时间戳                                                           | ✓    |
@@ -192,7 +195,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 因存在柜型不一致， `quantity` 目前仅为占用字段，传参不会被使用。
 
-`expired_at`: 长期有效时，可不传参数，如果传参，注意时区转换，默认UTC。
+`expired_at`: 长期有效时，可不传参数。
 
 ```json
 {
