@@ -1,6 +1,6 @@
 # 查询订单
 
-根据 [主动下单](create_order_by_merchant.md) 得到的 `order_id` 进行查询。
+根据 [主动下单](order_create.md) 得到的 `order_id` 进行查询。
 
 
 :::tip
@@ -164,8 +164,9 @@ echo "Response HTTP : " . $response->getStatusCode();
 | date              | string | 下单日期       | ✓    |
 | amount            | string | 订单总额       | ✓    |
 | status            | string | 状态(参考下表) | ✓    |
-| notify_send_count | int    | 出货通知记录数 | ✓    |
+| notify_send_count | int    | 出货通知记录数 | -    |
 | records           | object | 订单详细记录   | ✓    |
+| pickup_code_id    | int    | 取货码id       | -    |
 
 
 ```
@@ -175,6 +176,7 @@ CLOSED: 已关闭
 REVOKED: 已撤销（付款码支付）
 USERPAYING: 用户支付中（付款码支付）
 PAYERROR: 支付失败(其他原因，如银行返回失败)
+PICKUPCODE: 取货码订单
 ```
 
 
@@ -187,7 +189,7 @@ PAYERROR: 支付失败(其他原因，如银行返回失败)
 | quantity    | int    | 数量                   | ✓    |
 | price       | string | 商品总金额             | ✓    |
 | status      | string | 状态(订单已支付时显示) | -    |
-| notify_sent | int    | 是否推送了出货状态     | -    |
+| notify_sent | string    | 是否推送了出货状态     | -    |
 
 ```
 status: 订单取消 | 已取货 | 未取货

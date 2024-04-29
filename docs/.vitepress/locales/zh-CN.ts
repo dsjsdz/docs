@@ -40,17 +40,32 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         ]
       },
       {
-        text: '订单&出货',
+        text: '订单管理',
         link: '',
         items: [
-          { text: '-订单-', link: '' },
-          { text: '主动下单', link: 'create_order_by_merchant' },
-          { text: '查询订单', link: 'get_order_by_id' },
-          { text: '更新订单', link: 'update_order_by_status' },
-          { text: '取消订单', link: 'cancel_order_by_status' },
-          { text: '超时订单', link: 'order_is_expired' },
-          { text: '-出货-', link: '' },
-          { text: '订单出货', link: 'gen_order_record' },
+          { text: '主动下单', link: 'order_create' },
+          { text: '查询订单', link: 'order_get' },
+          { text: '更新订单', link: 'order_update' },
+          { text: '取消订单', link: 'order_cancel' },
+          { text: '超时订单', link: 'order_expired' },
+        ]
+      },
+      {
+        text: '取货码管理',
+        link: '',
+        items: [
+          { text: '>>>开启<<<', link: 'pickup_code_enabled' },
+          { text: '取货码生成', link: 'pickup_code_create' },
+          { text: '取货码查询', link: 'pickup_code_get' },
+          { text: '取货码取消', link: 'pickup_code_delete' },
+          { text: '取货码消费', link: 'pickup_code_consume' }
+        ]
+      },
+      {
+        text: '出货管理',
+        link: '',
+        items: [
+          { text: '订单出货', link: 'order_delivery' },
           { text: '查询出货结果', link: 'get_order_status' },
           { text: '根据货道号下发出货指令', link: '' },
           { text: 'notify_url 回调', link: 'notify_url' }
@@ -65,17 +80,6 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '整柜补货', link: 'update_product_by_machine' }
         ]
       },
-      {
-        text: '取货码',
-        link: '',
-        items: [
-          { text: '>>>开启<<<', link: 'pickup_code_enabled' },
-          { text: '取货码生成', link: 'pickup_code_create' },
-          { text: '取货码查询', link: 'pickup_code_get' },
-          { text: '取货码取消', link: 'pickup_code_delete' },
-          { text: '取货码使用', link: 'pickup_code_update' }
-        ]
-      }
     ]
   },
 

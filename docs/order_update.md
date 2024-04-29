@@ -164,3 +164,7 @@ echo "Response HTTP : " . $response->getStatusCode();
   "data": {}
 }
 ```
+
+## 出货
+
+订单已支付 / 订单类型是取货码 则商户可以发送指令进行[订单出货](order_delivery)
