@@ -18,15 +18,15 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数       | 类型   | 说明                                | 必传 |
-| ---------- | ------ | ----------------------------------- | ---- |
-| machine_no | string | 设备编号(定长8位数字字符串)         | ✓    |
-| method     | string | 固定值: `event.consume.pickup_code` | ✓    |
-| code       | string | 取货码                              | ✓    |
-| product_id | string | 商品id                              | ✓    |
-| notify_url | string | 出货结果通知url                     | ✓    |
-| trade_id   | string | 商户端订单号                        | ✓    |
-| timestamp  | string | 当前时间戳                          | ✓    |
+| 参数       | 类型   | 说明                                           | 必传 |
+| ---------- | ------ | ---------------------------------------------- | ---- |
+| machine_no | string | 设备编号(定长8位数字字符串)                    | ✓    |
+| method     | string | 固定值: `event.consume.pickup_code`            | ✓    |
+| code       | string | 取货码                                         | ✓    |
+| product_id | string | 商品id                                         | ✓    |
+| notify_url | string | 出货结果通知url                                | ✓    |
+| trade_id   | string | 商户端订单号(尽量使用数字字符串,长度: 20-32位) | ✓    |
+| timestamp  | string | 当前时间戳                                     | ✓    |
 
 ```json
 {

@@ -71,7 +71,7 @@ eg:
   <tr>
     <td colspan="2">trade_id</td>
     <td>string</td>
-    <td>商户端订单号</td>
+    <td>商户端订单号(尽量使用数字字符串,长度: 20-32位)</td>
     <td>✓</td>
   </tr>
   <tr>
