@@ -182,7 +182,8 @@ echo "Response HTTP : " . $response->getStatusCode();
     "thumb": "{url}/storage/BkGv6Ij4Am/80b306a1-52db-4694-8de9-45181cc590be.png",
     "price": "0.10",
     "original_price": "0.00",
-    "content": "<p>可口可乐</p>"
+    "content": "<p>可口可乐</p>",
+    "good_no": "**********"
   },
   "channel": {
     "name": "A20",
@@ -231,10 +232,10 @@ echo "Response HTTP : " . $response->getStatusCode();
     <td>✓</td>
   </tr>
   <tr>
-    <td rowspan="8">good</td>
+    <td rowspan="9">good</td>
     <td>-</td>
     <td>object</td>
-    <td>产品内容</td>
+    <td>商品内容</td>
     <td>✓</td>
   </tr>
   <tr>
@@ -271,6 +272,12 @@ echo "Response HTTP : " . $response->getStatusCode();
     <td>content</td>
     <td>string</td>
     <td>富文本内容</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>good_no</td>
+    <td>string</td>
+    <td>商品编码<Badge type="danger" text="新增" /></td>
     <td>✓</td>
   </tr>
   <tr>
