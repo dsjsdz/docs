@@ -19,6 +19,13 @@
 }
 ```
 
+| 参数      | 类型   | 说明                             | 必传 |
+| --------- | ------ | -------------------------------- | ---- |
+| method    | string | 固定(`device.delivery.response`) | ✓    |
+| order_id  | int    | 订单id                           | ✓    |
+| record_id | int    | 详单id                           | ✓    |
+
+
 ### <Badge type="danger" text="deliver_status" /> 出货状态
 
 | 取值 | 说明     |

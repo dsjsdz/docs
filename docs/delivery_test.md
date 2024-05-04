@@ -1,47 +1,6 @@
-# 订单出货
+# 出货测试
 
-本接口不支持 `debug` 调试模式。
-
-
-:::tip
-默认: 一个出货指令只能推出(掉落)一个产品。针对不同机型(如: 饮料售卖机), 可能支持一次出货掉落N个产品，具体掉落数据等于订单记录 `quantity`。
-:::
-
-
-### 参数获取
-
-假定有以下参数: 
-
-```
-{
-  "code": 0,
-  "message": "ok",
-  "data": {
-    "order_id": 60,
-    "trade_id": "800a7e95-00d3-45c8-987d-3aafa412c77d",
-    "date": "2024-04-29",
-    "amount": "1.00",
-    "status": "PICKUPCODE",
-    "records": [
-      {
-        "id": 78,
-        "product_id": 131,
-        "quantity": 1,
-        "price": "1.00",
-        "status": "未取货",
-        "notify_sent": "0"
-      }
-    ],
-    "pickup_code_id": 1
-  }
-}
-```
-
-`订单id` 
-+ 从 [查询订单](order_get.md) 得到，(只支持已经支付的订单, 即: 订单状态 `status` 为: 支付成功)
-+ 从 [取货码订单](pickup_code_consume) 得到，即: 订单状态 `status` 为 `PICKUPCODE`
-
-`详单id`, 即 `records` 数组项中的 `id`
+根据货道名 `channel_name` 进行出货测试。
 
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
@@ -49,31 +8,33 @@
 
 ```
 请求方式(METHOD): POST
-请求路径(URL): {url}/api/openapi/v1/deliveries
+请求路径(URL): {url}/api/openapi/v1/deliveries/debug
 请求参数(Argsments): payload: base64code
 注意: method 为固定值内容: device.delivery.put
 ```
 
+`channel_name` 参数获取: [产品列表](list_products#商品项说明) 商品项说明 中的 `channel`.`name` 。
+
 ### <Badge type="danger" text="Payload" />
 
-| 参数       | 类型   | 说明                          | 必传 |
-| ---------- | ------ | ----------------------------- | ---- |
-| machine_no | string | 设备编号(定长8位数字字符串)   | ✓    |
-| method     | string | 固定值: `device.delivery.put` | ✓    |
-| order_id   | string | 订单id                        | ✓    |
-| record_id  | string | 详单id                        | ✓    |
-| timestamp  | string | 当前时间戳                    | ✓    |
+| 参数         | 类型   | 说明                          | 必传 |
+| ------------ | ------ | ----------------------------- | ---- |
+| machine_no   | string | 设备编号(定长8位数字字符串)   | ✓    |
+| method       | string | 固定值: `device.delivery.put` | ✓    |
+| channel_name | string | 货道名                        | ✓    |
+| notify_url   | string | 回调地址(接收内容)            | ✓    |
+| timestamp    | string | 当前时间戳                    | ✓    |
 
 #### 注意 (payload参数类型: 字符串)
 
 ```json
 {
-	"machine_no": "********",
+	"channel_name": "A20",
+	"machine_no": "16327129",
 	"method": "device.delivery.put",
-	"order_id": "60",
-	"record_id": "78",
-	"sign": "2457E8CE3CB49D31EC2054365FC8AD90",
-	"timestamp": "1714373688"
+	"notify_url": "https://******/notify",
+	"sign": "AE6FAEF145ED228CFE2BC25D198E3950",
+	"timestamp": "1714813742"
 }
 ```
 
@@ -105,7 +66,7 @@ func main() {
 	client := &http.Client{}
 
 	// Create request
-	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/deliveries", body)
+	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/deliveries/debug", body)
 
 	// Headers
 	req.Header.Add("Appid", "ds*******")
@@ -147,7 +108,7 @@ $client = new Client();
 
 $request = new Request(
         "POST",
-        "{url}/api/openapi/v1/deliveries",
+        "{url}/api/openapi/v1/deliveries/debug",
         [
             "Appid" => "ds*******************",
             "AppSecret" => "*******************",
@@ -218,8 +179,8 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ```json
 {
-  "code": 0,
-  "message": "订单未支付",
+  "code": 60003,
+  "message": "商品库存不足",
   "data": {}
 }
 ```
