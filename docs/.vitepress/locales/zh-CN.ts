@@ -65,8 +65,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         text: '出货管理',
         link: '',
         items: [
-          { text: '订单出货', link: 'order_delivery' },
-          { text: '查询出货结果', link: 'get_order_status' },
+          { text: '订单出货', link: 'delivery_put' },
+          { text: '出货查询', link: 'delivery_get' },
           { text: '根据货道号下发出货指令', link: '' },
           { text: 'notify_url 回调', link: 'notify_url' }
         ]
