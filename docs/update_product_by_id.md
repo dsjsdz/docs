@@ -25,9 +25,9 @@
 |------------|--------|---------------------------------|----|
 | machine_no | string | 设备编号(定长8位数字字符串)                 | ✓  |
 | method     | string | 固定值: `replenishment.product.id` | ✓  |
-| product_id | int    | 产品id                            | ✓  |
-| max_total  | int    | 补货数量                            | ✓  |
-| timestamp  | int    | 当前时间戳                           | ✓  |
+| product_id | string    | 产品id                            | ✓  |
+| max_total  | string    | 补货数量                            | ✓  |
+| timestamp  | string    | 当前时间戳                           | ✓  |
 
 + ``max_total`` 补货数量, 不能大于 货道容量[设备所选类型](https://dash.awish.vip/dashboard/machines/model)
 + `补货数量` + `剩余容量` = `货道容量`

@@ -22,8 +22,8 @@
 | 参数       | 类型   | 说明                        | 必传 |
 | ---------- | ------ | --------------------------- | ---- |
 | machine_no | string | 设备编号(定长8位数字字符串) | ✓    |
-| status     | int    | 订单状态                    | ✓    |
-| timestamp  | int    | 当前时间戳                  | ✓    |
+| status     | string    | 订单状态                    | ✓    |
+| timestamp  | string    | 当前时间戳                  | ✓    |
 
 [参数加密](access_sign.md)
 

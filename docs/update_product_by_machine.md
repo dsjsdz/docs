@@ -24,7 +24,7 @@
 | machine_no   | string | 设备编号(定长8位数字字符串)                  | ✓  |
 | method       | string | 固定值: `replenishment.machine.all` | ✓  |
 | cabinet_name | string | 默认：`A`, 取值范围: [A-Z]              | ✓  |
-| timestamp    | int    | 当前时间戳                            | ✓  |
+| timestamp    | string    | 当前时间戳                            | ✓  |
 
 ``cabinet_name`` 柜名，默认：A，即主柜。
 
