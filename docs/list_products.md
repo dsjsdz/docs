@@ -17,11 +17,11 @@
 | 参数           | 类型     | 说明                                                             | 必传 |
 |--------------|--------|----------------------------------------------------------------|----|
 | machine_no   | string | 设备编号(定长8位数字字符串)                                                | ✓  |
-| page         | int    | 分页, 默认: 1                                                      | ✓  |
-| per_page     | int    | 分页大小, 默认: 10                                                   | -  |
-| category_id  | int    | 商品分类, 默认: 0, 即查所有                                              | -  |
+| page         | string    | 分页, 默认: 1                                                      | ✓  |
+| per_page     | string    | 分页大小, 默认: 10                                                   | -  |
+| category_id  | string    | 商品分类, 默认: 0, 即查所有                                              | -  |
 | cabinet_name | string | 柜号, 默认: A, 取值范围 [A-Z] <br />(v1.13.0新增) {style="color: green"} | -  |
-| timestamp    | int    | 当前时间戳                                                          | ✓  |
+| timestamp    | string    | 当前时间戳                                                          | ✓  |
 
 [参数加密](access_sign.md)
 
