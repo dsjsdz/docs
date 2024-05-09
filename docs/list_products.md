@@ -134,7 +134,9 @@ echo "Response HTTP : " . $response->getStatusCode();
           "name": "A20",
           "cabinet_name": "A"
         },
-        "max_total": 1
+        "max_total": 1,
+        "current_inventory": 1,
+        "inventory": 2,
       }
     ],
     "total": 6,
@@ -189,7 +191,9 @@ echo "Response HTTP : " . $response->getStatusCode();
     "name": "A20",
     "cabinet_name": "A"
   },
-  "max_total": 1
+  "max_total": 1,
+  "current_inventory": 1,
+  "inventory": 2,
 }
 ```
 
@@ -207,9 +211,21 @@ echo "Response HTTP : " . $response->getStatusCode();
     <td>✓</td>
   </tr>
   <tr>
+    <td colspan="2">current_inventory</td>
+    <td>int</td>
+    <td>当前库存(可销售数) <Badge type="danger" text="v1.2.3 新增字段" /></td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td colspan="2">inventory</td>
+    <td>int</td>
+    <td>最大库存(补货最大值) <Badge type="danger" text="v1.2.3 新增字段" /></td>
+    <td>✓</td>
+  </tr>
+  <tr>
     <td colspan="2">max_total</td>
     <td>int</td>
-    <td>可使用容量(非库存)</td>
+    <td>可使用容量(非库存)，默认等同与 `current_inventory` </td>
     <td>✓</td>
   </tr>
   <tr>
@@ -277,7 +293,7 @@ echo "Response HTTP : " . $response->getStatusCode();
   <tr>
     <td>good_no</td>
     <td>string</td>
-    <td>商品编码<Badge type="danger" text="新增" /></td>
+    <td>商品编码 <Badge type="danger" text="v1.2.2 新增字段" /></td>
     <td>✓</td>
   </tr>
   <tr>
@@ -302,7 +318,7 @@ echo "Response HTTP : " . $response->getStatusCode();
   <tr>
     <td>cabinet_name</td>
     <td>string</td>
-    <td>柜号 <Badge type="info" text="v1.13.0新增" /></td>
+    <td>柜号 <Badge type="danger" text="v1.1.3 新增" /></td>
     <td>✓</td>
   </tr>
 </table>
