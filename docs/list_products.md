@@ -225,7 +225,7 @@ echo "Response HTTP : " . $response->getStatusCode();
   <tr>
     <td colspan="2">max_total</td>
     <td>int</td>
-    <td>可使用容量(非库存)，默认等同与 `current_inventory` </td>
+    <td>可使用容量(非库存)，默认等同于 current_inventory </td>
     <td>✓</td>
   </tr>
   <tr>
