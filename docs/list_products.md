@@ -14,14 +14,15 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数           | 类型     | 说明                                                             | 必传 |
-|--------------|--------|----------------------------------------------------------------|----|
-| machine_no   | string | 设备编号(定长8位数字字符串)                                                | ✓  |
-| page         | string    | 分页, 默认: 1                                                      | ✓  |
-| per_page     | string    | 分页大小, 默认: 10                                                   | -  |
-| category_id  | string    | 商品分类, 默认: 0, 即查所有                                              | -  |
-| cabinet_name | string | 柜号, 默认: A, 取值范围 [A-Z] <br />(v1.13.0新增) {style="color: green"} | -  |
-| timestamp    | string    | 当前时间戳                                                          | ✓  |
+| 参数         | 类型   | 说明                                                                                | 必传 |
+| ------------ | ------ | ----------------------------------------------------------------------------------- | ---- |
+| machine_no   | string | 设备编号(定长8位数字字符串)                                                         | ✓    |
+| page         | string | 分页, 默认: 1                                                                       | ✓    |
+| per_page     | string | 分页大小, 默认: 10                                                                  | -    |
+| category_id  | string | 商品分类, 默认: 0, 即查所有                                                         | -    |
+| cabinet_name | string | 柜号, 默认: A, 取值范围 [A-Z] <br />(v1.13.0新增) {style="color: green"}            | -    |
+| select_all   | string | 查询所有, 取值范围: ["0", "1"], 默认: "0"<br />(v1.24.0新增) {style="color: green"} | -    |
+| timestamp    | string | 当前时间戳                                                                          | ✓    |
 
 [参数加密](access_sign.md)
 
@@ -151,13 +152,13 @@ echo "Response HTTP : " . $response->getStatusCode();
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数           | 类型     | 说明   | 必传 |
-|--------------|--------|------|----|
-| data         | object | 产品内容 | ✓  |
-| total        | int    | 总记录数 | ✓  |
-| current_page | int    | 当前页码 | ✓  |
-| last_page    | int    | 最后一页 | ✓  |
-| per_page     | int    | 分页数  | ✓  |
+| 参数         | 类型   | 说明     | 必传 |
+| ------------ | ------ | -------- | ---- |
+| data         | object | 产品内容 | ✓    |
+| total        | int    | 总记录数 | ✓    |
+| current_page | int    | 当前页码 | ✓    |
+| last_page    | int    | 最后一页 | ✓    |
+| per_page     | int    | 分页数   | ✓    |
 
 ### 查询结果为空时，data 默认返回空数组
 
