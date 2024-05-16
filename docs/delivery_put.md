@@ -208,6 +208,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 [notify_url 回调](notify_url)
 
+
 ## 订单失败
 
 商户主动退款，平台5分钟内会将订单的下单数量返回给库存。
@@ -223,3 +224,8 @@ echo "Response HTTP : " . $response->getStatusCode();
   "data": {}
 }
 ```
+
+
+## 兜底
+
+在发出 `出货指令`，若设备正常反馈则进行出货结果通知。若出现不可抗力因素时，系统自动在120秒(自出货指令发出开始计时)后进行状态重置，设置出货超时，并通知给商户。
