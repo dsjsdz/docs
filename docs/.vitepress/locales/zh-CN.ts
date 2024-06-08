@@ -22,6 +22,14 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   },
 
   {
+    text: '参考',
+    collapsed: false,
+    items: [
+      { text: '设备状态', link: 'machine_status' },
+    ]
+  },
+
+  {
     text: '商户OpenAPI',
     collapsed: false,
     items: [
