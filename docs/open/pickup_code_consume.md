@@ -2,7 +2,7 @@
 
 ### 参数获取
 
-`产品id` 可从 [产品列表](list_products.md) 获取产品得到，即 `id`;
+`产品id` 可从 [产品列表](products.md) 获取产品得到，即 `id`;
 
 `code` 可从 [取货码查询](pickup_code_get.md) 获取产品得到，即 `id`;
 
@@ -18,34 +18,34 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数       | 类型   | 说明                                           | 必传 |
-| ---------- | ------ | ---------------------------------------------- | ---- |
-| machine_no | string | 设备编号(定长8位数字字符串)                    | ✓    |
-| method     | string | 固定值: `event.consume.pickup_code`            | ✓    |
-| code       | string | 取货码                                         | ✓    |
-| product_id | string | 商品id                                         | ✓    |
-| notify_url | string | 出货结果通知url                                | ✓    |
-| trade_id   | string | 商户端订单号(尽量使用数字字符串,长度: 20-32位) | ✓    |
-| timestamp  | string | 当前时间戳                                     | ✓    |
+| 参数         | 类型     | 说明                               | 必传 |
+|------------|--------|----------------------------------|----|
+| machine_no | string | 设备编号(定长8位数字字符串)                  | ✓  |
+| method     | string | 固定值: `event.consume.pickup_code` | ✓  |
+| code       | string | 取货码                              | ✓  |
+| product_id | string | 商品id                             | ✓  |
+| notify_url | string | 出货结果通知url                        | ✓  |
+| trade_id   | string | 商户端订单号(尽量使用数字字符串,长度: 20-32位)     | ✓  |
+| timestamp  | string | 当前时间戳                            | ✓  |
 
 ```json
 {
-	"code": "5288640",
-	"machine_no": "************",
-	"method": "event.consume.pickup_code",
-	"notify_url": "https://**********",
-	"product_id": "131",
-	"sign": "42D478C881453B8ACD3F953CD5A11AE8",
-	"timestamp": "1714353655",
-	"trade_id": "800a7e9500d345c8987d3aafa412c77d"
+  "code": "5288640",
+  "machine_no": "************",
+  "method": "event.consume.pickup_code",
+  "notify_url": "https://**********",
+  "product_id": "131",
+  "sign": "42D478C881453B8ACD3F953CD5A11AE8",
+  "timestamp": "1714353655",
+  "trade_id": "800a7e9500d345c8987d3aafa412c77d"
 }
 ```
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -153,25 +153,22 @@ echo "Response HTTP : " . $response->getStatusCode();
 }
 ```
 
-
-
 :::tip
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
 ### 参数说明
 
-| 参数              | 类型   | 说明           | 必传 |
-| ----------------- | ------ | -------------- | ---- |
-| order_id          | int    | 订单id         | ✓    |
-| trade_id          | string | 自定义订单号   | ✓    |
-| date              | string | 下单日期       | ✓    |
-| amount            | string | 订单总额       | ✓    |
-| status            | string | 状态(参考下表) | ✓    |
-| notify_send_count | int    | 出货通知记录数 | -    |
-| records           | object | 订单详细记录   | ✓    |
-| pickup_code_id    | int    | 取货码id       | ✓    |
-
+| 参数                | 类型     | 说明       | 必传 |
+|-------------------|--------|----------|----|
+| order_id          | int    | 订单id     | ✓  |
+| trade_id          | string | 自定义订单号   | ✓  |
+| date              | string | 下单日期     | ✓  |
+| amount            | string | 订单总额     | ✓  |
+| status            | string | 状态(参考下表) | ✓  |
+| notify_send_count | int    | 出货通知记录数  | -  |
+| records           | object | 订单详细记录   | ✓  |
+| pickup_code_id    | int    | 取货码id    | ✓  |
 
 ```
 SUCCESS: 支付成功
@@ -183,26 +180,24 @@ PAYERROR: 支付失败(其他原因，如银行返回失败)
 PICKUPCODE: 取货码订单
 ```
 
-
 ## 订单详细记录
 
-| 参数        | 类型   | 说明                   | 必传 |
-| ----------- | ------ | ---------------------- | ---- |
-| id          | int    | 记录id                 | ✓    |
-| product_id  | int    | 产品id                 | ✓    |
-| quantity    | int    | 数量                   | ✓    |
-| price       | string | 商品总金额             | ✓    |
-| status      | string | 状态(订单已支付时显示) | -    |
-| notify_sent | string | 是否推送了出货状态     | -    |
+| 参数          | 类型     | 说明           | 必传 |
+|-------------|--------|--------------|----|
+| id          | int    | 记录id         | ✓  |
+| product_id  | int    | 产品id         | ✓  |
+| quantity    | int    | 数量           | ✓  |
+| price       | string | 商品总金额        | ✓  |
+| status      | string | 状态(订单已支付时显示) | -  |
+| notify_sent | string | 是否推送了出货状态    | -  |
 
 ```
 status: 订单取消 | 已取货 | 未取货
 ```
 
-
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {
@@ -214,8 +209,8 @@ status: 订单取消 | 已取货 | 未取货
 }
 ```
 
-取货码已经使用的情况下，会返回 `data.order_id`，可根据 此 字段[查询订单状态](order_get)
+取货码已经使用的情况下，会返回 `data.order_id`，可根据 此 字段[查询订单状态](order_get.md)
 
 ## 出货
 
-接下来，商户可以发送指令进行[订单出货](delivery_put)
+接下来，商户可以发送指令进行[订单出货](delivery_put.md)

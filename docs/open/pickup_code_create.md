@@ -8,7 +8,7 @@
 
 ## 按需生成(单产品)
 
-`产品id` 可从 [产品列表](list_products.md) 获取产品得到，即 `id`;
+`产品id` 可从 [产品列表](products.md) 获取产品得到，即 `id`;
 
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
@@ -23,16 +23,16 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数            | 类型   | 说明                                                                 | 必传 |
-| --------------- | ------ | -------------------------------------------------------------------- | ---- |
-| machine_no      | string | 设备编号(定长8位数字字符串)                                          | ✓    |
-| method          | string | 固定值: `pickup_code.product.id`                                     | ✓    |
-| product_id      | string | 产品id                                                               | ✓    |
-| expired_at      | string | 过期时间(格式: '2024-12-24 13:00:00', 默认时区是GMT+8)，空值则长期有效 | ✓    |
-| <s>quantity</s> | string | 取货码使用可以取货数量，默认1，取值范围: [1, 产品最大容量]           | -    |
-| code_length     | string | 取货码生成长度，默认6，取值范围: [6-10]                              | -    |
-| count           | string | 生成取货码个数，默认1，取值范围: [1, 产品最大容量]                   | -    |
-| timestamp       | string | 当前时间戳                                                           | ✓    |
+| 参数              | 类型     | 说明                                                  | 必传 |
+|-----------------|--------|-----------------------------------------------------|----|
+| machine_no      | string | 设备编号(定长8位数字字符串)                                     | ✓  |
+| method          | string | 固定值: `pickup_code.product.id`                       | ✓  |
+| product_id      | string | 产品id                                                | ✓  |
+| expired_at      | string | 过期时间(格式: '2024-12-24 13:00:00', 默认时区是GMT+8)，空值则长期有效 | ✓  |
+| <s>quantity</s> | string | 取货码使用可以取货数量，默认1，取值范围: [1, 产品最大容量]                   | -  |
+| code_length     | string | 取货码生成长度，默认6，取值范围: [6-10]                            | -  |
+| count           | string | 生成取货码个数，默认1，取值范围: [1, 产品最大容量]                       | -  |
+| timestamp       | string | 当前时间戳                                               | ✓  |
 
 ### <Badge type="danger" text="更新" />
 
@@ -46,23 +46,23 @@
 
 ```json
 {
-	"code_length": "7",
-	"count": "2",
-	"expired_at": "2024-12-31 23:59:59",
-	"machine_no": "********",
-	"method": "pickup_code.product.id",
-	"product_id": "1323442",
-	"quantity": "1",
-	"sign": "6C73E1EE2B92089A61DC721E72BB3139",
-	"timestamp": "1714185061"
+  "code_length": "7",
+  "count": "2",
+  "expired_at": "2024-12-31 23:59:59",
+  "machine_no": "********",
+  "method": "pickup_code.product.id",
+  "product_id": "1323442",
+  "quantity": "1",
+  "sign": "6C73E1EE2B92089A61DC721E72BB3139",
+  "timestamp": "1714185061"
 }
 ```
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -155,7 +155,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {
@@ -164,7 +164,6 @@ echo "Response HTTP : " . $response->getStatusCode();
   "data": {}
 }
 ```
-
 
 ## 一键生成取货码{id="oneKey"}
 
@@ -181,15 +180,14 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数            | 类型   | 说明                                                                 | 必传 |
-| --------------- | ------ | -------------------------------------------------------------------- | ---- |
-| machine_no      | string | 设备编号(定长8位数字字符串)                                          | ✓    |
-| method          | string | 固定值: `pickup_code.product.all`                                     | ✓    |
-| expired_at      | string | 过期时间(格式: '2024-12-24 13:00:00', 默认时区是GMT+8)，空值则长期有效 | ✓    |
-| <s>quantity</s> | string | 取货码使用可以取货数量，默认1，取值范围: [1, 产品最大容量]           | -    |
-| code_length     | string | 取货码生成长度，默认6，取值范围: [6-10]                              | -    |
-| timestamp       | string | 当前时间戳                                                           | ✓    |
-
+| 参数              | 类型     | 说明                                                  | 必传 |
+|-----------------|--------|-----------------------------------------------------|----|
+| machine_no      | string | 设备编号(定长8位数字字符串)                                     | ✓  |
+| method          | string | 固定值: `pickup_code.product.all`                      | ✓  |
+| expired_at      | string | 过期时间(格式: '2024-12-24 13:00:00', 默认时区是GMT+8)，空值则长期有效 | ✓  |
+| <s>quantity</s> | string | 取货码使用可以取货数量，默认1，取值范围: [1, 产品最大容量]                   | -  |
+| code_length     | string | 取货码生成长度，默认6，取值范围: [6-10]                            | -  |
+| timestamp       | string | 当前时间戳                                               | ✓  |
 
 #### 注意 (payload参数类型: 字符串)
 
@@ -199,16 +197,16 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ```json
 {
-	"code_length": "7",
-	"expired_at": "2024-12-31 23:59:59",
-	"machine_no": "********",
-	"method": "pickup_code.product.all",
-	"quantity": "1",
-	"sign": "6C73E1EE2B92089A61DC721E72BB3139",
-	"timestamp": "1714185061"
+  "code_length": "7",
+  "expired_at": "2024-12-31 23:59:59",
+  "machine_no": "********",
+  "method": "pickup_code.product.all",
+  "quantity": "1",
+  "sign": "6C73E1EE2B92089A61DC721E72BB3139",
+  "timestamp": "1714185061"
 }
 ```
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 对接示例参考单个生成

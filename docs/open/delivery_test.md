@@ -13,36 +13,36 @@
 注意: method 为固定值内容: device.delivery.put
 ```
 
-`channel_name` 参数获取: [产品列表](list_products#商品项说明) 商品项说明 中的 `channel`.`name` 。
+`channel_name` 参数获取: [产品列表](products#商品项说明) 商品项说明 中的 `channel`.`name` 。
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数         | 类型   | 说明                          | 必传 |
-| ------------ | ------ | ----------------------------- | ---- |
-| machine_no   | string | 设备编号(定长8位数字字符串)   | ✓    |
-| method       | string | 固定值: `device.delivery.put` | ✓    |
-| channel_name | string | 货道名                        | ✓    |
-| notify_url   | string | 回调地址(接收内容)            | ✓    |
-| timestamp    | string | 当前时间戳                    | ✓    |
+| 参数           | 类型     | 说明                         | 必传 |
+|--------------|--------|----------------------------|----|
+| machine_no   | string | 设备编号(定长8位数字字符串)            | ✓  |
+| method       | string | 固定值: `device.delivery.put` | ✓  |
+| channel_name | string | 货道名                        | ✓  |
+| notify_url   | string | 回调地址(接收内容)                 | ✓  |
+| timestamp    | string | 当前时间戳                      | ✓  |
 
 #### 注意 (payload参数类型: 字符串)
 
 ```json
 {
-	"channel_name": "A20",
-	"machine_no": "16327129",
-	"method": "device.delivery.put",
-	"notify_url": "https://******/notify",
-	"sign": "AE6FAEF145ED228CFE2BC25D198E3950",
-	"timestamp": "1714813742"
+  "channel_name": "A20",
+  "machine_no": "16327129",
+  "method": "device.delivery.put",
+  "notify_url": "https://******/notify",
+  "sign": "AE6FAEF145ED228CFE2BC25D198E3950",
+  "timestamp": "1714813742"
 }
 ```
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -139,35 +139,36 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数         | 类型   | 说明         | 必传 |
-| ------------ | ------ | ------------ | ---- |
-| delivery_id  | string | 出货事件id   | ✓    |
-| delivered_at | string | 出货时间     | ✓    |
-| status       | string | 状态说明     | ✓    |
-| pickup_at    | string | 出货完成时间 | -    |
-| fail_reason  | string | 出货失败原因 | -    |
+| 参数           | 类型     | 说明     | 必传 |
+|--------------|--------|--------|----|
+| delivery_id  | string | 出货事件id | ✓  |
+| delivered_at | string | 出货时间   | ✓  |
+| status       | string | 状态说明   | ✓  |
+| pickup_at    | string | 出货完成时间 | -  |
+| fail_reason  | string | 出货失败原因 | -  |
 
 ## 出货停留时间(针对出货状态)
 
 > 整个运行状态大概 500ms-1000ms
 
-部分机型不支持同时出货，因此会存在出货停留时间，即: 一台机器 从出货开始 到 出货结束 的生命周期内，无法触发下一个出货指令(包含 Message Queue Job)。
+部分机型不支持同时出货，因此会存在出货停留时间，即: 一台机器 从出货开始 到 出货结束 的生命周期内，无法触发下一个出货指令(包含
+Message Queue Job)。
 
 在出货结束(包含出货成功、出货失败)后，自动删除锁定状态，可以再次进入出货状态。
 
 默认: 45 秒
 
-| 类型   | 停留时间 | 说明                 |
-| ------ | -------- | -------------------- |
-| 电子锁 | 15秒     | 出货成功或失败即清除 |
-| 电机   | 30秒     | 出货成功或失败即清除 |
-| 履带   | 90秒     | 出货成功或失败即清除 |
+| 类型  | 停留时间 | 说明         |
+|-----|------|------------|
+| 电子锁 | 15秒  | 出货成功或失败即清除 |
+| 电机  | 30秒  | 出货成功或失败即清除 |
+| 履带  | 90秒  | 出货成功或失败即清除 |
 
 ### 出货成功或失败(必触发)
 
 在提交订单时，如果 `notify_url` 有值，则在状态变更时 会主动发送 `post` 请求到目标地址。
 
-[notify_url 回调](notify_url)
+[notify_url 回调](delivery_callback)
 
 ## 订单失败
 
@@ -175,7 +176,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {

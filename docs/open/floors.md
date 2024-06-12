@@ -1,6 +1,6 @@
 # 获取货道列表
 
-此接口随时可能取消，建议使用 [单台设备](get_machine.md) + [产品查询](list_products.md) 获取详情 。{style="color: red"}
+此接口随时可能取消，建议使用 [单台设备](machine) + [产品查询](products) 获取详情 。{style="color: red"}
 
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
@@ -15,16 +15,16 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数       | 类型   | 说明                        | 必传 |
-| ---------- | ------ | --------------------------- | ---- |
-| machine_no | string | 设备编号(定长8位数字字符串) | ✓    |
-| timestamp  | string | 当前时间戳                  | ✓    |
+| 参数         | 类型     | 说明              | 必传 |
+|------------|--------|-----------------|----|
+| machine_no | string | 设备编号(定长8位数字字符串) | ✓  |
+| timestamp  | string | 当前时间戳           | ✓  |
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -151,8 +151,8 @@ echo "Response HTTP : " . $response->getStatusCode();
       },
       "max_total": 1,
       "max_stock": 1,
-        "current_inventory": 1,
-        "inventory": 2,
+      "current_inventory": 1,
+      "inventory": 2
     },
     {
       "status": "1",
@@ -173,8 +173,8 @@ echo "Response HTTP : " . $response->getStatusCode();
       },
       "max_total": 1,
       "max_stock": 1,
-        "current_inventory": 1,
-        "inventory": 2,
+      "current_inventory": 1,
+      "inventory": 2
     }
   ]
 }
@@ -184,15 +184,15 @@ echo "Response HTTP : " . $response->getStatusCode();
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数              | 类型   | 说明                                                                | 必传 |
-| ----------------- | ------ | ------------------------------------------------------------------- | ---- |
-| floor_status      | string | 货道状态                                                            | ✓    |
-| channel           | object | [货道内容](list_products.md)                                        | ✓    |
-| good              | object | [商品信息](list_products.md)                                        | ✓    |
-| max_total         | int    | 最大容量                                                            | ✓    |
-| max_stock         | int    | 最大库存                                                            | ✓    |
-| current_inventory | int    | 当前库存(可销售数) <Badge type="danger" text="v1.2.3 新增字段" />   | ✓    |
-| inventory         | int    | 最大库存(补货最大值) <Badge type="danger" text="v1.2.3 新增字段" /> | ✓    |
+| 参数                | 类型     | 说明                                                     | 必传 |
+|-------------------|--------|--------------------------------------------------------|----|
+| floor_status      | string | 货道状态                                                   | ✓  |
+| channel           | object | [货道内容](products.md)                                    | ✓  |
+| good              | object | [商品信息](products.md)                                    | ✓  |
+| max_total         | int    | 最大容量                                                   | ✓  |
+| max_stock         | int    | 最大库存                                                   | ✓  |
+| current_inventory | int    | 当前库存(可销售数) <Badge type="danger" text="v1.2.3 新增字段" />  | ✓  |
+| inventory         | int    | 最大库存(补货最大值) <Badge type="danger" text="v1.2.3 新增字段" /> | ✓  |
 
 #### floor_status 货道状态值 参考:
 
@@ -216,7 +216,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {

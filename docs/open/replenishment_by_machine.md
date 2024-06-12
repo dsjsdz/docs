@@ -1,12 +1,10 @@
-# 单个产品补货
+# 整柜商品补货
 
 :::tip
 [前往后台补货](https://dash.awish.vip/dashboard/machines/)
 :::
 
 ## 接口补货
-
-`产品id` 可从 [产品列表](list_products.md) 获取产品得到，即 `id`;
 
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
@@ -16,37 +14,34 @@
 请求方式(METHOD): POST
 请求路径(URL): {url}/api/openapi/v1/replenishments
 请求参数(Argsments): payload: base64code
-注意: method 为固定值内容: replenishment.product.id
+注意: method 为固定值内容: replenishment.machine.all
 ```
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数         | 类型     | 说明                              | 必传 |
-|------------|--------|---------------------------------|----|
-| machine_no | string | 设备编号(定长8位数字字符串)                 | ✓  |
-| method     | string | 固定值: `replenishment.product.id` | ✓  |
-| product_id | string    | 产品id                            | ✓  |
-| max_total  | string    | 补货数量                            | ✓  |
-| timestamp  | string    | 当前时间戳                           | ✓  |
+| 参数           | 类型     | 说明                               | 必传 |
+|--------------|--------|----------------------------------|----|
+| machine_no   | string | 设备编号(定长8位数字字符串)                  | ✓  |
+| method       | string | 固定值: `replenishment.machine.all` | ✓  |
+| cabinet_name | string | 默认：`A`, 取值范围: [A-Z]              | ✓  |
+| timestamp    | string    | 当前时间戳                            | ✓  |
 
-+ ``max_total`` 补货数量, 不能大于 货道容量[设备所选类型](https://dash.awish.vip/dashboard/machines/model)
-+ `补货数量` + `剩余容量` = `货道容量`
+``cabinet_name`` 柜名，默认：A，即主柜。
 
 ```json
 {
   "machine_no": "16****29",
-  "max_total": 20,
-  "method": "replenishment.product.id",
-  "product_id": 1324832,
-  "timestamp": "1714030791"
+  "method": "replenishment.category.id",
+  "timestamp": "1714030791",
+  "cabinet_name": "A"
 }
 ```
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -139,12 +134,12 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {
   "code": 0,
-  "message": "超出货道最大库存",
+  "message": "具体信息",
   "data": {}
 }
 ```

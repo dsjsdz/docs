@@ -37,11 +37,11 @@
 }
 ```
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -134,7 +134,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {
@@ -165,6 +165,6 @@ echo "Response HTTP : " . $response->getStatusCode();
 | method     | string | 固定值: `pickup_code.delete.all` | ✓    |
 | timestamp  | string | 当前时间戳                       | ✓    |
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 对接示例参考单个取消

@@ -9,32 +9,32 @@ import {
 } from "./chunk-CKQ4TNQ3.js";
 
 // node_modules/vitepress/dist/client/theme-default/index.js
-import "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/styles/fonts.css";
+import "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/styles/fonts.css";
 
 // node_modules/vitepress/dist/client/theme-default/without-fonts.js
-import "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/styles/vars.css";
-import "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/styles/base.css";
-import "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/styles/icons.css";
-import "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/styles/utils.css";
-import "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/styles/components/custom-block.css";
-import "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/styles/components/vp-code.css";
-import "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/styles/components/vp-code-group.css";
-import "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/styles/components/vp-doc.css";
-import "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/styles/components/vp-sponsor.css";
-import VPBadge from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPBadge.vue";
-import Layout from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/Layout.vue";
-import { default as default2 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPBadge.vue";
-import { default as default3 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPImage.vue";
-import { default as default4 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPButton.vue";
-import { default as default5 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPHomeHero.vue";
-import { default as default6 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPHomeFeatures.vue";
-import { default as default7 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPHomeSponsors.vue";
-import { default as default8 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPDocAsideSponsors.vue";
-import { default as default9 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPSponsors.vue";
-import { default as default10 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPTeamPage.vue";
-import { default as default11 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageTitle.vue";
-import { default as default12 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageSection.vue";
-import { default as default13 } from "/Users/cleveng/code/github/awish-docs/node_modules/vitepress/dist/client/theme-default/components/VPTeamMembers.vue";
+import "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/styles/vars.css";
+import "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/styles/base.css";
+import "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/styles/icons.css";
+import "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/styles/utils.css";
+import "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/styles/components/custom-block.css";
+import "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/styles/components/vp-code.css";
+import "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/styles/components/vp-code-group.css";
+import "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/styles/components/vp-doc.css";
+import "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/styles/components/vp-sponsor.css";
+import VPBadge from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPBadge.vue";
+import Layout from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/Layout.vue";
+import { default as default2 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPBadge.vue";
+import { default as default3 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPImage.vue";
+import { default as default4 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPButton.vue";
+import { default as default5 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPHomeHero.vue";
+import { default as default6 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPHomeFeatures.vue";
+import { default as default7 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPHomeSponsors.vue";
+import { default as default8 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPDocAsideSponsors.vue";
+import { default as default9 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPSponsors.vue";
+import { default as default10 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPTeamPage.vue";
+import { default as default11 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageTitle.vue";
+import { default as default12 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPTeamPageSection.vue";
+import { default as default13 } from "/Users/maus/code/github/docs.awish.vip/node_modules/vitepress/dist/client/theme-default/components/VPTeamMembers.vue";
 
 // node_modules/vitepress/dist/client/theme-default/support/utils.js
 import { withBase } from "vitepress";

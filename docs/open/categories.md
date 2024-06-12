@@ -1,6 +1,6 @@
-# 获取轮播图
+# 获取商品分类
 
-单设备允许上传5张图片资源，即接口最多返回给你5张图片。
+每台设备所售卖的分类都是独一无二的。
 
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
@@ -8,23 +8,23 @@
 
 ```
 请求方式(METHOD): POST
-请求路径(URL): {url}/api/openapi/v1/banners
+请求路径(URL): {url}/api/openapi/v1/categories
 请求参数(Argsments): payload: base64code
-注意: 默认查询条件: 已审核且可显示
+注意: 默认查询条件: 可见状态，默认排序 sort_id desc
 ```
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数       | 类型   | 说明                        | 必传 |
-| ---------- | ------ | --------------------------- | ---- |
-| machine_no | string | 设备编号(定长8位数字字符串) | ✓    |
-| timestamp  | string    | 当前时间戳                  | ✓    |
+| 参数         | 类型     | 说明              | 必传 |
+|------------|--------|-----------------|----|
+| machine_no | string | 设备编号(定长8位数字字符串) | ✓  |
+| timestamp  | string    | 当前时间戳           | ✓  |
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -48,7 +48,7 @@ func main() {
 	client := &http.Client{}
 
 	// Create request
-	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/banners", body)
+	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/categories", body)
 
 	// Headers
 	req.Header.Add("Appid", "ds*******")
@@ -90,7 +90,7 @@ $client = new Client();
 
 $request = new Request(
         "POST",
-        "{url}/api/openapi/v1/banners",
+        "{url}/api/openapi/v1/categories",
         [
             "Appid" => "ds*******************",
             "AppSecret" => "*******************",
@@ -113,22 +113,40 @@ echo "Response HTTP : " . $response->getStatusCode();
   "message": "ok",
   "data": [
     {
-      "id": 2,
-      "status": "APPROVED",
-      "is_visible": true,
-      "cover_image": "{url}/storage/BqoydfZzlk/8834b4af-5a50-45ca-ab07-1b376b2c0160.jpg",
-      "sort_id": 2,
-      "hit_count": 1,
-      "views_count": 1
+      "id": 1,
+      "title": "第一层",
+      "sort_id": 100,
+      "is_visible": true
     },
     {
-      "id": 11,
-      "status": "APPROVED",
-      "is_visible": true,
-      "cover_image": "{url}/storage/BqoydfZzlk/8834b4af-5a50-45ca-ab07-1b376b2c0160.jpg",
-      "sort_id": 1,
-      "hit_count": 1,
-      "views_count": 1
+      "id": 2,
+      "title": "第二层",
+      "sort_id": 99,
+      "is_visible": true
+    },
+    {
+      "id": 3,
+      "title": "第三层",
+      "sort_id": 98,
+      "is_visible": true
+    },
+    {
+      "id": 4,
+      "title": "第四层",
+      "sort_id": 97,
+      "is_visible": true
+    },
+    {
+      "id": 6,
+      "title": "第六层",
+      "sort_id": 97,
+      "is_visible": true
+    },
+    {
+      "id": 5,
+      "title": "第五层",
+      "sort_id": 96,
+      "is_visible": true
     }
   ]
 }
@@ -138,15 +156,12 @@ echo "Response HTTP : " . $response->getStatusCode();
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数        | 类型    | 说明                    | 必传 |
-| ----------- | ------- | ----------------------- | ---- |
-| id          | int     | 标识                    | ✓    |
-| status      | string  | 审核状态(待审核,已审核) | -    |
-| is_visible  | boolean | 是否显示, 商户自己设置  | -    |
-| cover_image | string  | 附件的实际URL           | ✓    |
-| sort_id     | int     | 排序值                  | ✓    |
-| hit_count   | int     | 点击数                  | ✓    |
-| views_count | int     | 展现数                  | ✓    |
+| 参数         | 类型      | 说明           | 必传 |
+|------------|---------|--------------|----|
+| id         | int     | 标识           | ✓  |
+| is_visible | boolean | 是否显示, 商户自己设置 | -  |
+| title      | string  | 分类名称         | ✓  |
+| sort_id    | int     | 排序值          | ✓  |
 
 ### 查询结果为空时，data 默认返回空数组
 
@@ -160,7 +175,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {

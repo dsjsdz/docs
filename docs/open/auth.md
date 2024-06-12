@@ -34,14 +34,14 @@
 
 > 开发者可以根据 返回的 `401` 状态码或者 `code` 进行处理。
 
-> 查看所有 [错误代码](error_code.md)
+> 查看所有 [错误代码](../error_code.md)
 :::
 
 ## 接口测试(ping)
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
-::: tip 
+::: tip
 
 `{url}`默认为提供服务的地址
 ::: code-group
@@ -124,7 +124,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ## 请求结果(失败)
 
-如 `Appid`、`AppSecret` 已经填写，仍然出现接口401错误，可根据返回的 [错误代码](error_code.md) 进行排查: 
+如 `Appid`、`AppSecret` 已经填写，仍然出现接口401错误，可根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {

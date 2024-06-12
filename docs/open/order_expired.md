@@ -2,4 +2,4 @@
 
 平台将订单状态更新(失效)，同时将原订单的下单数量返回给设备库存(需要商户自己主动更新数据)。
 
-平台会推送事件到 [`notify_url`](notify_url.md)。
+平台会推送事件到 [`notify_url`](delivery_callback.md)。

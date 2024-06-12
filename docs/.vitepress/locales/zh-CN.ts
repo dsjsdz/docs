@@ -14,90 +14,131 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
     collapsed: false,
     items: [
       { text: '引言', link: 'guide' },
-      { text: '快速开始', link: 'getting-started' },
-      { text: '接口约定', link: 'access_rule' },
-      { text: '参数加密', link: 'access_sign' },
-      { text: '错误代码', link: 'error_code' }
+      { text: '快速开始', link: 'getting-started' }
     ]
   },
 
   {
-    text: '参考',
+    text: '约定术语',
     collapsed: false,
     items: [
       { text: '设备状态', link: 'machine_status' },
+      { text: '错误代码', link: 'error_code' },
+      { text: '设备模型', link: 'model_types' }
     ]
   },
 
   {
-    text: '商户OpenAPI',
+    text: 'RESTful API',
+    link: 'restful'
+  },
+
+  {
+    text: 'Open API',
+    link: '',
     collapsed: false,
     items: [
-      { text: '接口认证', link: 'authentication' },
+      { text: '接口约定', link: 'open/protocol' },
+      { text: '接口认证', link: 'open/auth' },
+      { text: '参数加密', link: 'open/signatory' },
       {
         text: '获取设备',
         link: '',
         items: [
-          { text: '所有设备', link: 'list_machines' },
-          { text: '- 货道列表', link: 'list_floors' },
-          { text: '✈️ 单台设备', link: 'get_machine' },
-          { text: '✈️ 轮播图', link: 'list_banners' },
-          { text: '✈️ 产品列表', link: 'list_products' },
-          { text: '✈️ 商品分类', link: 'list_categories' },
-          { text: '✈️ Typescript', link: 'typescript' }
+          { text: '所有设备', link: 'open/machines' },
+          { text: '所有货道', link: 'open/floors' },
+          { text: '设备详情', link: 'open/machine' },
+          { text: '设备轮播图', link: 'open/banners' },
+          { text: '产品列表', link: 'open/products' },
+          { text: '商品分类', link: 'open/categories' }
         ]
       },
       {
         text: '订单管理',
         link: '',
         items: [
-          { text: '主动下单', link: 'order_create' },
-          { text: '查询订单', link: 'order_get' },
-          { text: '更新订单', link: 'order_update' },
-          { text: '取消订单', link: 'order_cancel' },
-          { text: '超时订单', link: 'order_expired' },
+          { text: '主动下单', link: 'open/order_create' },
+          { text: '查询订单', link: 'open/order_get' },
+          { text: '更新订单', link: 'open/order_update' },
+          { text: '取消订单', link: 'open/order_cancel' },
+          { text: '超时订单', link: 'open/order_expired' }
         ]
       },
       {
         text: '取货码管理',
         link: '',
         items: [
-          { text: '>>>开启<<<', link: 'pickup_code_enabled' },
-          { text: '取货码生成', link: 'pickup_code_create' },
-          { text: '取货码查询', link: 'pickup_code_get' },
-          { text: '取货码取消', link: 'pickup_code_delete' },
-          { text: '取货码消费', link: 'pickup_code_consume' }
+          { text: '开启功能', link: 'open/pickup_code_enabled' },
+          { text: '取货码生成', link: 'open/pickup_code_create' },
+          { text: '取货码查询', link: 'open/pickup_code_get' },
+          { text: '取货码取消', link: 'open/pickup_code_delete' },
+          { text: '取货码消费', link: 'open/pickup_code_consume' }
         ]
       },
       {
         text: '出货管理',
         link: '',
         items: [
-          { text: '订单出货', link: 'delivery_put' },
-          { text: '出货查询', link: 'delivery_get' },
-          { text: '根据货道名下发出货指令', link: 'delivery_test' },
-          { text: 'notify_url 回调', link: 'notify_url' }
+          { text: '订单出货', link: 'open/delivery_put' },
+          { text: '出货查询', link: 'open/delivery_get' },
+          { text: '根据货道名下发出货指令', link: 'open/delivery_test' },
+          { text: 'notify_url 回调', link: 'open/delivery_callback' }
         ]
       },
       {
-        text: '设备补货',
+        text: '补货管理',
         link: '',
         items: [
-          { text: '单个补货', link: 'update_product_by_id' },
-          { text: '整层补货', link: 'update_product_by_category' },
-          { text: '整柜补货', link: 'update_product_by_machine' }
+          { text: '单个补货', link: 'open/replenishment_by_id' },
+          { text: '整层补货', link: 'open/replenishment_by_category' },
+          { text: '整柜补货', link: 'open/replenishment_by_machine' }
         ]
-      },
+      }
     ]
   },
 
   {
-    text: '后台Action',
+    text: 'GraphQL API',
+    link: 'graphql/index',
     collapsed: false,
-    items: [{ text: '设备模型', link: 'list_models' }]
+    items: [
+      {
+        text: '设备管理',
+        link: ''
+      },
+      {
+        text: '商品管理',
+        link: ''
+      },
+      {
+        text: '订单管理',
+        link: ''
+      },
+      {
+        text: '广告管理',
+        link: ''
+      },
+      {
+        text: '优惠券/活动',
+        link: ''
+      }
+    ]
   },
 
-  { text: '直连API', link: 'access_redirect' },
+  {
+    text: '云管理系统',
+    link: 'management/index',
+    collapsed: false,
+    items: [
+      { text: '登入系统', link: '' },
+      { text: '创建商户', link: '' },
+      { text: '加入商户', link: '' },
+      { text: '设备模型', link: '' },
+      { text: '设备管理', link: '' },
+      { text: '产品管理', link: '' },
+      { text: '商品管理', link: '' }
+    ]
+  },
 
   {
     text: '联系我们',

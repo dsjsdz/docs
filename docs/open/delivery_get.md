@@ -2,8 +2,7 @@
 
 本接口不支持 `debug` 调试模式。
 
-
-`出货事件id`, 即 [订单出货](delivery_put) `delivery_id`
+`出货事件id`, 即 [订单出货](delivery_put.md) `delivery_id`
 
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
@@ -18,26 +17,26 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数       | 类型   | 说明                        | 必传 |
-| ---------- | ------ | --------------------------- | ---- |
-| machine_no | string | 设备编号(定长8位数字字符串) | ✓    |
-| timestamp  | string | 当前时间戳                  | ✓    |
+| 参数         | 类型     | 说明              | 必传 |
+|------------|--------|-----------------|----|
+| machine_no | string | 设备编号(定长8位数字字符串) | ✓  |
+| timestamp  | string | 当前时间戳           | ✓  |
 
 #### 注意 (payload参数类型: 字符串)
 
 ```json
 {
-	"machine_no": "********",
-	"sign": "2457E8CE3CB49D31EC2054365FC8AD90",
-	"timestamp": "1714373688"
+  "machine_no": "********",
+  "sign": "2457E8CE3CB49D31EC2054365FC8AD90",
+  "timestamp": "1714373688"
 }
 ```
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -133,16 +132,16 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数         | 类型   | 说明         | 必传 |
-| ------------ | ------ | ------------ | ---- |
-| delivered_at | string | 出货时间     | ✓    |
-| status       | string | 状态说明     | ✓    |
-| pickup_at    | string | 出货完成时间 | -    |
-| fail_reason  | string | 出货失败原因 | -    |
+| 参数           | 类型     | 说明     | 必传 |
+|--------------|--------|--------|----|
+| delivered_at | string | 出货时间   | ✓  |
+| status       | string | 状态说明   | ✓  |
+| pickup_at    | string | 出货完成时间 | -  |
+| fail_reason  | string | 出货失败原因 | -  |
 
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {

@@ -4,10 +4,9 @@
 
 即: 一个产品会存在多个取货码 (默认一个取货码只能取一件商品)。
 
-
 ## {product_id}获取
 
-`产品id` 可从 [产品列表](list_products.md) 获取产品得到，即 `id`;
+`产品id` 可从 [产品列表](products.md) 获取产品得到，即 `id`;
 
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
@@ -22,24 +21,24 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数       | 类型   | 说明                        | 必传 |
-| ---------- | ------ | --------------------------- | ---- |
-| machine_no | string | 设备编号(定长8位数字字符串) | ✓    |
-| timestamp  | string | 当前时间戳                  | ✓    |
+| 参数         | 类型     | 说明              | 必传 |
+|------------|--------|-----------------|----|
+| machine_no | string | 设备编号(定长8位数字字符串) | ✓  |
+| timestamp  | string | 当前时间戳           | ✓  |
 
 ```json
 {
-	"machine_no": "********",
-	"sign": "6C73E1EE2B92089A61DC721E72BB3139",
-	"timestamp": "1714185061"
+  "machine_no": "********",
+  "sign": "6C73E1EE2B92089A61DC721E72BB3139",
+  "timestamp": "1714185061"
 }
 ```
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -147,15 +146,15 @@ echo "Response HTTP : " . $response->getStatusCode();
 }
 ```
 
-| 参数       | 类型   | 说明                      | 必传 |
-| ---------- | ------ | ------------------------- | ---- |
-| id         | int    | 取货码id                  | ✓    |
-| code       | string | 取货码(定长字符串 6-10位) | ✓    |
-| status     | string | 使用状态                  | ✓    |
-| code       | string | 取货码(定长字符串 6-10位) | ✓    |
-| created_at | string | 创建时间                  | ✓    |
-| expired_at | string | 过期时间, 为空则长期有效  | -    |
-| quantity   | int    | 兑换的数量，默认1         | ✓    |
+| 参数         | 类型     | 说明               | 必传 |
+|------------|--------|------------------|----|
+| id         | int    | 取货码id            | ✓  |
+| code       | string | 取货码(定长字符串 6-10位) | ✓  |
+| status     | string | 使用状态             | ✓  |
+| code       | string | 取货码(定长字符串 6-10位) | ✓  |
+| created_at | string | 创建时间             | ✓  |
+| expired_at | string | 过期时间, 为空则长期有效    | -  |
+| quantity   | int    | 兑换的数量，默认1        | ✓  |
 
 ### status: 取值范围
 
@@ -168,7 +167,7 @@ UNKNOWN: 未知的 (通常不会出现)
 
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {

@@ -2,7 +2,6 @@
 
 根据 [主动下单](order_create.md) 得到的 `order_id` 进行查询。
 
-
 :::tip
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
 :::
@@ -15,17 +14,16 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数       | 类型   | 说明                        | 必传 |
-| ---------- | ------ | --------------------------- | ---- |
-| machine_no | string | 设备编号(定长8位数字字符串) | ✓    |
-| timestamp  | string    | 当前时间戳                  | ✓    |
+| 参数         | 类型     | 说明              | 必传 |
+|------------|--------|-----------------|----|
+| machine_no | string | 设备编号(定长8位数字字符串) | ✓  |
+| timestamp  | string | 当前时间戳           | ✓  |
 
-[参数加密](access_sign.md)
-
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -119,7 +117,7 @@ echo "Response HTTP : " . $response->getStatusCode();
     "date": "2024-04-26",
     "amount": "3.00",
     "status": "SUCCESS",
-	"notify_send_count": 1,
+    "notify_send_count": 1,
     "records": [
       {
         "id": 70,
@@ -127,7 +125,7 @@ echo "Response HTTP : " . $response->getStatusCode();
         "quantity": 1,
         "price": "1.00",
         "status": "未取货",
-		"notify_sent": "1"
+        "notify_sent": "1"
       },
       {
         "id": 71,
@@ -135,7 +133,7 @@ echo "Response HTTP : " . $response->getStatusCode();
         "quantity": 1,
         "price": "1.00",
         "status": "未取货",
-		"notify_sent": "0"
+        "notify_sent": "0"
       },
       {
         "id": 72,
@@ -143,13 +141,12 @@ echo "Response HTTP : " . $response->getStatusCode();
         "quantity": 1,
         "price": "1.00",
         "status": "未取货",
-		"notify_sent": "0"
+        "notify_sent": "0"
       }
     ]
   }
 }
 ```
-
 
 :::tip
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
@@ -157,17 +154,16 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ### 参数说明
 
-| 参数              | 类型   | 说明           | 必传 |
-| ----------------- | ------ | -------------- | ---- |
-| order_id          | int    | 订单id         | ✓    |
-| trade_id          | string | 自定义订单号   | ✓    |
-| date              | string | 下单日期       | ✓    |
-| amount            | string | 订单总额       | ✓    |
-| status            | string | 状态(参考下表) | ✓    |
-| notify_send_count | int    | 出货通知记录数 | -    |
-| records           | object | 订单详细记录   | ✓    |
-| pickup_code_id    | int    | 取货码id       | -    |
-
+| 参数                | 类型     | 说明       | 必传 |
+|-------------------|--------|----------|----|
+| order_id          | int    | 订单id     | ✓  |
+| trade_id          | string | 自定义订单号   | ✓  |
+| date              | string | 下单日期     | ✓  |
+| amount            | string | 订单总额     | ✓  |
+| status            | string | 状态(参考下表) | ✓  |
+| notify_send_count | int    | 出货通知记录数  | -  |
+| records           | object | 订单详细记录   | ✓  |
+| pickup_code_id    | int    | 取货码id    | -  |
 
 ```
 SUCCESS: 支付成功
@@ -179,26 +175,24 @@ PAYERROR: 支付失败(其他原因，如银行返回失败)
 PICKUPCODE: 取货码订单
 ```
 
-
 ## 订单详细记录
 
-| 参数        | 类型   | 说明                   | 必传 |
-| ----------- | ------ | ---------------------- | ---- |
-| id          | int    | 记录id                 | ✓    |
-| product_id  | int    | 产品id                 | ✓    |
-| quantity    | int    | 数量                   | ✓    |
-| price       | string | 商品总金额             | ✓    |
-| status      | string | 状态(订单已支付时显示) | -    |
-| notify_sent | string    | 是否推送了出货状态     | -    |
+| 参数          | 类型     | 说明           | 必传 |
+|-------------|--------|--------------|----|
+| id          | int    | 记录id         | ✓  |
+| product_id  | int    | 产品id         | ✓  |
+| quantity    | int    | 数量           | ✓  |
+| price       | string | 商品总金额        | ✓  |
+| status      | string | 状态(订单已支付时显示) | -  |
+| notify_sent | string | 是否推送了出货状态    | -  |
 
 ```
 status: 订单取消 | 已取货 | 未取货
 ```
 
-
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {

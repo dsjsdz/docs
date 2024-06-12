@@ -2,15 +2,14 @@
 
 本接口不支持 `debug` 调试模式。
 
-
 :::tip
-默认: 一个出货指令只能推出(掉落)一个产品。针对不同机型(如: 饮料售卖机), 可能支持一次出货掉落N个产品，具体掉落数据等于订单记录 `quantity`。
+默认: 一个出货指令只能推出(掉落)一个产品。针对不同机型(如: 饮料售卖机),
+可能支持一次出货掉落N个产品，具体掉落数据等于订单记录 `quantity`。
 :::
-
 
 ### 参数获取
 
-假定有以下参数: 
+假定有以下参数:
 
 ```
 {
@@ -37,9 +36,10 @@
 }
 ```
 
-`订单id` 
+`订单id`
+
 + 从 [查询订单](order_get.md) 得到，(只支持已经支付的订单, 即: 订单状态 `status` 为: 支付成功)
-+ 从 [取货码订单](pickup_code_consume) 得到，即: 订单状态 `status` 为 `PICKUPCODE`
++ 从 [取货码订单](pickup_code_consume.md) 得到，即: 订单状态 `status` 为 `PICKUPCODE`
 
 `详单id`, 即 `records` 数组项中的 `id`
 
@@ -56,32 +56,32 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数       | 类型   | 说明                          | 必传 |
-| ---------- | ------ | ----------------------------- | ---- |
-| machine_no | string | 设备编号(定长8位数字字符串)   | ✓    |
-| method     | string | 固定值: `device.delivery.put` | ✓    |
-| order_id   | string | 订单id                        | ✓    |
-| record_id  | string | 详单id                        | ✓    |
-| timestamp  | string | 当前时间戳                    | ✓    |
+| 参数         | 类型     | 说明                         | 必传 |
+|------------|--------|----------------------------|----|
+| machine_no | string | 设备编号(定长8位数字字符串)            | ✓  |
+| method     | string | 固定值: `device.delivery.put` | ✓  |
+| order_id   | string | 订单id                       | ✓  |
+| record_id  | string | 详单id                       | ✓  |
+| timestamp  | string | 当前时间戳                      | ✓  |
 
 #### 注意 (payload参数类型: 字符串)
 
 ```json
 {
-	"machine_no": "********",
-	"method": "device.delivery.put",
-	"order_id": "60",
-	"record_id": "78",
-	"sign": "2457E8CE3CB49D31EC2054365FC8AD90",
-	"timestamp": "1714373688"
+  "machine_no": "********",
+  "method": "device.delivery.put",
+  "order_id": "60",
+  "record_id": "78",
+  "sign": "2457E8CE3CB49D31EC2054365FC8AD90",
+  "timestamp": "1714373688"
 }
 ```
 
-[参数加密](access_sign.md)
+[参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](support.md)。
+我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -178,36 +178,36 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数         | 类型   | 说明         | 必传 |
-| ------------ | ------ | ------------ | ---- |
-| delivery_id  | string | 出货事件id   | ✓    |
-| delivered_at | string | 出货时间     | ✓    |
-| status       | string | 状态说明     | ✓    |
-| pickup_at    | string | 出货完成时间 | -    |
-| fail_reason  | string | 出货失败原因 | -    |
+| 参数           | 类型     | 说明     | 必传 |
+|--------------|--------|--------|----|
+| delivery_id  | string | 出货事件id | ✓  |
+| delivered_at | string | 出货时间   | ✓  |
+| status       | string | 状态说明   | ✓  |
+| pickup_at    | string | 出货完成时间 | -  |
+| fail_reason  | string | 出货失败原因 | -  |
 
 ## 出货停留时间(针对出货状态)
 
 > 整个运行状态大概 500ms-1000ms
 
-部分机型不支持同时出货，因此会存在出货停留时间，即: 一台机器 从出货开始 到 出货结束 的生命周期内，无法触发下一个出货指令(包含 Message Queue Job)。
+部分机型不支持同时出货，因此会存在出货停留时间，即: 一台机器 从出货开始 到 出货结束 的生命周期内，无法触发下一个出货指令(包含
+Message Queue Job)。
 
 在出货结束(包含出货成功、出货失败)后，自动删除锁定状态，可以再次进入出货状态。
 
 默认: 45 秒
 
-| 类型   | 停留时间 | 说明                 |
-| ------ | -------- | -------------------- |
-| 电子锁 | 15秒     | 出货成功或失败即清除 |
-| 电机   | 30秒     | 出货成功或失败即清除 |
-| 履带   | 90秒     | 出货成功或失败即清除 |
+| 类型  | 停留时间 | 说明         |
+|-----|------|------------|
+| 电子锁 | 15秒  | 出货成功或失败即清除 |
+| 电机  | 30秒  | 出货成功或失败即清除 |
+| 履带  | 90秒  | 出货成功或失败即清除 |
 
 ### 出货成功或失败(必触发)
 
 在提交订单时，如果 `notify_url` 有值，则在状态变更时 会主动发送 `post` 请求到目标地址。
 
-[notify_url 回调](notify_url)
-
+[notify_url 回调](delivery_callback)
 
 ## 订单失败
 
@@ -215,7 +215,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 ## 请求结果(失败)
 
-根据返回的 [错误代码](error_code.md) 进行排查:
+根据返回的 [错误代码](../error_code.md) 进行排查:
 
 ```json
 {
@@ -225,7 +225,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 }
 ```
 
-
 ## 兜底
 
-在发出 `出货指令`，若设备正常反馈则进行出货结果通知。若出现不可抗力因素时，系统自动在120秒(自出货指令发出开始计时)后进行状态重置，设置出货超时，并通知给商户。
+在发出 `出货指令`，若设备正常反馈则进行出货结果通知。若出现不可抗力因素时，系统自动在120秒(自出货指令发出开始计时)
+后进行状态重置，设置出货超时，并通知给商户。
