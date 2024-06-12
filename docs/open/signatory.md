@@ -69,6 +69,12 @@ ewogICJtYWNoaW5lX25vIjoiODY2ODM4MDYyNTM3NTQiLAogICJzaWduIjoiMTg1M0MzRUFBNDdERkRG
 
 > `machine_no` 一般为 定长8位字符串数字, 8位以上字符串数字为特殊商户保留设备编号
 
+
+## 开源库
++ PHP [dsjsdz/signatory](https://packagist.org/packages/dsjsdz/signatory)
++ Go [go-pansy/pansy](https://github.com/go-pansy/pansy)
+
+
 ## 注意事项
 
 ::: tip
@@ -83,3 +89,4 @@ ewogICJtYWNoaW5lX25vIjoiODY2ODM4MDYyNTM3NTQiLAogICJzaWduIjoiMTg1M0MzRUFBNDdERkRG
 
 > 可参考[微信支付文档的验签算法](https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_3)
 > 亦可[使用微信验签在线工具测试生成的签名是否正确](https://pay.weixin.qq.com/wiki/tools/signverify/)
+
