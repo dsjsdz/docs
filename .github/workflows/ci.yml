@@ -69,12 +69,9 @@ jobs:
           src: './docs/.vitepress/dist/' # 修改 BUILD_PATH 为 dist，默认 build
           dest: 'root@${{ secrets.SSH_HOST }}:${{ steps.release-dir-path.outputs.dir }}'
 
-      - name: Send success message
-        uses: appleboy/telegram-action@master
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
-            🎉🎉🎉🎉🎉🎉🎉
-            文档部署成功!!!
-            Visit: https://dash.awish.vip/docs
+          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
