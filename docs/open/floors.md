@@ -15,10 +15,10 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数       | 类型   | 说明                        | 必传 |
-| ---------- | ------ | --------------------------- | ---- |
-| machine_no | string | 设备编号(定长8位数字字符串) | ✓    |
-| timestamp  | string | 当前时间戳                  | ✓    |
+| 参数         | 类型     | 说明              | 必传 |
+|------------|--------|-----------------|----|
+| machine_no | string | 设备编号(定长8位数字字符串) | ✓  |
+| timestamp  | string | 当前时间戳           | ✓  |
 
 [参数加密](signatory.md)
 
@@ -127,10 +127,11 @@ echo "Response HTTP : " . $response->getStatusCode();
       "channel": {
         "id": 213,
         "name": "A1",
-        "cabinet_name": "A"
+        "cabinet_name": "A",
+        "code": "000",
+        "row": "0",
+        "column": "0"
       },
-      "max_total": 1,
-      "max_stock": 1,
       "current_inventory": 1,
       "inventory": 2
     },
@@ -149,10 +150,11 @@ echo "Response HTTP : " . $response->getStatusCode();
       "channel": {
         "id": 214,
         "name": "A2",
-        "cabinet_name": "A"
+        "cabinet_name": "A",
+        "code": "001",
+        "row": "0",
+        "column": "1"
       },
-      "max_total": 1,
-      "max_stock": 1,
       "current_inventory": 1,
       "inventory": 2
     },
@@ -171,10 +173,11 @@ echo "Response HTTP : " . $response->getStatusCode();
       "channel": {
         "id": 223,
         "name": "B1",
-        "cabinet_name": "B"
+        "cabinet_name": "B",
+        "code": "200",
+        "row": "0",
+        "column": "0"
       },
-      "max_total": 1,
-      "max_stock": 1,
       "current_inventory": 1,
       "inventory": 2
     }
@@ -186,15 +189,15 @@ echo "Response HTTP : " . $response->getStatusCode();
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数              | 类型   | 说明                                                                | 必传 |
-| ----------------- | ------ | ------------------------------------------------------------------- | ---- |
-| floor_status      | string | 货道状态                                                            | ✓    |
-| channel           | object | [货道内容](products.md)                                             | ✓    |
-| good              | object | [商品信息](products.md)                                             | ✓    |
-| max_total         | int    | 最大容量                                                            | ✓    |
-| max_stock         | int    | 最大库存                                                            | ✓    |
-| current_inventory | int    | 当前库存(可销售数) <Badge type="danger" text="v1.2.3 新增字段" />   | ✓    |
-| inventory         | int    | 最大库存(补货最大值) <Badge type="danger" text="v1.2.3 新增字段" /> | ✓    |
+| 参数                                 | 类型     | 说明                        | 必传 |
+|------------------------------------|--------|---------------------------|----|
+| floor_status                       | string | 货道状态                      | ✓  |
+| channel                            | object | [货道内容](products.md#商品项说明) | ✓  |
+| good                               | object | [商品信息](products.md#商品项说明) | ✓  |
+| <s style="color:red">max_total</s> | int    | 最大容量                      | 废弃 |
+| <s style="color:red">max_stock</s> | int    | 最大库存                      | 废弃 |
+| current_inventory                  | int    | 当前库存                      | ✓  |
+| inventory                          | int    | 最大库存                      | ✓  |
 
 #### floor_status 货道状态值 参考:
 

@@ -132,10 +132,12 @@ echo "Response HTTP : " . $response->getStatusCode();
           "content": "<p>可口可乐</p>"
         },
         "channel": {
-          "name": "A20",
-          "cabinet_name": "A"
+          "name": "A21",
+          "cabinet_name": "A",
+          "code": "020",
+          "row": "2",
+          "column": "0"
         },
-        "max_total": 1,
         "current_inventory": 1,
         "inventory": 2
       }
@@ -189,10 +191,12 @@ echo "Response HTTP : " . $response->getStatusCode();
     "good_no": "**********"
   },
   "channel": {
-    "name": "A20",
-    "cabinet_name": "A"
+    "name": "A21",
+    "cabinet_name": "A",
+    "code": "020",
+    "row": "2",
+    "column": "0"
   },
-  "max_total": 1,
   "current_inventory": 1,
   "inventory": 2
 }
@@ -214,20 +218,20 @@ echo "Response HTTP : " . $response->getStatusCode();
   <tr>
     <td colspan="2">current_inventory</td>
     <td>int</td>
-    <td>当前库存(可销售数) <Badge type="danger" text="v1.2.3 新增字段" /></td>
+    <td>当前库存</td>
     <td>✓</td>
   </tr>
   <tr>
     <td colspan="2">inventory</td>
     <td>int</td>
-    <td>最大库存(补货最大值) <Badge type="danger" text="v1.2.3 新增字段" /></td>
+    <td>最大库存</td>
     <td>✓</td>
   </tr>
   <tr>
-    <td colspan="2">max_total</td>
+    <td colspan="2"><s style="color:red">max_total</s></td>
     <td>int</td>
-    <td>可使用容量(非库存)，默认等同于 current_inventory </td>
-    <td>✓</td>
+    <td>等于 <code>current_inventory</code> </td>
+    <td>废弃</td>
   </tr>
   <tr>
     <td rowspan="3">category</td>
@@ -304,7 +308,7 @@ echo "Response HTTP : " . $response->getStatusCode();
     <td>-</td>
   </tr>
   <tr>
-    <td rowspan="3">channel</td>
+    <td rowspan="6">channel</td>
     <td>-</td>
     <td>object</td>
     <td>货道信息</td>
@@ -319,7 +323,25 @@ echo "Response HTTP : " . $response->getStatusCode();
   <tr>
     <td>cabinet_name</td>
     <td>string</td>
-    <td>柜号 <Badge type="danger" text="v1.1.3 新增" /></td>
+    <td>柜号</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>code</td>
+    <td>string</td>
+    <td>电机号, 默认从000开始，即第一行第一列; 200, 为副柜第一行第一列 <Badge type="danger" text="v1.22.1.240905 新增" /></td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>row</td>
+    <td>string</td>
+    <td>行, 默认从0开始，即第一行 <Badge type="danger" text="v1.22.1.240905 新增" /></td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>column</td>
+    <td>string</td>
+    <td>列, 默认从0开始，即第一列 <Badge type="danger" text="v1.22.1.240905 新增" /></td>
     <td>✓</td>
   </tr>
 </table>
