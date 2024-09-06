@@ -142,6 +142,12 @@ echo "Response HTTP : " . $response->getStatusCode();
       "store_id": "505390*******",
       "status": "VERIFIED",
       "created_at": "2024-03-18 20:41:17"
+    },
+    "currency": {
+      "id": 3,
+      "name": "Euro",
+      "code": "EUR",
+      "symbol": "€"
     }
   }
 }
@@ -185,9 +191,18 @@ echo "Response HTTP : " . $response->getStatusCode();
 
 > `cabinet_names` 如果存在组合柜型(子母柜)等，则依次值为 `A`,`B` ...`Z`;
 
-> 最多支持12个组合柜(含主柜);
+> 最多支持7个组合柜(含主柜);
 
 > 其中`A`表示 主柜，简单柜子至少存在一个 `A`，此参数可使用在查询产品列表 [使用说明](products.md)。
+
+## 币种信息 <Badge type="danger" text="v1.22.1.240905 新增" />
+
+| 参数     | 类型     | 说明                  | 必传 |
+|--------|--------|---------------------|----|
+| id     | int    | 类型id                | ✓  |
+| name   | string | 名称, 如: Chinese Yuan | ✓  |
+| code   | string | 代码, 如: CNY          | ✓  |
+| symbol | string | 符号, 如: ¥            | ✓  |
 
 ## 请求结果(失败)
 

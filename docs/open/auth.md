@@ -37,6 +37,11 @@
 > 查看所有 [错误代码](../error_code.md)
 :::
 
+```
+请求方式(METHOD): POST
+请求路径(URL): {url}/api/openapi/v1/ping
+```
+
 ## 接口测试(ping)
 
 我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
