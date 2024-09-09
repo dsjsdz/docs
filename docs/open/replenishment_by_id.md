@@ -21,13 +21,14 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数         | 类型     | 说明                              | 必传 |
-|------------|--------|---------------------------------|----|
-| machine_no | string | 设备编号(定长8位数字字符串)                 | ✓  |
-| method     | string | 固定值: `replenishment.product.id` | ✓  |
-| product_id | string | 产品id                            | ✓  |
-| max_total  | string | 补货数量                            | ✓  |
-| timestamp  | string | 当前时间戳                           | ✓  |
+| 参数                | 类型     | 说明                                                                        | 必传 |
+|-------------------|--------|---------------------------------------------------------------------------|----|
+| machine_no        | string | 设备编号(定长8位数字字符串)                                                           | ✓  |
+| method            | string | 固定值: `replenishment.product.id`                                           | ✓  |
+| product_id        | string | 产品id                                                                      | ✓  |
+| max_total         | string | 补货数量 <Badge type="danger" text="v1.23.0 计划移除，请使用 current_inventory 替换" /> | ✓  |
+| current_inventory | string | 补货数量                                                                      | ✓  |
+| timestamp         | string | 当前时间戳                                                                     | ✓  |
 
 + ``max_total`` 补货数量, 不能大于 货道容量[设备所选类型](https://dash.awish.vip/dashboard/machines/model)
 + `补货数量` + `剩余容量` = `货道容量`
@@ -35,7 +36,7 @@
 ```json
 {
   "machine_no": "16****29",
-  "max_total": 20,
+  "current_inventory": "20",
   "method": "replenishment.product.id",
   "product_id": 1324832,
   "timestamp": "1714030791"
