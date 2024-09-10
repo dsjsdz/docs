@@ -124,7 +124,7 @@ echo "Response HTTP : " . $response->getStatusCode();
         "product_id": 121,
         "quantity": 1,
         "price": "1.00",
-        "status": "未取货",
+        "status": "IS_DELIVERING",
         "notify_sent": "1"
       },
       {
@@ -132,7 +132,7 @@ echo "Response HTTP : " . $response->getStatusCode();
         "product_id": 122,
         "quantity": 1,
         "price": "1.00",
-        "status": "未取货",
+        "status": "WAITING_PICKED_UP",
         "notify_sent": "0"
       },
       {
@@ -140,7 +140,7 @@ echo "Response HTTP : " . $response->getStatusCode();
         "product_id": 131,
         "quantity": 1,
         "price": "1.00",
-        "status": "未取货",
+        "status": "WAITING_PICKED_UP",
         "notify_sent": "0"
       }
     ]
@@ -173,6 +173,8 @@ REVOKED: 已撤销（付款码支付）
 USERPAYING: 用户支付中（付款码支付）
 PAYERROR: 支付失败(其他原因，如银行返回失败)
 PICKUPCODE: 取货码订单
+NOTPAY: 未支付
+TESTPAY: 测试订单
 ```
 
 ## 订单详细记录
@@ -186,8 +188,16 @@ PICKUPCODE: 取货码订单
 | status      | string | 状态(订单已支付时显示) | -  |
 | notify_sent | string | 是否推送了出货状态    | -  |
 
+#### status 取值说明
+
 ```
-status: 订单取消 | 已取货 | 未取货
+WAITING_PICKED_UP: 等待出货
+IS_PICKED_UP: 已取货
+IS_REFUND: 订单取消，退回
+IS_DELIVERING: 出货中
+IS_SUCCESS: 出货完成
+IS_FAILED: 出货失败
+IS_TIMEOUT: 出货超时
 ```
 
 ## 请求结果(失败)
