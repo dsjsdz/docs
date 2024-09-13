@@ -104,7 +104,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
     items: [
       {
         text: '设备管理',
-        link: ''
+        link: 'graphql/machine'
       },
       {
         text: '商品管理',

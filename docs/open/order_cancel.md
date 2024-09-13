@@ -4,4 +4,9 @@
 
 参考 [更新订单](order_update.md)，其中参数 `status` 设置 非 `1` 即可。
 
-平台会推送事件到 [`notify_url`](delivery_callback.md)。
+
+### 事件回调
+
+商户主动关闭订单，系统不会主动进行事件回调。{style="color: red"}
+
+其他情况（如： 出货失败失败导致订单失效），平台会推送事件到 [`notify_url`](delivery_callback.md)。
