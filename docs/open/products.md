@@ -14,15 +14,15 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数           | 类型     | 说明                                                                      | 必传 |
-|--------------|--------|-------------------------------------------------------------------------|----|
-| machine_no   | string | 设备编号(定长8位数字字符串)                                                         | ✓  |
-| page         | string | 分页, 默认: 1                                                               | ✓  |
-| per_page     | string | 分页大小, 默认: 10                                                            | -  |
-| category_id  | string | 商品分类, 默认: 0, 即查所有                                                       | -  |
-| cabinet_name | string | 柜号, 默认: A, 取值范围 [A-Z] <br />(v1.13.0新增) {style="color: green"}          | -  |
-| select_all   | string | 查询所有, 取值范围: ["0", "1"], 默认: "0"<br />(v1.24.0新增) {style="color: green"} | -  |
-| timestamp    | string | 当前时间戳                                                                   | ✓  |
+| 参数         | 类型   | 说明                                                                                | 必传 |
+| ------------ | ------ | ----------------------------------------------------------------------------------- | ---- |
+| machine_no   | string | 设备编号(定长8位数字字符串)                                                         | ✓    |
+| page         | string | 分页, 默认: 1                                                                       | ✓    |
+| per_page     | string | 分页大小, 默认: 10                                                                  | -    |
+| category_id  | string | 商品分类, 默认: 0, 即查所有                                                         | -    |
+| cabinet_name | string | 柜号, 默认: A, 取值范围 [A-Z] <br />(v1.13.0新增) {style="color: green"}            | -    |
+| select_all   | string | 查询所有, 取值范围: ["0", "1"], 默认: "0"<br />(v1.24.0新增) {style="color: green"} | -    |
+| timestamp    | string | 当前时间戳                                                                          | ✓    |
 
 [参数加密](signatory.md)
 
@@ -135,8 +135,9 @@ echo "Response HTTP : " . $response->getStatusCode();
           "name": "A21",
           "cabinet_name": "A",
           "code": "020",
-          "row": "2",
-          "column": "0"
+          "x": "2",
+          "y": "0",
+          "addr": 1,
         },
         "current_inventory": 1,
         "inventory": 2
@@ -154,13 +155,13 @@ echo "Response HTTP : " . $response->getStatusCode();
 注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
 :::
 
-| 参数           | 类型     | 说明   | 必传 |
-|--------------|--------|------|----|
-| data         | object | 产品内容 | ✓  |
-| total        | int    | 总记录数 | ✓  |
-| current_page | int    | 当前页码 | ✓  |
-| last_page    | int    | 最后一页 | ✓  |
-| per_page     | int    | 分页数  | ✓  |
+| 参数         | 类型   | 说明     | 必传 |
+| ------------ | ------ | -------- | ---- |
+| data         | object | 产品内容 | ✓    |
+| total        | int    | 总记录数 | ✓    |
+| current_page | int    | 当前页码 | ✓    |
+| last_page    | int    | 最后一页 | ✓    |
+| per_page     | int    | 分页数   | ✓    |
 
 ### 查询结果为空时，data 默认返回空数组
 
@@ -194,8 +195,9 @@ echo "Response HTTP : " . $response->getStatusCode();
     "name": "A21",
     "cabinet_name": "A",
     "code": "020",
-    "row": "2",
-    "column": "0"
+    "x": "2",
+    "y": "0",
+    "addr": 1,
   },
   "current_inventory": 1,
   "inventory": 2
@@ -308,7 +310,7 @@ echo "Response HTTP : " . $response->getStatusCode();
     <td>-</td>
   </tr>
   <tr>
-    <td rowspan="6">channel</td>
+    <td rowspan="7">channel</td>
     <td>-</td>
     <td>object</td>
     <td>货道信息</td>
@@ -333,15 +335,21 @@ echo "Response HTTP : " . $response->getStatusCode();
     <td>✓</td>
   </tr>
   <tr>
-    <td>row</td>
+    <td>x</td>
     <td>string</td>
     <td>行, 默认从0开始，即第一行 <Badge type="danger" text="v1.22.1.240905 新增" /></td>
     <td>✓</td>
   </tr>
   <tr>
-    <td>column</td>
+    <td>y</td>
     <td>string</td>
     <td>列, 默认从0开始，即第一列 <Badge type="danger" text="v1.22.1.240905 新增" /></td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>addr</td>
+    <td>int</td>
+    <td>从机地址, 默认从1开始，即第一个驱动板 <Badge type="danger" text="v1.23.0 新增" /></td>
     <td>✓</td>
   </tr>
 </table>
