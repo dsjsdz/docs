@@ -21,15 +21,18 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数                | 类型     | 说明                                                                        | 必传 |
-|-------------------|--------|---------------------------------------------------------------------------|----|
-| machine_no        | string | 设备编号(定长8位数字字符串)                                                           | ✓  |
-| method            | string | 固定值: `replenishment.category.id`                                          | ✓  |
-| category_id       | string | 分类id                                                                      | ✓  |
-| max_total         | string | 补货数量 <Badge type="danger" text="v1.23.0 计划移除，请使用 current_inventory 替换" /> | ✓  |
-| current_inventory | string | 补货数量                                                                      | ✓  |
-| cabinet_name      | string | 默认：`A`, 取值范围: [A-Z]                                                       | ✓  |
-| timestamp         | string | 当前时间戳                                                                     | ✓  |
+| 参数              | 类型   | 说明                                                                                            | 必传 |
+| ----------------- | ------ | ----------------------------------------------------------------------------------------------- | ---- |
+| machine_no        | string | 设备编号(定长8位数字字符串)                                                                     | ✓    |
+| method            | string | 固定值: `replenishment.category.id`                                                             | ✓    |
+| category_id       | string | 分类id                                                                                          | ✓    |
+| max_total         | string | 补货数量 <Badge type="danger" text="v1.23.0 计划移除，请使用 current_inventory 替换" />         | ✓    |
+| current_inventory | string | 补货数量                                                                                        | ✓    |
+| cabinet_name      | string | 默认：`A`, 取值范围: [A-Z]                                                                      | ✓    |
+| addr              | string | 从机地址, 如: "1", 即第一块驱动器, 取值范围 ["1"-"8"] <br /> (v1.25.0新增) {style="color: red"} | -    |
+| timestamp         | string | 当前时间戳                                                                                      | ✓    |
+
+#### `cabinet_name`, `addr` 不可同时传参{style="color: red"}
 
 + ``max_total`` 补货数量, 不能大于 货道容量[设备所选类型](https://dash.awish.vip/dashboard/machines/model)
 + `补货数量` + `剩余容量` = `货道容量`

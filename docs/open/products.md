@@ -14,15 +14,18 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数         | 类型   | 说明                                                                                | 必传 |
-| ------------ | ------ | ----------------------------------------------------------------------------------- | ---- |
-| machine_no   | string | 设备编号(定长8位数字字符串)                                                         | ✓    |
-| page         | string | 分页, 默认: 1                                                                       | ✓    |
-| per_page     | string | 分页大小, 默认: 10                                                                  | -    |
-| category_id  | string | 商品分类, 默认: 0, 即查所有                                                         | -    |
-| cabinet_name | string | 柜号, 默认: A, 取值范围 [A-Z] <br />(v1.13.0新增) {style="color: green"}            | -    |
-| select_all   | string | 查询所有, 取值范围: ["0", "1"], 默认: "0"<br />(v1.24.0新增) {style="color: green"} | -    |
-| timestamp    | string | 当前时间戳                                                                          | ✓    |
+| 参数         | 类型   | 说明                                                                                            | 必传 |
+| ------------ | ------ | ----------------------------------------------------------------------------------------------- | ---- |
+| machine_no   | string | 设备编号(定长8位数字字符串)                                                                     | ✓    |
+| page         | string | 分页, 默认: 1                                                                                   | ✓    |
+| per_page     | string | 分页大小, 默认: 10                                                                              | -    |
+| category_id  | string | 商品分类, 默认: 0, 即查所有                                                                     | -    |
+| cabinet_name | string | 柜号, 默认: A, 取值范围 [A-Z] <br />(v1.13.0新增)                                               | -    |
+| select_all   | string | 查询所有, 取值范围: ["0", "1"], 默认: "0"                                                       | -    |
+| addr         | string | 从机地址, 如: "1", 即第一块驱动器, 取值范围 ["1"-"8"] <br /> (v1.25.0新增) {style="color: red"} | -    |
+| timestamp    | string | 当前时间戳                                                                                      | ✓    |
+
+#### `cabinet_name`, `addr` 不可同时传参{style="color: red"}
 
 [参数加密](signatory.md)
 

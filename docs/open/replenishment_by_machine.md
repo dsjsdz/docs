@@ -19,12 +19,15 @@
 
 ### <Badge type="danger" text="Payload" />
 
-| 参数           | 类型     | 说明                               | 必传 |
-|--------------|--------|----------------------------------|----|
-| machine_no   | string | 设备编号(定长8位数字字符串)                  | ✓  |
-| method       | string | 固定值: `replenishment.machine.all` | ✓  |
-| cabinet_name | string | 默认：`A`, 取值范围: [A-Z]              | ✓  |
-| timestamp    | string    | 当前时间戳                            | ✓  |
+| 参数         | 类型   | 说明                                                                                            | 必传 |
+| ------------ | ------ | ----------------------------------------------------------------------------------------------- | ---- |
+| machine_no   | string | 设备编号(定长8位数字字符串)                                                                     | ✓    |
+| method       | string | 固定值: `replenishment.machine.all`                                                             | ✓    |
+| cabinet_name | string | 默认：`A`, 取值范围: [A-Z]                                                                      | ✓    |
+| addr         | string | 从机地址, 如: "1", 即第一块驱动器, 取值范围 ["1"-"8"] <br /> (v1.25.0新增) {style="color: red"} | -    |
+| timestamp    | string | 当前时间戳                                                                                      | ✓    |
+
+#### `cabinet_name`, `addr` 不可同时传参{style="color: red"}
 
 ``cabinet_name`` 柜名，默认：A，即主柜。
 
