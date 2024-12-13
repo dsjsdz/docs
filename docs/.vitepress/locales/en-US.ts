@@ -1,4 +1,4 @@
-import { defineConfig, type DefaultTheme } from 'vitepress'
+import { type DefaultTheme, defineConfig } from 'vitepress'
 
 // [document](https://devonline.net/technology/learn/esm-require.html)
 import * as app from '../../../package.json'
@@ -17,6 +17,17 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
     items: [
       { text: 'Guide', link: 'guide' },
       { text: 'Getting Started', link: 'getting-started' }
+    ]
+  },
+  {
+    text: 'Build App',
+    collapsed: false,
+    items: [
+      { text: 'Project Started', link: 'build-app/getting-started' },
+      { text: 'Jar File Config', link: 'build-app/jar-file-config' },
+      { text: 'Main Activity', link: 'build-app/main-activity' },
+      { text: 'ZC Methods', link: 'build-app/zc-api' },
+      { text: 'USDK Methods', link: 'build-app/usdk-api' }
     ]
   },
   {
