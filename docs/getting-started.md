@@ -1,19 +1,22 @@
 # 快速开始
 
+我们约定使用 `protobuf` 对数据进行序列化传输。
+
 ### 为了方便商户管理设备，同时进行收益数据分析，我们提供了后台管理系统。
 
 对于一些具有能力 <b>二次开发</b> 的商户，我们也提供了API数字化驱动服务，为此提供了多种接口方式接入我们系统，以便于联动使用我们的服务。
 
-我们目前对外提供的服务方式包括以下: [`RESTful API`](restful.md)、[`Open API`](open/index.md)、[`GraphQL API`](graphql/index.md)。
+我们目前对外提供的服务方式包括以下: [`RESTful API`](restful.md)、[`Open API`](open/index.md)、[
+`GraphQL API`](graphql/index.md)。
 
-| 请求方式    | 能力     | 适用场景         |
-| ----------- | -------- | ---------------- |
-| RESTful API | 全模块   | Web、小程序、APP |
-| Open API    | 部分模块 | 小程序、APP      |
-| GraphQL API | 部分模块 | APP              |
-
+| 请求方式        | 能力   | 适用场景        |
+|-------------|------|-------------|
+| RESTful API | 全模块  | Web、小程序、APP |
+| Open API    | 部分模块 | 小程序、APP     |
+| GraphQL API | 部分模块 | APP(开发阶段)   |
 
 ## 差异
+
 + `RESTful API` 能力支持全模块，我司提供的小程序、H5网页支持全模块能力调用。
 + `Open API` 由商户自行接入，我司提供部门功能的接口能力，由商户自行对接API驱动服务。
 + `GraphQL API` 我司提供的APP应用无缝驱动服务。

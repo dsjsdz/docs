@@ -29,14 +29,9 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   },
 
   {
-    text: 'RESTful API',
-    link: 'restful'
-  },
-
-  {
     text: 'Open API',
     link: '',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: '接口约定', link: 'open/protocol' },
       { text: '接口认证', link: 'open/auth' },
@@ -94,49 +89,6 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '整柜补货', link: 'open/replenishment_by_machine' }
         ]
       }
-    ]
-  },
-
-  {
-    text: 'GraphQL API',
-    link: 'graphql/index',
-    collapsed: false,
-    items: [
-      {
-        text: '设备管理',
-        link: 'graphql/machine'
-      },
-      {
-        text: '商品管理',
-        link: ''
-      },
-      {
-        text: '订单管理',
-        link: ''
-      },
-      {
-        text: '广告管理',
-        link: ''
-      },
-      {
-        text: '优惠券/活动',
-        link: ''
-      }
-    ]
-  },
-
-  {
-    text: '云管理系统',
-    link: 'management/index',
-    collapsed: false,
-    items: [
-      { text: '登入系统', link: '' },
-      { text: '创建商户', link: '' },
-      { text: '加入商户', link: '' },
-      { text: '设备模型', link: '' },
-      { text: '设备管理', link: '' },
-      { text: '产品管理', link: '' },
-      { text: '商品管理', link: '' }
     ]
   },
 
