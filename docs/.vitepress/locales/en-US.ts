@@ -26,9 +26,37 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       { text: 'Project Started', link: 'build-app/getting-started' },
       { text: 'Jar File Config', link: 'build-app/jar-file-config' },
       { text: 'Main Activity', link: 'build-app/main-activity' },
-      { text: 'ZC Methods', link: 'build-app/zc-api' },
+      {
+        text: 'ZC Jar Methods',
+        link: 'zc/index',
+        collapsed: false,
+        items: [
+          { text: 'shutdown', link: 'zc/shutdown' },
+          { text: 'reboot', link: 'zc/reboot' },
+          { text: 'setPowerOnOffTime', link: 'zc/setpoweronofftime' },
+          { text: 'getBuildModel', link: 'zc/getbuildmodel' },
+          { text: 'getBuildSerial', link: 'zc/getbuildserial' },
+          { text: 'setStatusBar', link: 'zc/setstatusBar' },
+          { text: 'setGestureStatusBar', link: 'zc/setgesturestatusbar' }
+        ]
+      },
       { text: 'Serial Communication', link: 'build-app/serial-api' },
-      { text: 'USDK Methods', link: 'build-app/usdk-api' }
+      {
+        text: 'USDK Jar Methods',
+        collapsed: false,
+        link: 'usdk/index',
+        items: [
+          {
+            text: 'UBoard Class',
+            link: 'uboard/index',
+            collapsed: false,
+            items: [
+              { text: 'EF_OpenDev', link: 'uboard/ef-opendev' },
+              { text: 'EF_CloseDev', link: 'uboard/ef-closedev' }
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -47,7 +75,7 @@ export const enUS = defineConfig({
   lang: 'en-US',
   description: 'Dingshang Metal Products Co., Ltd., creating intelligent business terminals exclusively for you.',
   head: [
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '../images/favicon.ico' }]
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '../../images/favicon.ico' }]
   ],
   themeConfig: {
     nav: Nav,
