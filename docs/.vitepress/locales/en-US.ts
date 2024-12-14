@@ -66,7 +66,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           }
         ]
       },
-      { text: 'Lango Jar', link: 'lango/index' }
+      { text: 'Lango Jar', link: 'lango/index' },
+      { text: 'AndroidManifest Config', link: 'build-app/android-manifest' }
     ]
   },
   {
