@@ -24,11 +24,11 @@ class MainActivity : ComponentActivity() {
 |--------------------------------------------------|-----------------------------------------------------|
 | [shutdown](../zc/shutdown)                       | Shut down your vending machine                      |
 | [reboot](../zc/reboot)                           | Reboot your vending machine                         |
-| [setPowerOnOffTime](../zc/setpoweronofftime)     | Scheduled Power On/Off                              |
-| [getBuildModel](../zc/getbuildmodel)             | Get the Board Model Number                          |
-| [getBuildSerial](../zc/getbuildserial)           | Get the Board Serial Number (SN)                    |
-| [setStatusBar](../zc/setstatusBar)               | Hide Or Show the Navigation Bar and Status Bar.     |
-| [setGestureStatusBar](../zc/setgesturestatusbar) | Allow or Disable Swipe to Pull Down the Status Bar. |
+| [setPowerOnOffTime](../zc/setPowerOnOffTime)     | Scheduled Power On/Off                              |
+| [getBuildModel](../zc/getBuildModel)             | Get the Board Model Number                          |
+| [getBuildSerial](../zc/getBuildSerial)           | Get the Board Serial Number (SN)                    |
+| [setStatusBar](../zc/setStatusBar)               | Hide Or Show the Navigation Bar and Status Bar.     |
+| [setGestureStatusBar](../zc/setGestureStatusBar) | Allow or Disable Swipe to Pull Down the Status Bar. |
 
 The above are the commonly used methods. For more details on other methods, you can click the JAR file to view further
 information.

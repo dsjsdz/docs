@@ -33,11 +33,11 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         items: [
           { text: 'shutdown', link: 'zc/shutdown' },
           { text: 'reboot', link: 'zc/reboot' },
-          { text: 'setPowerOnOffTime', link: 'zc/setpoweronofftime' },
-          { text: 'getBuildModel', link: 'zc/getbuildmodel' },
-          { text: 'getBuildSerial', link: 'zc/getbuildserial' },
-          { text: 'setStatusBar', link: 'zc/setstatusBar' },
-          { text: 'setGestureStatusBar', link: 'zc/setgesturestatusbar' }
+          { text: 'setPowerOnOffTime', link: 'zc/setPowerOnOffTime' },
+          { text: 'getBuildModel', link: 'zc/getBuildModel' },
+          { text: 'getBuildSerial', link: 'zc/getBuildSerial' },
+          { text: 'setStatusBar', link: 'zc/setStatusBar' },
+          { text: 'setGestureStatusBar', link: 'zc/setGestureStatusBar' }
         ]
       },
       { text: 'Serial Communication', link: 'build-app/serial-api' },
@@ -51,8 +51,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
             link: 'uboard/index',
             collapsed: false,
             items: [
-              { text: 'EF_OpenDev', link: 'uboard/ef-opendev' },
-              { text: 'EF_CloseDev', link: 'uboard/ef-closedev' }
+              { text: 'EF_OpenDev', link: 'uboard/EF_OpenDev' },
+              { text: 'EF_CloseDev', link: 'uboard/EF_CloseDev' }
             ]
           }
         ]
