@@ -27,6 +27,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       { text: 'Jar File Config', link: 'build-app/jar-file-config' },
       { text: 'Main Activity', link: 'build-app/main-activity' },
       { text: 'ZC Methods', link: 'build-app/zc-api' },
+      { text: 'Serial Communication', link: 'build-app/serial-api' },
       { text: 'USDK Methods', link: 'build-app/usdk-api' }
     ]
   },

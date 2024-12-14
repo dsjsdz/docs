@@ -9,8 +9,12 @@ class MainActivity : ComponentActivity() {
     // init zcapi
     // public or private
     private var displayer = zcapi()
-    
-    // ...
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        // setting context
+        this.displayer.getContext(applicationContext)
+        // ...
+    }
 }
 ```
 
@@ -178,4 +182,4 @@ class MainActivity : ComponentActivity() {
 }
 ```
 
-### For serial communication, you can refer to the initialization of the usdk.
+### For [serial communication](serial-api), you can refer to the initialization of the usdk.
