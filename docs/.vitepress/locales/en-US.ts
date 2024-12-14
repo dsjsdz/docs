@@ -52,7 +52,16 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
             collapsed: false,
             items: [
               { text: 'EF_OpenDev', link: 'uboard/EF_OpenDev' },
-              { text: 'EF_CloseDev', link: 'uboard/EF_CloseDev' }
+              { text: 'EF_CloseDev', link: 'uboard/EF_CloseDev' },
+              { text: 'readHardwareConfig', link: 'uboard/readHardwareConfig' },
+              { text: 'GetSoftwareVersion', link: 'uboard/GetSoftwareVersion' },
+              { text: 'getMinPayoutAmount', link: 'uboard/getMinPayoutAmount' },
+              { text: 'ageVerification', link: 'uboard/ageVerification' },
+              { text: 'GetDropStatus', link: 'uboard/GetDropStatus' },
+              { text: 'Shipment', link: 'uboard/Shipment' },
+              { text: 'ReadTemp', link: 'uboard/ReadTemp' },
+              { text: 'GetBoxStatus', link: 'uboard/GetBoxStatus' },
+              { text: 'ResetLift', link: 'uboard/ResetLift' }
             ]
           }
         ]
