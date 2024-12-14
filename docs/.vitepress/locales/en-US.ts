@@ -26,8 +26,47 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       { text: 'Project Started', link: 'build-app/getting-started' },
       { text: 'Jar File Config', link: 'build-app/jar-file-config' },
       { text: 'Main Activity', link: 'build-app/main-activity' },
-      { text: 'ZC Methods', link: 'build-app/zc-api' },
-      { text: 'USDK Methods', link: 'build-app/usdk-api' }
+      {
+        text: 'ZC Jar Methods',
+        link: 'zc/index',
+        collapsed: false,
+        items: [
+          { text: 'shutdown', link: 'zc/shutdown' },
+          { text: 'reboot', link: 'zc/reboot' },
+          { text: 'setPowerOnOffTime', link: 'zc/setPowerOnOffTime' },
+          { text: 'getBuildModel', link: 'zc/getBuildModel' },
+          { text: 'getBuildSerial', link: 'zc/getBuildSerial' },
+          { text: 'setStatusBar', link: 'zc/setStatusBar' },
+          { text: 'setGestureStatusBar', link: 'zc/setGestureStatusBar' }
+        ]
+      },
+      { text: 'Serial Communication', link: 'build-app/serial-api' },
+      {
+        text: 'USDK Jar Methods',
+        collapsed: false,
+        link: 'usdk/index',
+        items: [
+          {
+            text: 'UBoard Class',
+            link: 'uboard/index',
+            collapsed: false,
+            items: [
+              { text: 'EF_OpenDev', link: 'uboard/EF_OpenDev' },
+              { text: 'EF_CloseDev', link: 'uboard/EF_CloseDev' },
+              { text: 'readHardwareConfig', link: 'uboard/readHardwareConfig' },
+              { text: 'GetSoftwareVersion', link: 'uboard/GetSoftwareVersion' },
+              { text: 'getMinPayoutAmount', link: 'uboard/getMinPayoutAmount' },
+              { text: 'ageVerification', link: 'uboard/ageVerification' },
+              { text: 'GetDropStatus', link: 'uboard/GetDropStatus' },
+              { text: 'Shipment', link: 'uboard/Shipment' },
+              { text: 'ReadTemp', link: 'uboard/ReadTemp' },
+              { text: 'GetBoxStatus', link: 'uboard/GetBoxStatus' },
+              { text: 'ResetLift', link: 'uboard/ResetLift' }
+            ]
+          }
+        ]
+      },
+      { text: 'Lango Jar', link: 'lango/index' }
     ]
   },
   {
@@ -46,7 +85,7 @@ export const enUS = defineConfig({
   lang: 'en-US',
   description: 'Dingshang Metal Products Co., Ltd., creating intelligent business terminals exclusively for you.',
   head: [
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '../images/favicon.ico' }]
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '../../images/favicon.ico' }]
   ],
   themeConfig: {
     nav: Nav,
