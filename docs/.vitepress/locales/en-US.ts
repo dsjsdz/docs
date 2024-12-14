@@ -56,7 +56,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
             ]
           }
         ]
-      }
+      },
+      { text: 'Lango Jar', link: 'lango/index' }
     ]
   },
   {
