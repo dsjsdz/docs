@@ -67,7 +67,9 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         ]
       },
       { text: 'Lango Jar', link: 'lango/index' },
-      { text: 'AndroidManifest Config', link: 'build-app/android-manifest' }
+      { text: 'AndroidManifest Config', link: 'build-app/android-manifest' },
+      { text: 'Advanced Usage', link: 'build-app/advanced-usage' },
+      { text: 'Sqldelight Usage', link: 'build-app/sqldelight' }
     ]
   },
   {
