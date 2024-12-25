@@ -6,14 +6,44 @@ Open the `MainActivity.kt` file in your IDE, and you can start editing the code.
 
 ![MainActivity](/images/1c0b68c8-cb95-409f-bc09-8072fc37ecc5.png)
 
-### com.zcapi
+## Android Motherboard
 
-This package is the core file that drives the touchscreen interface (Android system).
+<table>
+    <thead>
+        <tr>
+            <td>No</td>
+            <td>Image</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>YS Series</td>
+            <td>
+                <img src="/images/1667464924237976.png" alt="1667464924237976" />
+            </td>
+            <td>mainly</td>
+        </tr>
+        <tr>
+            <td>ZC Series</td>
+            <td>
+                <img src="/images/zc-328.png" alt="zc-328" />
+            </td>
+            <td>secondly</td>
+        </tr>
+        <tr>
+            <td>Lango Series</td>
+            <td>
+               None
+            </td>
+            <td>alternative</td>
+        </tr>
+    </tbody>
+</table>
 
-![zc-328](/images/zc-328.png)
 The above images are for reference only, and some models may differ.
 
-### cc.uling.usdk.USDK
+## USDK
 
 This package is the core file that drives the vending machine device.
 

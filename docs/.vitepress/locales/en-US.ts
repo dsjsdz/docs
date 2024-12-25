@@ -27,20 +27,31 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       { text: 'Jar File Config', link: 'build-app/jar-file-config' },
       { text: 'Main Activity', link: 'build-app/main-activity' },
       {
-        text: 'ZC Jar Methods',
-        link: 'zc/index',
+        text: 'Android Motherboard',
         collapsed: false,
         items: [
-          { text: 'shutdown', link: 'zc/shutdown' },
-          { text: 'reboot', link: 'zc/reboot' },
-          { text: 'setPowerOnOffTime', link: 'zc/setPowerOnOffTime' },
-          { text: 'getBuildModel', link: 'zc/getBuildModel' },
-          { text: 'getBuildSerial', link: 'zc/getBuildSerial' },
-          { text: 'setStatusBar', link: 'zc/setStatusBar' },
-          { text: 'setGestureStatusBar', link: 'zc/setGestureStatusBar' }
+          {
+            text: 'YS-F88 Series',
+            link: 'YS-F88/index'
+          },
+          {
+            text: 'ZC 3288 Series',
+            link: 'zc/index',
+            collapsed: false,
+            items: [
+              { text: 'shutdown', link: 'zc/shutdown' },
+              { text: 'reboot', link: 'zc/reboot' },
+              { text: 'setPowerOnOffTime', link: 'zc/setPowerOnOffTime' },
+              { text: 'getBuildModel', link: 'zc/getBuildModel' },
+              { text: 'getBuildSerial', link: 'zc/getBuildSerial' },
+              { text: 'setStatusBar', link: 'zc/setStatusBar' },
+              { text: 'setGestureStatusBar', link: 'zc/setGestureStatusBar' },
+              { text: 'Serial Communication', link: 'build-app/serial-api' }
+            ]
+          },
+          { text: 'Lango Series', link: 'lango/index' }
         ]
       },
-      { text: 'Serial Communication', link: 'build-app/serial-api' },
       {
         text: 'USDK Jar Methods',
         collapsed: false,
@@ -66,7 +77,6 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           }
         ]
       },
-      { text: 'Lango Jar', link: 'lango/index' },
       { text: 'AndroidManifest Config', link: 'build-app/android-manifest' },
       { text: 'Advanced Usage', link: 'build-app/advanced-usage' },
       { text: 'Sqldelight Usage', link: 'build-app/sqldelight' }
@@ -87,9 +97,7 @@ export const enUS = defineConfig({
   title: 'DingShang',
   lang: 'en-US',
   description: 'Dingshang Metal Products Co., Ltd., creating intelligent business terminals exclusively for you.',
-  head: [
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '../../images/favicon.ico' }]
-  ],
+  head: [['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '../../images/favicon.ico' }]],
   themeConfig: {
     nav: Nav,
     sidebar: {

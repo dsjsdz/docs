@@ -2,9 +2,9 @@
 
 The base class for all UBoard communication parameter data.
 
-### BaseClsPar.isOK()
+## BaseClsPar.isOK()
 
-| Return value | description                                                                              | 
+| Return value | description                                                                              |
 |--------------|------------------------------------------------------------------------------------------|
 | True         | Indicates that the data request is normal.                                               |
 | False        | Indicates that the data transmission failed or there was an exception during processing. |
@@ -26,7 +26,7 @@ fun your_method() {
 
 ### BaseClsPar.getResultCode()
 
-| Return value | description                                              | 
+| Return value | description                                              |
 |--------------|----------------------------------------------------------|
 | 0            | The request is normal with no errors.                    |
 | 201          | Failed to open the serial port.                          |
@@ -56,7 +56,7 @@ var commid = "/dev/ttyS0"
 USDK.getInstance().create(commid)
 ```
 
-| method                                        | description                                                | 
+| method                                        | description                                                |
 |-----------------------------------------------|------------------------------------------------------------|
 | [EF_OpenDev](./EF_OpenDev)                    | Open the serial port                                       |
 | [EF_CloseDev](./EF_CloseDev)                  | Reboot your vending machine                                |
