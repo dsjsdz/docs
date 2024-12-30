@@ -93,6 +93,14 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   },
 
   {
+    text: '平台使用',
+    collapsed: false,
+    items: [
+      { text: '告警配置', link: 'platform/index' }
+    ]
+  },
+
+  {
     text: '联系我们',
     collapsed: false,
     items: [
