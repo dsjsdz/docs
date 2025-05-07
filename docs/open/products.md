@@ -6,32 +6,32 @@
 请求接口`(Header)`必须携带参数，`Appid`、`AppSecret`
 :::
 
-```
+```text
 请求方式(METHOD): POST
 请求路径(URL): {url}/api/openapi/v1/products
 请求参数(Argsments): payload: base64code
 ```
 
-### <Badge type="danger" text="Payload" />
+## <Badge type="danger" text="Payload" />
 
-| 参数         | 类型   | 说明                                                                                            | 必传 |
-| ------------ | ------ | ----------------------------------------------------------------------------------------------- | ---- |
-| machine_no   | string | 设备编号(定长8位数字字符串)                                                                     | ✓    |
-| page         | string | 分页, 默认: 1                                                                                   | ✓    |
-| per_page     | string | 分页大小, 默认: 10                                                                              | -    |
-| category_id  | string | 商品分类, 默认: 0, 即查所有                                                                     | -    |
-| cabinet_name | string | 柜号, 默认: A, 取值范围 [A-Z] <br />(v1.13.0新增)                                               | -    |
-| select_all   | string | 查询所有, 取值范围: ["0", "1"], 默认: "0"                                                       | -    |
-| addr         | string | 从机地址, 如: "1", 即第一块驱动器, 取值范围 ["1"-"8"] <br /> (v1.25.0新增) {style="color: red"} | -    |
-| timestamp    | string | 当前时间戳                                                                                      | ✓    |
+| 参数         | 类型   | 说明                                                                                             | 必传 |
+| ------------ | ------ | ------------------------------------------------------------------------------------------------ | ---- |
+| machine_no   | string | 设备编号(定长 8 位数字字符串)                                                                    | ✓    |
+| page         | string | 分页, 默认: 1                                                                                    | ✓    |
+| per_page     | string | 分页大小, 默认: 10                                                                               | -    |
+| category_id  | string | 商品分类, 默认: 0, 即查所有                                                                      | -    |
+| cabinet_name | string | 柜号, 默认: A, 取值范围 [A-Z] <br />(v1.13.0 新增)                                               | -    |
+| select_all   | string | 查询所有, 取值范围: ["0", "1"], 默认: "0"                                                        | -    |
+| addr         | string | 从机地址, 如: "1", 即第一块驱动器, 取值范围 ["1"-"8"] <br /> (v1.25.0 新增) {style="color: red"} | -    |
+| timestamp    | string | 当前时间戳                                                                                       | ✓    |
 
-#### `cabinet_name`, `addr` 不可同时传参{style="color: red"}
+## `cabinet_name`, `addr` 不可同时传参{style="color: red"}
 
 [参数加密](signatory.md)
 
 ## 对接示例
 
-我们为您提供了2种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
+我们为您提供了 2 种语言 `GO`,`PHP` 的对接示例，如果您需要其他语言示例，请 [联系我们](../support.md)。
 
 ::: tip
 
@@ -42,44 +42,44 @@
 package main
 
 import (
-	"fmt"
-	"io"
-	"net/http"
+ "fmt"
+ "io"
+ "net/http"
 )
 
-func main() {	
+func main() {
     json := []byte(`{"payload": "eyJjYXRlZ29yeV9pZCI6MSwibWFjaGluZV*****iLCJwYWdlIjoxLCJwZXJfcGFnZSI6MTAsInNpZ24iOiIyMTlDMTZCREY0MkQzNjY4RkY1Qjg1QTMwRkU5N0Y1NCIsInRpbWVzdGFtcCI6IjE3MTMyNTU0MTEifQ=="}`)
-	body := bytes.NewBuffer(json)
-	
-	// Create client
-	client := &http.Client{}
+ body := bytes.NewBuffer(json)
 
-	// Create request
-	req, err := http.NewRequest("POST", "{url}/api/openapi/v1/products", body)
+ // Create client
+ client := &http.Client{}
 
-	// Headers
-	req.Header.Add("Appid", "ds*******")
-	req.Header.Add("AppSecret", "********")
+ // Create request
+ req, err := http.NewRequest("POST", "{url}/api/openapi/v1/products", body)
 
-	parseFormErr := req.ParseForm()
-	if parseFormErr != nil {
-	  fmt.Println(parseFormErr)    
-	}
+ // Headers
+ req.Header.Add("Appid", "ds*******")
+ req.Header.Add("AppSecret", "********")
 
-	// Fetch Request
-	resp, err := client.Do(req)
-	
-	if err != nil {
-		fmt.Println("Failure : ", err)
-	}
+ parseFormErr := req.ParseForm()
+ if parseFormErr != nil {
+   fmt.Println(parseFormErr)
+ }
 
-	// Read Response Body
-	respBody, _ := io.ReadAll(resp.Body)
+ // Fetch Request
+ resp, err := client.Do(req)
 
-	// Display Results
-	fmt.Println("response Status : ", resp.Status)
-	fmt.Println("response Headers : ", resp.Header)
-	fmt.Println("response Body : ", string(respBody))
+ if err != nil {
+  fmt.Println("Failure : ", err)
+ }
+
+ // Read Response Body
+ respBody, _ := io.ReadAll(resp.Body)
+
+ // Display Results
+ fmt.Println("response Status : ", resp.Status)
+ fmt.Println("response Headers : ", resp.Header)
+ fmt.Println("response Body : ", string(respBody))
 }
 ```
 
@@ -132,7 +132,9 @@ echo "Response HTTP : " . $response->getStatusCode();
           "thumb": "{url}/storage/BkGv6Ij4Am/80b306a1-52db-4694-8de9-45181cc590be.png",
           "price": "0.10",
           "original_price": "0.00",
-          "content": "<p>可口可乐</p>"
+          "content": "<p>可口可乐</p>",
+          "good_no": "412883701240",
+          "slug": "412883701240"
         },
         "channel": {
           "name": "A21",
@@ -140,7 +142,7 @@ echo "Response HTTP : " . $response->getStatusCode();
           "code": "020",
           "x": "2",
           "y": "0",
-          "addr": 1,
+          "addr": 1
         },
         "current_inventory": 1,
         "inventory": 2
@@ -155,7 +157,7 @@ echo "Response HTTP : " . $response->getStatusCode();
 ```
 
 :::tip
-注意: 因接口返回的字段使用 ``protobuf``, 部分字段值为空 或 false 时，默认不传
+注意: 因接口返回的字段使用 `protobuf`, 部分字段值为空 或 false 时，默认不传
 :::
 
 | 参数         | 类型   | 说明     | 必传 |
@@ -192,7 +194,8 @@ echo "Response HTTP : " . $response->getStatusCode();
     "price": "0.10",
     "original_price": "0.00",
     "content": "<p>可口可乐</p>",
-    "good_no": "**********"
+    "good_no": "412883701240",
+    "slug": "412883701240"
   },
   "channel": {
     "name": "A21",
@@ -200,7 +203,7 @@ echo "Response HTTP : " . $response->getStatusCode();
     "code": "020",
     "x": "2",
     "y": "0",
-    "addr": 1,
+    "addr": 1
   },
   "current_inventory": 1,
   "inventory": 2
@@ -231,12 +234,6 @@ echo "Response HTTP : " . $response->getStatusCode();
     <td>int</td>
     <td>最大库存</td>
     <td>✓</td>
-  </tr>
-  <tr>
-    <td colspan="2"><s style="color:red">max_total</s></td>
-    <td>int</td>
-    <td>等于 <code>current_inventory</code> </td>
-    <td>废弃</td>
   </tr>
   <tr>
     <td rowspan="3">category</td>
@@ -303,7 +300,13 @@ echo "Response HTTP : " . $response->getStatusCode();
   <tr>
     <td>good_no</td>
     <td>string</td>
-    <td>商品编码 <Badge type="danger" text="v1.2.2 新增字段" /></td>
+    <td>商品编码</td>
+    <td>✓</td>
+  </tr>
+  <tr>
+    <td>slug</td>
+    <td>string</td>
+    <td>商品编码 <Badge type="danger" text="v1.2.3 新增字段" /></td>
     <td>✓</td>
   </tr>
   <tr>
@@ -334,25 +337,25 @@ echo "Response HTTP : " . $response->getStatusCode();
   <tr>
     <td>code</td>
     <td>string</td>
-    <td>电机号, 默认从000开始，即第一行第一列; 200, 为副柜第一行第一列 <Badge type="danger" text="v1.22.1.240905 新增" /></td>
+    <td>电机号, 默认从000开始，即第一行第一列; 200, 为副柜第一行第一列</td>
     <td>✓</td>
   </tr>
   <tr>
     <td>x</td>
     <td>string</td>
-    <td>行, 默认从0开始，即第一行 <Badge type="danger" text="v1.22.1.240905 新增" /></td>
+    <td>行, 默认从0开始，即第一行</td>
     <td>✓</td>
   </tr>
   <tr>
     <td>y</td>
     <td>string</td>
-    <td>列, 默认从0开始，即第一列 <Badge type="danger" text="v1.22.1.240905 新增" /></td>
+    <td>列, 默认从0开始，即第一列</td>
     <td>✓</td>
   </tr>
   <tr>
     <td>addr</td>
     <td>int</td>
-    <td>从机地址, 默认从1开始，即第一个驱动板 <Badge type="danger" text="v1.23.0 新增" /></td>
+    <td>从机地址, 默认从1开始，即第一个驱动板</td>
     <td>✓</td>
   </tr>
 </table>

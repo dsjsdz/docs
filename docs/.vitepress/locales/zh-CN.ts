@@ -29,7 +29,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   },
 
   {
-    text: 'Open API',
+    text: 'Open API v1.0',
     link: '',
     collapsed: true,
     items: [
@@ -82,12 +82,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       },
       {
         text: '补货管理',
-        link: '',
-        items: [
-          { text: '单个补货', link: 'open/replenishment_by_id' },
-          { text: '整层补货', link: 'open/replenishment_by_category' },
-          { text: '整柜补货', link: 'open/replenishment_by_machine' }
-        ]
+        link: 'open/replenishment',
       }
     ]
   },
@@ -95,9 +90,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   {
     text: '平台使用',
     collapsed: false,
-    items: [
-      { text: '告警配置', link: 'platform/index' }
-    ]
+    items: [{ text: '告警配置', link: 'platform/index' }]
   },
 
   {
