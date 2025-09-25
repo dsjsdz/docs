@@ -1,6 +1,6 @@
 # GRPC 摘要
 
-proto 文件：[provider.proto](/provider.proto)
+proto 文件：[protobuf.zip](/protobuf.zip)
 
 ## 中间件错误说明
 
