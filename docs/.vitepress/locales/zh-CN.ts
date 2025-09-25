@@ -82,8 +82,34 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       },
       {
         text: '补货管理',
-        link: 'open/replenishment',
+        link: 'open/replenishment'
       }
+    ]
+  },
+
+  {
+    text: 'GRPC 文档',
+    collapsed: false,
+    items: [
+      { text: '摘要', link: 'grpc/index' },
+      { text: '1. 设备登录', link: 'grpc/machine.login' },
+      { text: '2. 设备信息', link: 'grpc/machine.profile' },
+      { text: '3. 商户信息', link: 'grpc/merchant' },
+      { text: '4. 货币列表', link: 'grpc/currency' },
+      { text: '5. 补货记录', link: 'grpc/restock' },
+      { text: '6. 今日销售', link: 'grpc/daily_sale' },
+      { text: '7. 订单列表', link: 'grpc/order' },
+      { text: '8. 产品列表', link: 'grpc/product' },
+      { text: '9. 设备广告', link: 'grpc/banner' },
+      { text: '10. 设备公告', link: 'grpc/announcement' },
+      { text: '11. 货道列表', link: 'grpc/channel' },
+      { text: '12. 测试出货', link: 'grpc/debugging' },
+      { text: '13. 栏目列表', link: 'grpc/category' },
+      { text: '14. 出货日志', link: 'grpc/delivery_log' },
+      { text: '15. 设备日志', link: 'grpc/machine_log' },
+      { text: '16. 设备控制', link: 'grpc/power_control' },
+      { text: '17. 定时开关机', link: 'grpc/power_schedule' },
+      { text: '18. 清除定时开关机', link: 'grpc/power_clear' }
     ]
   },
 
@@ -103,7 +129,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '5. 设备测试（h5发起）', link: 'mqtt/subscribe/channel.debugging' },
           { text: '6. 设备定时开关机(一次)', link: 'mqtt/subscribe/power.schedule.once' },
           { text: '7. 设备定时开关机(重复)', link: 'mqtt/subscribe/power.schedule.cycle' },
-          { text: '8. 设备清除开关机', link: 'mqtt/subscribe/power.schedule.clear' },
+          { text: '8. 设备清除开关机', link: 'mqtt/subscribe/power.schedule.clear' }
         ]
       },
       {
@@ -117,9 +143,9 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '5. ENV 上报', link: 'mqtt/publish/machine.env.put' },
           { text: '6. 产品更新', link: 'mqtt/publish/product.put' },
           { text: '7. 门锁状态上报', link: 'mqtt/publish/doorlock.status' },
-          { text: '8. 批量补货（一键补货）', link: 'mqtt/publish/product.restock' },
+          { text: '8. 批量补货（一键补货）', link: 'mqtt/publish/product.restock' }
         ]
-      },
+      }
     ]
   },
 

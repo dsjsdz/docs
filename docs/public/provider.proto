@@ -1,0 +1,706 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.provider";
+option java_outer_classname = "provider";
+
+package provider;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/any.proto";
+
+message PaginationRequest {
+    // 页码模式
+    optional int64 current_page = 1;           // 第几页 (page-based)
+    optional int64 per_page = 2;      // 每页大小 (page-based)
+
+    // 游标模式
+    optional string cursor = 3;         // 游标值 (cursor-based)
+    optional int64 limit = 4;          // 每次取多少条 (cursor-based)
+}
+
+message MerchantConfig {
+    bool debug = 1;
+    bool is_dev = 2;
+    string appid = 3;
+    optional string app_secret = 4;
+    string app_key = 5;
+    string timezone = 6;
+    bool tax_enabled = 7;
+}
+
+message Merchant {
+    uint64 id = 1;
+    string title = 2;
+    string keywords = 3;
+    string description = 4;
+    optional string logo = 5;
+    string status = 6;
+    string created_at = 7;
+    optional string verified_at = 8;
+    optional string expired_at = 9;
+    optional MerchantConfig config = 10;
+}
+
+message MerchantResponse {
+    Merchant data = 1;
+}
+
+message FloorTypeDriver {
+    bool is_dc = 1;
+    bool is_lp = 2;
+    uint64 floor_type = 3;
+    int64 addr = 4;
+    int64 driver_id = 5;
+    int64 per_channel_capacity = 6; // 单货道容量
+    int64 total_channel_slots = 7;  // 最大货道数
+    bool lock_only = 8;
+}
+
+message Model {
+    uint64 id = 1;
+    string name = 2;
+    string description = 3;
+    string updated_at = 4;
+    optional int64 total_channels = 5;
+    repeated FloorTypeDriver drivers = 6;
+    bool has_lock_feature = 7;
+}
+
+message Currency {
+    uint64 id = 1;
+    string name = 2;
+    string code = 3;
+    string symbol = 4;
+}
+
+message MachineConfig {
+    uint64 id = 1;
+    uint32 price_digits = 2;
+    bool price_thousands = 3;
+    bool price_line = 4;
+    optional uint32 volume = 5;
+    optional uint32 brightness = 6;
+    optional string language = 7;
+    optional string app_version = 8;
+    optional string android_version = 9;
+    optional string java_version = 10;
+    optional string sdk_version = 11;
+    optional string device_model = 12;
+    optional string manufacturer = 13;
+    optional string serial_no = 14;
+    optional uint32 screen_width = 15;
+    optional uint32 screen_height = 16;
+    optional string network_type = 17;
+    optional string network_sim_iccid = 18;
+    optional uint32 network_rssi = 19;
+    optional uint32 uptime_minutes_today = 20;
+}
+
+message Machine {
+    uint64 id = 1;
+    string name = 2;
+    optional string client_id = 3;
+    optional string imei = 4;
+    uint64 merchant_id = 5;
+    string status = 6;
+    bool is_online = 7;
+    uint32 connect_type = 8;
+    uint32 machine_type = 9;
+    optional string cover_image = 10;
+    uint32 media_type = 11;
+    optional string contact = 12;
+    optional string tel = 13;
+    optional string lng_lat = 14;
+    optional string address = 15;
+    optional string qrcode = 16;
+    uint32 device_state = 17;
+    optional string temperature = 18;
+    optional string humidity = 19;
+    string machine_no = 20;
+    optional string password = 21;
+    bool pickup_code_enabled = 22;
+    bool free_purchase_enabled = 23;
+    uint64 purchase_limit = 24;
+    string timezone = 25;
+    optional Currency currency = 26;
+    optional MachineConfig config = 27;
+    optional Model model = 28;
+}
+
+message Restock {
+    uint64 id = 1;
+    uint64 machine_id = 2;
+    uint64 addr = 3;
+    string code = 4;
+    uint64 prev_inventory = 5;
+    uint64 current_inventory = 6;
+    string description = 7;
+    string transaction_type = 8;
+    string source_type = 9;
+    string created_at = 10;
+
+    optional OperatorUser operator = 11;
+}
+
+message OperatorUser {
+    uint64 id = 1;
+    string username = 2;
+}
+
+message DailySale {
+    uint64 id = 1;
+    uint64 machine_id = 2;
+    string date = 3;
+    string total_amount = 4;
+    uint64 total_orders = 5;
+    uint64 unpaid_count = 6;
+    uint64 paid_count = 7;
+}
+
+message DeliveryLog {
+    optional string created_at = 1;
+    optional string updated_at = 2;
+    uint64 id = 3;
+    uint64 machine_id = 4;
+    string code = 5;
+    string delivery_no = 6;
+    int64 delivery_index = 7;
+    string status = 8;
+    string fail_reason = 9;
+}
+
+message OrderRecord {
+    uint64 id = 1;
+    uint64 product_id = 2;
+    uint64 quantity = 3;
+    string price = 4;
+    string tax_amount = 5;
+    repeated DeliveryLog delivery_logs = 6;
+}
+
+message Order {
+    uint64 id = 1;
+    string date = 2;
+    optional string trade_id = 3;
+    optional string title = 4;
+    string amount = 5;
+    optional string pay_time = 6;
+    string status = 7;
+    bool is_free = 8;
+    optional string tax_total = 9;
+    optional uint64 pickup_code_id = 10;
+    uint64 payment_id = 11;
+    uint64 machine_id = 12;
+    repeated OrderRecord order_records = 19;
+}
+
+message Channel {
+    uint64 id = 1;
+    uint64 model_id = 2;
+    string name = 3;
+    int64 total = 4;
+    int64 sort_id = 5;
+    int64 motor_id = 6;
+    int64 x = 7;
+    int64 y = 8;
+    uint64 addr = 9;
+    bool is_auxiliary = 10;
+    optional bool is_used = 12;
+}
+
+message Category {
+    uint64 id = 1;
+    string title = 2;
+    bool is_visible = 3;
+}
+
+message Unit {
+    uint64 id = 1;
+    string name = 2;
+    string display_name = 3;
+    float multiplier = 4;
+    string base_unit = 5;
+    string description = 6;
+    bool immutable = 7;
+}
+
+message Attribute {
+    uint64 id = 1;
+    string label_name = 2;
+    repeated string label_value = 3;
+    bool immutable = 4;
+}
+
+message Good {
+    uint64 id = 1;
+    string name = 2;
+    optional string description = 3;
+    string price = 4;
+    optional string original_price = 5;
+    repeated string media = 6;
+    string content = 7;
+    optional string slug = 8;
+    string updated_at = 9;
+    Unit unit = 10;
+    bool age_verification_enabled = 11;
+    optional int64 age_verification_min = 12;
+    repeated Attribute attributes = 13;
+    bool is_tax_exempt = 14;
+    optional string tax_rate = 15;
+    optional string thumb = 16;
+}
+
+message Product {
+    uint64 id = 1;
+    uint64 quantity = 2;
+    uint64 machine_id = 4;
+    bool status = 5;
+    bool is_sticky = 6;
+    bool is_latest = 7;
+    int64 sort_id = 8;
+    optional string floor_status = 9;
+    optional string lock_status = 10;
+    uint64 current_inventory = 11;
+    uint64 inventory = 12;
+    optional Channel channel = 13;
+    optional Category category = 14;
+    optional Good good = 15;
+    optional Channel locker = 16;
+}
+
+message Banner {
+    uint64 id = 1;
+    uint64 status = 3;
+    bool is_visible = 4;
+    optional int64 expired_at = 5;
+    bool is_link = 6;
+    optional string link_url = 7;
+    bool is_video = 8;
+    optional string video_url = 9;
+    optional string cover_image = 10;
+    int64 sort_id = 11;
+    uint64 hit_count = 12;
+    uint64 views_count = 13;
+    string title = 14;
+    int64 view_type = 15;
+}
+
+message Announcement {
+    uint64 id = 1;
+    string title = 3;
+    optional string content = 4;
+    bool is_link = 5;
+    optional string link_url = 6;
+    uint64 status = 7;
+    bool is_visible = 8;
+    string created_at = 9;
+    int64 expired_at = 10;
+}
+
+message MachineLog {
+    uint64 id = 1;
+    uint64 machine_id = 2;
+    string method = 3;
+    optional string payload = 4;
+    string created_at = 5;
+}
+
+message ProfileResponse {
+    Machine data = 1;
+}
+
+message LoginRequest {
+    string input = 1;
+}
+
+message LoginResponse {
+    string token = 1;
+}
+
+message CurrencyResponse {
+    repeated Currency data = 1;
+}
+
+message RestockResponse {
+    repeated Restock data = 1;
+    // 页码模式
+    optional int64 total = 2;
+    optional int64 current_page = 3;
+    optional int64 per_page = 4;
+    optional int64 last_page = 5;
+
+    // 游标模式
+    optional string next_cursor = 6;
+    optional bool has_more = 7;
+}
+
+message DailySaleResponse {
+    repeated DailySale data = 1;
+
+    // 游标模式
+    optional string next_cursor = 2;
+    optional bool has_more = 3;
+}
+
+message OrderResponse {
+    repeated Order data = 1;
+    // 页码模式
+    optional int64 total = 2;
+    optional int64 current_page = 3;
+    optional int64 per_page = 4;
+    optional int64 last_page = 5;
+
+    // 游标模式
+    optional string next_cursor = 6;
+    optional bool has_more = 7;
+}
+
+message ProductRequest {
+    optional uint64 addr = 1;
+}
+
+message ProductResponse {
+    repeated Product data = 1;
+}
+
+message BannerRequest {
+    optional int64 view_type = 1;
+}
+
+message BannerResponse {
+    repeated Banner data = 1;
+}
+
+message AnnouncementResponse {
+    Announcement data = 1;
+}
+
+message ChannelRequest {
+    optional uint64 addr = 1;
+}
+
+message ChannelResponse {
+    repeated Channel data = 1;
+}
+
+message DebuggingRequest {
+    optional uint64 addr = 1; // 板卡地址
+    optional uint64 code = 2; // 货道号(单个)
+    repeated uint64 motor_ids = 3; // 电机号(数组)
+    optional int64 floor_type = 4; // 出货类型
+    optional bool is_lp = 5; // 升降台
+    optional bool is_dc = 6; // 掉货监测
+}
+
+message CategoryResponse {
+    repeated Category data = 1;
+}
+
+message DeliveryLogResponse {
+    repeated DeliveryLog data = 1;
+    // 页码模式
+    optional int64 total = 2;
+    optional int64 current_page = 3;
+    optional int64 per_page = 4;
+    optional int64 last_page = 5;
+
+    // 游标模式
+    optional string next_cursor = 6;
+    optional bool has_more = 7;
+}
+
+message MachineLogResponse {
+    repeated MachineLog data = 1;
+    // 页码模式
+    optional int64 total = 2;
+    optional int64 current_page = 3;
+    optional int64 per_page = 4;
+    optional int64 last_page = 5;
+
+    // 游标模式
+    optional string next_cursor = 6;
+    optional bool has_more = 7;
+}
+
+message PowerControlRequest {
+  enum Method {
+    METHOD_UNSPECIFIED = 0;
+    REBOOT = 1;
+    SHUTDOWN = 2;
+  }
+
+  Method method = 1;
+}
+
+message PowerScheduleRequest {
+    string power_on = 1; // 开机时间
+    string power_off = 2; // 关机时间
+    repeated int64 weekdays = 3; // 星期
+}
+
+message SuccessResponse {
+    int64 code = 1;
+    string message = 2;
+    google.protobuf.Any data = 3;
+}
+
+service Provider {
+    // Login into the system.
+    //
+    // This endpoint is used to authenticate a merchant. It takes a single
+    // parameter, `input`, which is a string representing the username or
+    // email address of the merchant. The response is a JSON object with a
+    // single key, `token`, which is a JSON Web Token (JWT) that can be used
+    // to authenticate the merchant in future requests.
+    rpc Login (LoginRequest) returns (LoginResponse) {
+        option (google.api.http) = {
+            post: "/v1/login"
+            body: "*"
+        };
+    };
+
+    // Get the profile of the merchant.
+    //
+    // This endpoint is used to get the profile of the merchant. It returns a
+    // JSON object with the merchant's information, such as its name, address,
+    // phone number, and timezone.
+    rpc Profile (google.protobuf.Empty) returns (ProfileResponse) {
+        option (google.api.http) = {
+            post: "/v1/profile"
+            body: "*"
+        };
+    };
+
+    // Get the merchant of the authenticated user.
+    //
+    // This endpoint is used to get the merchant of the authenticated user. It
+    // returns a JSON object with the merchant's information, such as its ID,
+    // title, keywords, description, logo, status, secret, created at, expired
+    // at, verified at, owner user ID, profile URL, and role ID.
+    rpc Merchant (google.protobuf.Empty) returns (MerchantResponse) {
+        option (google.api.http) = {
+            post: "/v1/merchant"
+            body: "*"
+        };
+    };
+
+    // Get all currencies in the database.
+    //
+    // This endpoint is used to get all currencies in the database. It returns
+    // a JSON object with a list of currency objects, each containing the
+    // currency's ID, name, code, and symbol.
+    rpc Currencies (google.protobuf.Empty) returns (CurrencyResponse) {
+        option (google.api.http) = {
+            post: "/v1/currencies"
+            body: "*"
+        };
+    };
+
+    // Get all restocks in the database.
+    //
+    // This endpoint is used to get all restocks in the database. It returns a
+    // JSON object with a list of restock objects, each containing the restock's
+    // ID, machine ID, user ID, created at, updated at, quantity, and state.
+    rpc Restocks (PaginationRequest) returns (RestockResponse) {
+        option (google.api.http) = {
+            post: "/v1/restocks"
+            body: "*"
+        };
+    };
+
+    // Get all daily sales in the database.
+    //
+    // This endpoint is used to get all daily sales in the database. It returns
+    // a JSON object with a list of daily sale objects, each containing the daily
+    // sale's ID, created at, updated at, machine ID, date, total amount, total
+    // orders, unpaid count, and paid count.
+    rpc DailySales (PaginationRequest) returns (DailySaleResponse) {
+        option (google.api.http) = {
+            post: "/v1/daily_sales"
+            body: "*"
+        };
+    };
+
+    // Get all orders in the database.
+    //
+    // This endpoint is used to get all orders in the database. It returns a
+    // JSON object with a list of order objects, each containing the order's ID,
+    // machine ID, user ID, created at, updated at, title, amount, status, trade
+    // ID, and paid at.
+    rpc Orders (PaginationRequest) returns (OrderResponse) {
+        option (google.api.http) = {
+            post: "/v1/orders"
+            body: "*"
+        };
+    };
+
+    // Get all products in the database.
+    //
+    // This endpoint is used to get all products in the database. It returns a
+    // JSON object with a list of product objects, each containing the product's
+    // ID, title, price, quantity, description, image, and state.
+    rpc Products (ProductRequest) returns (ProductResponse) {
+        option (google.api.http) = {
+            post: "/v1/products"
+            body: "*"
+        };
+    };
+
+    // Get all banners in the database.
+    //
+    // This endpoint is used to get all banners in the database. It returns a
+    // JSON object with a list of banner objects, each containing the banner's
+    // ID, machine ID, title, image, and state.
+    rpc Banners (BannerRequest) returns (BannerResponse) {
+        option (google.api.http) = {
+            post: "/v1/banners"
+            body: "*"
+        };
+    };
+
+    // Get the announcement of the machine.
+    //
+    // This endpoint is used to get the announcement of the machine. It returns
+    // a JSON object with the announcement's ID, machine ID, title, content,
+    // image, and state.
+    rpc Announcement (google.protobuf.Empty) returns (AnnouncementResponse) {
+        option (google.api.http) = {
+            post: "/v1/announcement"
+            body: "*"
+        };
+    };
+
+    // Get all channels in the database.
+    //
+    // This endpoint is used to get all channels in the database. It returns a
+    // JSON object with a list of channel objects, each containing the channel's
+    // ID, model ID, title, description, image, and state.
+    rpc Channels (ChannelRequest) returns (ChannelResponse) {
+        option (google.api.http) = {
+            post: "/v1/channels"
+            body: "*"
+        };
+    };
+
+    /// Debugging endpoint for testing purposes.
+    ///
+    /// This endpoint is used to perform debugging tasks, such as testing the
+    /// authentication and authorization of the API. It returns a JSON object
+    /// with a list of debugging objects, each containing information about the
+    /// debugging task.
+    ///
+    /// The request must contain a valid `LoggedInMachine` extension, which is
+    /// used to authenticate and authorize the request. The machine must be
+    /// connected via a serial port, otherwise the request will be rejected.
+    ///
+    /// The response will contain a JSON object with a single string field, which
+    /// contains the debugging information.
+    rpc Debugging (DebuggingRequest) returns (SuccessResponse) {
+        option (google.api.http) = {
+            post: "/v1/debugging"
+            body: "*"
+        };
+    };
+
+    /// Get all categories in the database.
+    ///
+    /// This endpoint is used to get all categories in the database. It returns
+    /// a JSON object with a list of category objects, each containing the category's
+    /// ID, title, description, image, and state.
+    rpc Categories (google.protobuf.Empty) returns (CategoryResponse) {
+        option (google.api.http) = {
+            post: "/v1/categories"
+            body: "*"
+        };
+    };
+
+    /// Lists all delivery logs in the database.
+    ///
+    /// This endpoint is used to list all delivery logs in the database. It returns
+    /// a JSON object with a list of delivery log objects, each containing the delivery
+    /// log's ID, machine ID, date, amount, and state.
+    ///
+    /// The request must contain a valid `PaginationRequest` object, which is used
+    /// to determine the pagination of the response. The request must also contain
+    /// a valid `LoggedInMachine` extension, which is used to authenticate and
+    /// authorize the request. The machine must be connected via a serial port,
+    /// otherwise the request will be rejected.
+    rpc DeliveryLogs (PaginationRequest) returns (DeliveryLogResponse) {
+        option (google.api.http) = {
+            post: "/v1/delivery_logs"
+            body: "*"
+        };
+    };
+
+    /// Lists all machine logs in the database.
+    ///
+    /// This endpoint is used to list all machine logs in the database. It returns
+    /// a JSON object with a list of machine log objects, each containing the machine
+    /// log's ID, machine ID, date, payload, and state.
+    ///
+    /// The request must contain a valid `PaginationRequest` object, which is used
+    /// to determine the pagination of the response. The request must also contain
+    /// a valid `LoggedInMachine` extension, which is used to authenticate and
+    /// authorize the request. The machine must be connected via a serial port,
+    /// otherwise the request will be rejected.
+    rpc MachineLogs (PaginationRequest) returns (MachineLogResponse) {
+        option (google.api.http) = {
+            post: "/v1/machine_logs"
+            body: "*"
+        };
+    };
+
+    /// Controls the power state of the machine.
+    ///
+    /// This endpoint is used to control the power state of the machine. It returns
+    /// a JSON object with a single boolean field, which indicates whether the machine
+    /// is currently powered on or off.
+    ///
+    /// The request must contain a valid `PowerRequest` object, which is used
+    /// to determine the power state of the machine. The request must also contain
+    /// a valid `LoggedInMachine` extension, which is used to authenticate and
+    /// authorize the request. The machine must be connected via a serial port,
+    /// otherwise the request will be rejected.
+    rpc PowerControl (PowerControlRequest) returns (SuccessResponse) {
+        option (google.api.http) = {
+            post: "/v1/power_control"
+            body: "*"
+        };
+    };
+
+    /// Lists all power schedules in the database.
+    ///
+    /// This endpoint is used to list all power schedules in the database. It returns
+    /// a JSON object with a list of power schedule objects, each containing the power
+    /// schedule's ID, machine ID, power on time, power off time, and state.
+    ///
+    /// The request must contain a valid `PaginationRequest` object, which is used
+    /// to determine the pagination of the response. The request must also contain
+    /// a valid `LoggedInMachine` extension, which is used to authenticate and
+    /// authorize the request. The machine must be connected via a serial port,
+    /// otherwise the request will be rejected.
+    rpc PowerSchedule (PowerScheduleRequest) returns (SuccessResponse) {
+        option (google.api.http) = {
+            post: "/v1/power_schedule"
+            body: "*"
+        };
+    };
+
+    /// Clears all power schedules in the database.
+    ///
+    /// This endpoint is used to clear all power schedules in the database. It returns
+    /// a JSON object with a single boolean field, which indicates whether the operation
+    /// is successful or not.
+    ///
+    /// The request must contain a valid `LoggedInMachine` extension, which is used
+    /// to authenticate and authorize the request. The machine must be connected via a
+    /// serial port, otherwise the request will be rejected.
+    rpc ClearPowerSchedule (google.protobuf.Empty) returns (SuccessResponse) {
+        option (google.api.http) = {
+            post: "/v1/clear_power_schedule"
+            body: "*"
+        };
+    };
+}
