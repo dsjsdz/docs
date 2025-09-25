@@ -18,6 +18,6 @@
     "vitepress": "^1.5.0"
   },
   "dependencies": {
-    "markdown-it-mathjax3": "^4.3.2"
+    "markdown-it-mathjax3": "5.1.0"
   }
 }

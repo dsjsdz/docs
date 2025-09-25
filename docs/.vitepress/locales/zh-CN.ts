@@ -88,9 +88,39 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   },
 
   {
-    text: '平台使用',
+    text: 'MQTT 文档',
     collapsed: false,
-    items: [{ text: '告警配置', link: 'platform/index' }]
+    items: [
+      { text: '摘要', link: 'mqtt/index' },
+      {
+        text: '订阅 Subscribe',
+        link: '',
+        items: [
+          { text: '1. 设备字段更新', link: 'mqtt/subscribe/machine.invalidate' },
+          { text: '2. 设备关机', link: 'mqtt/subscribe/machine.shutdown' },
+          { text: '3. 设备重启', link: 'mqtt/subscribe/machine.reboot' },
+          { text: '4. 设备密码更新', link: 'mqtt/subscribe/password.modified' },
+          { text: '5. 设备测试（h5发起）', link: 'mqtt/subscribe/channel.debugging' },
+          { text: '6. 设备定时开关机(一次)', link: 'mqtt/subscribe/power.schedule.once' },
+          { text: '7. 设备定时开关机(重复)', link: 'mqtt/subscribe/power.schedule.cycle' },
+          { text: '8. 设备清除开关机', link: 'mqtt/subscribe/power.schedule.clear' },
+        ]
+      },
+      {
+        text: '发布 Publish',
+        link: '',
+        items: [
+          { text: '1. 温度上报', link: 'mqtt/publish/temperature.put' },
+          { text: '2. 湿度上报', link: 'mqtt/publish/humidity.put' },
+          { text: '3. 心跳检测（定时）', link: 'mqtt/publish/heartbeat' },
+          { text: '4. 离线（遗属消息）', link: 'mqtt/publish/offline' },
+          { text: '5. ENV 上报', link: 'mqtt/publish/machine.env.put' },
+          { text: '6. 产品更新', link: 'mqtt/publish/product.put' },
+          { text: '7. 门锁状态上报', link: 'mqtt/publish/doorlock.status' },
+          { text: '8. 批量补货（一键补货）', link: 'mqtt/publish/product.restock' },
+        ]
+      },
+    ]
   },
 
   {
