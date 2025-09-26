@@ -130,7 +130,10 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '6. 设备定时开关机(一次)', link: 'mqtt/subscribe/power.schedule.once' },
           { text: '7. 设备定时开关机(重复)', link: 'mqtt/subscribe/power.schedule.cycle' },
           { text: '8. 设备清除开关机', link: 'mqtt/subscribe/power.schedule.clear' },
-          { text: '9. 设备配置更新(服务端->客户端)', link: 'mqtt/subscribe/machine.config.push' }
+          { text: '9. 设备配置更新(服务端->客户端)', link: 'mqtt/subscribe/machine.config.push' },
+          { text: '10. 广告推送', link: 'mqtt/subscribe/machine.ads.push' },
+          { text: '11. 广告更新', link: 'mqtt/subscribe/machine.ads.update' },
+          { text: '12. 广告删除', link: 'mqtt/subscribe/machine.ads.delete' }
         ]
       },
       {
