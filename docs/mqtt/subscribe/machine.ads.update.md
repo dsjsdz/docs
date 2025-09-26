@@ -38,6 +38,7 @@
 | cover_image | -                 | ✅    | 广告图片                    |
 | video_url   | -                 | -    | 视频地址(非必传)               |
 | link_url    | -                 | -    | 广告链接(h5，小程序使用，其他客户端忽略)  |
+| expired_at  | -                 | -    | 过期时间戳(秒级), 非必传          |
 | view_type   | 0                 | ✅    | 类型<br /> 0: 轮播图 1: 锁屏广告 |
 | sign        | -                 | ✅    | 签名字符串                   |
 | client_id   | -                 | ✅    | 设备编码，即 `machine_no`     |
