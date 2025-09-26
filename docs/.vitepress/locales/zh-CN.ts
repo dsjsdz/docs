@@ -129,7 +129,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '5. 设备测试（h5发起）', link: 'mqtt/subscribe/channel.debugging' },
           { text: '6. 设备定时开关机(一次)', link: 'mqtt/subscribe/power.schedule.once' },
           { text: '7. 设备定时开关机(重复)', link: 'mqtt/subscribe/power.schedule.cycle' },
-          { text: '8. 设备清除开关机', link: 'mqtt/subscribe/power.schedule.clear' }
+          { text: '8. 设备清除开关机', link: 'mqtt/subscribe/power.schedule.clear' },
+          { text: '9. 设备配置更新(服务端->客户端)', link: 'mqtt/subscribe/machine.config.push' }
         ]
       },
       {
@@ -143,7 +144,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '5. ENV 上报', link: 'mqtt/publish/machine.env.put' },
           { text: '6. 产品更新', link: 'mqtt/publish/product.put' },
           { text: '7. 门锁状态上报', link: 'mqtt/publish/doorlock.status' },
-          { text: '8. 批量补货（一键补货）', link: 'mqtt/publish/product.restock' }
+          { text: '8. 批量补货（一键补货）', link: 'mqtt/publish/product.restock' },
+          { text: '9. 设备配置更新(客户端->服务端)', link: 'mqtt/publish/machine.config.put' }
         ]
       }
     ]
