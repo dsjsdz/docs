@@ -29,62 +29,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   },
 
   {
-    text: 'Open API v1.0',
-    link: '',
-    collapsed: true,
-    items: [
-      { text: '接口约定', link: 'open/protocol' },
-      { text: '接口认证', link: 'open/auth' },
-      { text: '参数加密', link: 'open/signatory' },
-      {
-        text: '获取设备',
-        link: '',
-        items: [
-          { text: '所有设备', link: 'open/machines' },
-          { text: '所有货道', link: 'open/floors' },
-          { text: '设备详情', link: 'open/machine' },
-          { text: '设备轮播图', link: 'open/banners' },
-          { text: '产品列表', link: 'open/products' },
-          { text: '商品分类', link: 'open/categories' }
-        ]
-      },
-      {
-        text: '订单管理',
-        link: '',
-        items: [
-          { text: '主动下单', link: 'open/order_create' },
-          { text: '查询订单', link: 'open/order_get' },
-          { text: '更新订单', link: 'open/order_update' },
-          { text: '取消订单', link: 'open/order_cancel' },
-          { text: '超时订单', link: 'open/order_expired' }
-        ]
-      },
-      {
-        text: '取货码管理',
-        link: '',
-        items: [
-          { text: '开启功能', link: 'open/pickup_code_enabled' },
-          { text: '取货码生成', link: 'open/pickup_code_create' },
-          { text: '取货码查询', link: 'open/pickup_code_get' },
-          { text: '取货码取消', link: 'open/pickup_code_delete' },
-          { text: '取货码消费', link: 'open/pickup_code_consume' }
-        ]
-      },
-      {
-        text: '出货管理',
-        link: '',
-        items: [
-          { text: '订单出货', link: 'open/delivery_put' },
-          { text: '出货查询', link: 'open/delivery_get' },
-          { text: '根据货道名下发出货指令', link: 'open/delivery_test' },
-          { text: 'notify_url 回调', link: 'open/delivery_callback' }
-        ]
-      },
-      {
-        text: '补货管理',
-        link: 'open/replenishment'
-      }
-    ]
+    text: '签名校验',
+    link: 'signatory'
   },
 
   {
@@ -100,6 +46,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       { text: '6. 今日销售', link: 'grpc/daily_sale' },
       { text: '7. 订单列表', link: 'grpc/order' },
       { text: '8. 产品列表', link: 'grpc/product' },
+      { text: '8.1 商品列表', link: 'grpc/good' },
       { text: '9. 设备广告', link: 'grpc/banner' },
       { text: '10. 设备公告', link: 'grpc/announcement' },
       { text: '11. 货道列表', link: 'grpc/channel' },
