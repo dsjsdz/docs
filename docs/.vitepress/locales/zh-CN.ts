@@ -102,6 +102,11 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   },
 
   {
+    text: '更新日志',
+    link: 'changelog'
+  },
+
+  {
     text: '联系我们',
     collapsed: false,
     items: [
