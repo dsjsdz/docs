@@ -56,7 +56,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       { text: '15. 设备日志', link: 'grpc/machine_log' },
       { text: '16. 设备控制', link: 'grpc/power_control' },
       { text: '17. 定时开关机', link: 'grpc/power_schedule' },
-      { text: '18. 清除定时开关机', link: 'grpc/power_clear' }
+      { text: '18. 清除定时开关机', link: 'grpc/power_clear' },
+      { text: '19. 配方数据表', link: 'grpc/recipe' }
     ]
   },
 
