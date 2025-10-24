@@ -34,8 +34,27 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   },
 
   {
+    text: '接口推送文档',
+    collapsed: true,
+    items: [
+      { text: '摘要', link: 'standalone/index' },
+      { text: '1. 批量更新库存', link: 'standalone/batch_update_inventory' },
+      { text: '2. 批量上传订单', link: 'standalone/batch_upload_orders' }
+    ]
+  },
+
+  {
+    text: 'GraphQL 文档',
+    collapsed: true,
+    items: [
+      { text: '摘要', link: 'GraphQL/index' },
+      { text: '1. 取货码', link: 'GraphQL/pickup_code' }
+    ]
+  },
+
+  {
     text: 'GRPC 文档',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: '摘要', link: 'grpc/index' },
       { text: '1. 设备登录', link: 'grpc/machine.login' },
@@ -57,13 +76,15 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
       { text: '16. 设备控制', link: 'grpc/power_control' },
       { text: '17. 定时开关机', link: 'grpc/power_schedule' },
       { text: '18. 清除定时开关机', link: 'grpc/power_clear' },
-      { text: '19. 配方数据表', link: 'grpc/recipe' }
+      { text: '19. 配方数据表', link: 'grpc/recipe' },
+      { text: '20. 获取当前设备取货码(未过期)', link: 'grpc/pickup_codes' },
+      { text: '21. 通过接口生成取货码', link: 'grpc/create_pickup_codes' }
     ]
   },
 
   {
     text: 'MQTT 文档',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: '摘要', link: 'mqtt/index' },
       {
@@ -81,7 +102,9 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '9. 设备配置更新(服务端->客户端)', link: 'mqtt/subscribe/machine.config.push' },
           { text: '10. 广告推送', link: 'mqtt/subscribe/machine.ads.push' },
           { text: '11. 广告更新', link: 'mqtt/subscribe/machine.ads.update' },
-          { text: '12. 广告删除', link: 'mqtt/subscribe/machine.ads.delete' }
+          { text: '12. 广告删除', link: 'mqtt/subscribe/machine.ads.delete' },
+          { text: '13. 取货码生成后推送', link: 'mqtt/subscribe/client.pickup_codes.create' },
+          { text: '14. 取货码删除后推送', link: 'mqtt/subscribe/client.pickup_codes.delete' }
         ]
       },
       {
@@ -96,7 +119,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '6. 产品更新', link: 'mqtt/publish/product.put' },
           { text: '7. 门锁状态上报', link: 'mqtt/publish/doorlock.status' },
           { text: '8. 批量补货（一键补货）', link: 'mqtt/publish/product.restock' },
-          { text: '9. 设备配置更新(客户端->服务端)', link: 'mqtt/publish/machine.config.put' }
+          { text: '9. 设备配置更新(客户端->服务端)', link: 'mqtt/publish/machine.config.put' },
+          { text: '10. 取货码消费后推至服务端', link: 'mqtt/publish/client.pickup_codes.put' }
         ]
       }
     ]

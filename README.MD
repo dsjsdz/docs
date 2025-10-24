@@ -1,4 +1,5 @@
-#### nginx 部署
+# nginx 部署
+
 ```nginx
 location ^~ /docs {
     index  index.html index.htm;
@@ -8,5 +9,5 @@ location ^~ /docs {
     if (!-e $request_filename) {
         rewrite ^/(.*)$ /$1.html last;
     }
-  }
+}
 ```
