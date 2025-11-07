@@ -9,5 +9,9 @@ location ^~ /docs {
     if (!-e $request_filename) {
         rewrite ^/(.*)$ /$1.html last;
     }
+    
+    location = / {
+      return 302 /zh-CN/;
+    }
 }
 ```

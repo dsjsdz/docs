@@ -4,7 +4,7 @@
 
 File `build.gradle.kts`, the code is for reference only.
 
-```kottlin
+```kotlin
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("com.google.code.gson:gson:2.10.1")
@@ -33,7 +33,7 @@ tasks.named("build") {
 
 File `src/main/sqldelight/com/your/package/database/Config.sq`, the code is for reference only.
 
-```sq
+```txt
 CREATE TABLE `configs`
 (
     `id`                    INTEGER PRIMARY KEY NOT NULL,
@@ -60,7 +60,8 @@ CREATE TABLE `configs`
     `currency_decimal`      INTEGER DEFAULT 2          -- currency decimal
 );
 
-find:
+find
+:
 SELECT *
 FROM `configs`
 ORDER BY `id` DESC LIMIT 1;

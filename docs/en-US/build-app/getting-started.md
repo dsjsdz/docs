@@ -1,16 +1,12 @@
-# Hello, guys.
+# Hello everyone.
 
-This tutorial will guide you on how to use the plugins we provide and build your own app.
+Welcome to this tutorial! Here, you’ll learn how to use our provided plugins and build your own application with ease.
 
-This is a great moment.
+We’re excited to have you with us — this is a great step forward in your development journey.
 
-This document was written on December 13, 2024, at the request of our very friendly cooperative
-client.
-
-Please note that the document may contain imperfections.
-
-If you find any shortcomings, feel free to contact our customer service team, and we will provide very friendly
-after-sales support.
+Please note that this document may still contain minor imperfections.
+If you notice any issues or have suggestions for improvement, don’t hesitate to contact our customer service team. We’re
+always happy to offer friendly and responsive support.
 
 ## Points to Note
 

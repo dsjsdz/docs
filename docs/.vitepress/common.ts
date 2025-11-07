@@ -33,7 +33,7 @@ export const common = defineConfig({
   head: [
     ['meta', { name: 'theme-color', content: '#5f67ee' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:locale', content: 'en' }],
+    ['meta', { property: 'og:locale', content: 'cn' }],
     ['meta', { property: 'og:title', content: '鼎商 | ' }],
     ['meta', { property: 'og:site_name', content: '鼎商开发文档' }],
     ['meta', { property: 'og:image', content: 'https://www.awish.vip/docs/images/favicon.ico' }],
