@@ -44,7 +44,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
     items: [
       { text: '摘要', link: '/GraphQL/index' },
       { text: '1. 取货码', link: '/GraphQL/pickup_code' },
-      { text: '2. 获取货道列表', link: '/GraphQL/channels' }
+      { text: '2. 获取货道列表', link: '/GraphQL/channels' },
+      { text: '3. APP在线升级', link: '/GraphQL/upgrade' }
     ]
   },
 
