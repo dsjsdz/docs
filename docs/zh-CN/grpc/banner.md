@@ -25,7 +25,6 @@
   "data": [
     {
       "id": "6",
-      "status": "0",
       "is_visible": true,
       "sort_id": "1",
       "hit_count": "1",

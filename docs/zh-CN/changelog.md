@@ -2,6 +2,35 @@
 
 > 记录项目每个版本的主要更新内容。
 
+## v1.2.24.20 · 2025-11-20
+
+> 主要内容：更新产品字段
+
+### 修改 GRPC
+
+- [2. 设备信息](/zh-CN/grpc/machine.profile)
+
+> 新增 `coupon_enabled` 字段 => 是否开启【折扣券、满减券、优惠码】功能
+
+原 `temperature`,`humidity` 转移至 [设备配置表中](/zh-CN/grpc/machine.profile#配置信息-config)
+
+PS：`v1.2.25` 将上线【折扣券、满减券、优惠码】功能。
+
+## v1.2.24 · 2025-11-19
+
+> 主要内容：更新产品字段
+
+- [8 产品列表](/zh-CN/grpc/product)
+
+> 废弃字段: <s style='color: red'>sort_id</s>, <s style='color: red'>is_sticky</s>, <s style='color: red'>is_latest</s>
+> 本次修改后产品排序依根据货道号电机排序(升序)
+
+### 增加字段 for 设备配置
+
+设备配置 `app_cart_enabled` 是否启用App购物车
+
+> 依据：根据板卡类型是否开启掉货检测自动判断，所有 `未开启购物车` 的设备只能购买1个产品
+
 ## v1.2.23 · 2025-11-07
 
 > 主要内容：支持一键清除货道故障。

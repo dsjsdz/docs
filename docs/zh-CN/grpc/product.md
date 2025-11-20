@@ -28,9 +28,6 @@
       "quantity": "0",
       "machine_id": "1",
       "status": false,
-      "is_sticky": false,
-      "is_latest": false,
-      "sort_id": "1",
       "current_inventory": "0",
       "inventory": "2",
       "floor_status": "ERR_NOT_EXIST",
@@ -131,20 +128,22 @@
 
 ## 产品信息(product)
 
-| 字段名               | 默认值   | 描述              |
-|-------------------|-------|-----------------|
-| id                | 1     | 主键              |
-| quantity          | 1     | 数量              |
-| machine_id        | 1     | 机器 ID           |
-| status            | false | 状态              |
-| is_sticky         | false | 是否置顶            |
-| is_latest         | false | 是否最新            |
-| sort_id           | 0     | 排序              |
-| floor_status      | -     | floor 状态(电机、履带) |
-| lock_status       | -     | 锁状态(含门锁)        |
-| current_inventory | 0     | 当前库存            |
-| inventory         | 0     | 库存              |
-| channel           | -     | 货道              |
-| category          | -     | 栏目              |
-| good              | -     | 产品              |
-| locker            | -     | 锁               |
+| 字段名                                 | 默认值   | 描述              |
+|-------------------------------------|-------|-----------------|
+| id                                  | 1     | 主键              |
+| quantity                            | 1     | 数量              |
+| machine_id                          | 1     | 机器 ID           |
+| status                              | false | 状态              |
+| <s style='color: red'>is_sticky</s> | false | 是否置顶            |
+| <s style='color: red'>is_latest</s> | false | 是否最新            |
+| <s style='color: red'>sort_id</s>   | 0     | 排序 (根据货道号电机排序)  |
+| floor_status                        | -     | floor 状态(电机、履带) |
+| lock_status                         | -     | 锁状态(含门锁)        |
+| current_inventory                   | 0     | 当前库存            |
+| inventory                           | 0     | 库存              |
+| channel                             | -     | 货道              |
+| category                            | -     | 栏目              |
+| good                                | -     | 产品              |
+| locker                              | -     | 锁               |
+
+废弃字段: <s style='color: red'>sort_id</s>, <s style='color: red'>is_sticky</s>, <s style='color: red'>is_latest</s>
