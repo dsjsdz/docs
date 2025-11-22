@@ -18,12 +18,12 @@
 - 页码模式: 使用 `current_page`, `per_page` 字段
 - 游标模式: 使用 `cursor`, `limit` 字段, 该模式目前仅支持特定设备
 
-| 字段名          | 默认值 | 是否必须 | 描述            |
-|--------------|-----|------|---------------|
-| current_page | 1   | -    | 第几页, 默认: 1    |
-| per_page     | -   | -    | 每页大小, 最大值: 20 |
-| cursor       | -   | -    | 游标值 (预留字段)    |
-| limit        | -   | -    | 每次取多少条 (预留字段) |
+| 字段名       | 默认值 | 是否必须 | 描述                    |
+| ------------ | ------ | -------- | ----------------------- |
+| current_page | 1      | -        | 第几页, 默认: 1         |
+| per_page     | -      | -        | 每页大小, 最大值: 20    |
+| cursor       | -      | -        | 游标值 (预留字段)       |
+| limit        | -      | -        | 每次取多少条 (预留字段) |
 
 ## 返回结果
 
@@ -75,21 +75,21 @@
 
 ## 商品信息(good)
 
-| 字段名                      | 默认值 | 描述       |
-|--------------------------|-----|----------|
-| id                       | 1   | 主键       |
-| media                    | []  | 产品图片     |
-| attributes               | []  | 产品属性     |
-| name                     | -   | 产品名称     |
-| price                    | -   | 产品价格     |
-| content                  | -   | 产品详情     |
-| updated_at               | -   | 更新时间     |
-| unit                     | -   | 产品单位     |
-| age_verification_enabled | -   | 是否开启年龄限制 |
-| is_tax_exempt            | -   | 是否免税     |
-| description              | -   | 产品描述     |
-| original_price           | -   | 原价       |
-| slug                     | -   | 产品 slug  |
-| age_verification_min     | -   | 年龄限制     |
-| tax_rate                 | -   | 税率       |
-| thumb                    | -   | 缩略图      |
+| 字段名                   | 默认值 | 描述             |
+| ------------------------ | ------ | ---------------- |
+| id                       | 1      | 主键             |
+| media                    | []     | 产品图片         |
+| attributes               | []     | 产品属性         |
+| name                     | -      | 产品名称         |
+| price                    | -      | 产品价格         |
+| content                  | -      | 产品详情         |
+| updated_at               | -      | 更新时间         |
+| unit                     | -      | 产品单位         |
+| age_verification_enabled | -      | 是否开启年龄限制 |
+| is_tax_exempt            | -      | 是否免税         |
+| description              | -      | 产品描述         |
+| original_price           | -      | 原价             |
+| slug                     | -      | 产品 slug        |
+| age_verification_min     | -      | 年龄限制         |
+| tax_rate                 | -      | 税率             |
+| thumb                    | -      | 缩略图           |
