@@ -35,10 +35,9 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         items: [
           { text: '2.1 开通/加入', link: '/platform/merchant.create' },
           { text: '2.2 邀请码', link: '/platform/merchant.invite' },
-          { text: '2.3 商户信息', link: '' },
-          { text: '2.4 开发者中心', link: '' },
-          { text: '2.5 人员设置', link: '' },
-          { text: '2.6 税控功能', link: '' }
+          { text: '2.3 商户信息', link: '/platform/merchant.profile' },
+          { text: '2.4 开发者中心', link: '/platform/merchant.developer' },
+          { text: '2.5 人员设置', link: '/platform/merchant.employee' }
         ]
       },
       {
