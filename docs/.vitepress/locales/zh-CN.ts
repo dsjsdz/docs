@@ -33,8 +33,90 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         text: '2. 商户管理',
         collapsed: false,
         items: [
-          { text: '2.1 用户注册', link: '/standalone/index' },
-          { text: '2.2 用户登录', link: '/standalone/batch_update_inventory' }
+          { text: '2.1 开通/加入', link: '/platform/merchant.create' },
+          { text: '2.2 邀请码', link: '/platform/merchant.invite' },
+          { text: '2.3 商户信息', link: '' },
+          { text: '2.4 开发者中心', link: '' },
+          { text: '2.5 人员设置', link: '' },
+          { text: '2.6 税控功能', link: '' }
+        ]
+      },
+      {
+        text: '3. 订单列表',
+        collapsed: false,
+        items: [
+          { text: '3.1 列表数据', link: '' },
+          { text: '3.2 订单详情', link: '' }
+        ]
+      },
+      {
+        text: '4. 出货日志',
+        collapsed: false,
+        items: [
+          { text: '4.1 列表数据', link: '' }
+        ]
+      },
+      {
+        text: '5. 我的商品',
+        collapsed: false,
+        items: [
+          { text: '5.1 商品列表', link: '' },
+          { text: '5.2 新增/编辑', link: '' },
+          { text: '5.3 年龄认证', link: '' },
+          { text: '5.4 免税商品', link: '' }
+        ]
+      },
+      {
+        text: '6. 补货记录',
+        collapsed: false,
+        items: [
+          { text: '6.1 记录列表', link: '' }
+        ]
+      },
+      {
+        text: '7. 设备类型',
+        collapsed: false,
+        items: [
+          { text: '7.1 类型列表', link: '' },
+          { text: '7.2 货道详情', link: '' },
+          { text: '7.3 常见类型', link: '' }
+        ]
+      },
+      {
+        text: '8. 我的设备',
+        collapsed: false,
+        items: [
+          { text: '8.1 设备管理', link: '' },
+          { text: '8.2 设备信息', link: '' },
+          {
+            text: '8.3 设备详情', collapsed: false, items: [
+              { text: '8.3.1 通知栏', link: '' },
+              { text: '8.3.2 设备广告', link: '' },
+              { text: '8.3.3 设备测试', link: '' },
+              { text: '8.3.4 设备日志', link: '' },
+              { text: '8.3.5 设备密码', link: '' },
+              { text: '8.3.6 取货码', link: '' },
+              { text: '8.3.6 免费领取', link: '' },
+              { text: '8.3.6 优惠券', link: '' }
+            ]
+          },
+          {
+            text: '8.4 商品列表', collapsed: false, items: [
+              { text: '8.4.1 商品分类', link: '' },
+              { text: '8.4.2 同步货道', link: '' },
+              { text: '8.4.3 商品编辑', link: '' },
+              { text: '8.4.4 商品上下架', link: '' },
+              { text: '8.4.5 商品补货', link: '' }
+            ]
+          }
+        ]
+      },
+      {
+        text: '9. 拉面机',
+        collapsed: false,
+        items: [
+          { text: '9.1 拉面食谱', link: '' },
+          { text: '9.2 食谱 i18n', link: '' }
         ]
       }
     ]
