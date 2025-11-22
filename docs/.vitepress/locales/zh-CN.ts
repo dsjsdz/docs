@@ -19,6 +19,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
     collapsed: false,
     items: [
       { text: '摘要', link: '/platform/index' },
+      { text: '语言切换', link: '/platform/language' },
       {
         text: '1. 用户管理',
         collapsed: false,
