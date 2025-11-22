@@ -24,8 +24,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         text: '1. 用户管理',
         collapsed: false,
         items: [
-          { text: '1.1 用户注册', link: '/platform/user.signup' },
-          { text: '1.2 用户登录', link: '/standalone/batch_update_inventory' }
+          { text: '1.1 注册/登录', link: '/platform/user.signup' },
+          { text: '1.2 信息更新', link: '/platform/user.profile' }
         ]
       },
       {
