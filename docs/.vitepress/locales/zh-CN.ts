@@ -25,7 +25,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         collapsed: false,
         items: [
           { text: '1.1 注册/登录', link: '/platform/user.signup' },
-          { text: '1.2 信息更新', link: '/platform/user.profile' }
+          { text: '1.2 信息更新', link: '/platform/user.profile' },
+          { text: '1.3 登录日志', link: '/platform/user.logs' }
         ]
       },
       {
