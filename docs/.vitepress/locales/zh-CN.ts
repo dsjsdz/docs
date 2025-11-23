@@ -37,7 +37,9 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '2.2 邀请码', link: '/platform/merchant.invite' },
           { text: '2.3 商户信息', link: '/platform/merchant.profile' },
           { text: '2.4 开发者中心', link: '/platform/merchant.developer' },
-          { text: '2.5 人员设置', link: '/platform/merchant.employee' }
+          { text: '2.5 人员设置', link: '/platform/merchant.employee' },
+          { text: '2.6 告警配置', link: '/platform/alarm.platform' },
+          { text: '2.7 修改管理员', link: '/platform/merchant.owner' }
         ]
       },
       {
