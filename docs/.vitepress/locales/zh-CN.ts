@@ -73,16 +73,17 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         text: '6. 补货记录',
         collapsed: false,
         items: [
-          { text: '6.1 记录列表', link: '' }
+          { text: '6.1 记录列表', link: '/platform/restocks' }
         ]
       },
       {
         text: '7. 设备类型',
         collapsed: false,
         items: [
-          { text: '7.1 类型列表', link: '' },
-          { text: '7.2 货道详情', link: '' },
-          { text: '7.3 常见类型', link: '' }
+          { text: '7.1 类型列表', link: '/platform/models' },
+          { text: '7.2 创建/编辑', link: '/platform/model.create' },
+          { text: '7.3 货道详情', link: '/platform/model.channel' },
+          { text: '7.4 常见类型', link: '' }
         ]
       },
       {
