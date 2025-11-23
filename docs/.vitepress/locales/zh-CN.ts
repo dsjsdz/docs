@@ -46,25 +46,27 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         text: '3. 订单列表',
         collapsed: false,
         items: [
-          { text: '3.1 列表数据', link: '' },
-          { text: '3.2 订单详情', link: '' }
+          { text: '3.1 列表数据', link: '/platform/orders' },
+          { text: '3.2 订单详情', link: '/platform/order.detail' }
         ]
       },
       {
         text: '4. 出货日志',
         collapsed: false,
         items: [
-          { text: '4.1 列表数据', link: '' }
+          { text: '4.1 列表数据', link: '/platform/delivery.logs' }
         ]
       },
       {
         text: '5. 我的商品',
         collapsed: false,
         items: [
-          { text: '5.1 商品列表', link: '' },
-          { text: '5.2 新增/编辑', link: '' },
-          { text: '5.3 年龄认证', link: '' },
-          { text: '5.4 免税商品', link: '' }
+          { text: '5.1 计量名称', link: '/platform/good.unit' },
+          { text: '5.2 商品列表', link: '/platform/goods' },
+          { text: '5.3 新增/编辑', link: '/platform/good.create' },
+          { text: '5.4 年龄认证', link: '/platform/good.age_verification' },
+          { text: '5.5 免税商品', link: '/platform/good.is_tax_exempt' },
+          { text: '5.6 商品价格', link: '/platform/good.price' },
         ]
       },
       {
