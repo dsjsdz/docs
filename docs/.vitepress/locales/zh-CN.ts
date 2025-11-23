@@ -90,15 +90,15 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
         text: '8. 我的设备',
         collapsed: false,
         items: [
-          { text: '8.1 设备管理', link: '' },
-          { text: '8.2 设备信息', link: '' },
+          { text: '8.1 设备管理', link: '/platform/machines' },
+          { text: '8.2 创建/编辑', link: '/platform/machine.create' },
           {
-            text: '8.3 设备详情', collapsed: false, items: [
-              { text: '8.3.1 通知栏', link: '' },
-              { text: '8.3.2 设备广告', link: '' },
-              { text: '8.3.3 设备测试', link: '' },
-              { text: '8.3.4 设备日志', link: '' },
-              { text: '8.3.5 设备密码', link: '' },
+            text: '8.3 设备详情', collapsed: false,  link: '/platform/machine.detail', items: [
+              { text: '8.3.1 通知栏', link: '/platform/machine.announce' },
+              { text: '8.3.2 设备广告', link: '/platform/machine.ads' },
+              { text: '8.3.3 设备测试', link: '/platform/machine.qrcode' },
+              { text: '8.3.4 设备日志', link: '/platform/machine.logs' },
+              { text: '8.3.5 设备密码', link: '/platform/machine.password' },
               { text: '8.3.6 取货码', link: '' },
               { text: '8.3.6 免费领取', link: '' },
               { text: '8.3.6 优惠券', link: '' }
