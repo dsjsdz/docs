@@ -99,18 +99,18 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
               { text: '8.3.3 设备测试', link: '/platform/machine.qrcode' },
               { text: '8.3.4 设备日志', link: '/platform/machine.logs' },
               { text: '8.3.5 设备密码', link: '/platform/machine.password' },
-              { text: '8.3.6 取货码', link: '' },
-              { text: '8.3.6 免费领取', link: '' },
-              { text: '8.3.6 优惠券', link: '' }
+              { text: '8.3.6 取货码', link: '/platform/machine.pickup_code' },
+              { text: '8.3.7 免费领取', link: '/platform/machine.free_purchase' },
+              { text: '8.3.8 优惠券', link: '/platform/machine.coupon' }
             ]
           },
           {
             text: '8.4 商品列表', collapsed: false, items: [
-              { text: '8.4.1 商品分类', link: '' },
-              { text: '8.4.2 同步货道', link: '' },
-              { text: '8.4.3 商品编辑', link: '' },
-              { text: '8.4.4 商品上下架', link: '' },
-              { text: '8.4.5 商品补货', link: '' }
+              { text: '8.4.1 商品分类', link: '/platform/categories' },
+              { text: '8.4.2 同步货道', link: '/platform/product.sync' },
+              { text: '8.4.3 商品编辑', link: '/platform/product.edit' },
+              { text: '8.4.4 商品上下架', link: '/platform/product.status' },
+              { text: '8.4.5 商品补货', link: '/platform/product.replenish' }
             ]
           }
         ]
@@ -122,6 +122,12 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '9.1 拉面食谱', link: '' },
           { text: '9.2 食谱 i18n', link: '' }
         ]
+      },
+      {
+        text: '10. 会员系统(Beta)',
+        collapsed: false,
+        link: '/platform/memberships',
+        items: []
       }
     ]
   },
