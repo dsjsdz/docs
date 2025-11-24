@@ -22,11 +22,11 @@
 
 ![merchant](/images/2025-11-23_145057.jpg){style="background: #fff; padding: 1rem; border-radius: 0.5rem;"}
 
-## 4. 货道容量
+## 3. 货道容量
 
 修改货道容量会自动更新关联的产品容量。
 
-## 5. 删除货道
+## 4. 删除货道
 
 ![merchant](/images/2025-11-23_145237.jpg){style="background: #fff; padding: 1rem; border-radius: 0.5rem;"}
 
