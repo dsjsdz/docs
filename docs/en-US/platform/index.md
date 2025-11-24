@@ -1,12 +1,9 @@
-# Design Idea
+# Platform Usage
 
-![2025-10-25_142837.jpg](/images/2025-10-25_142837.jpg)
+Version: `v1.2.24` Release Date: 2025/11/24
 
-- PC Web: [https://dash.awish.vip/dashboard/login](https://dash.awish.vip/dashboard/login?redirect=/dashboard/profile)
-- Mobile Web: [https://www.awish.vip/](https://www.awish.vip/pages/login/index)
+## Platform Feature Overview
 
-## User Login Methods
-
-- user's email with password
-- wechat qrcode
-- google quick link
+| Feature/Module | Role/Description                                   | Permission Scope                 |
+| --------- | -------------------------------------- | ------------------------ |
+| Merchant      | Platform entrant, responsible for managing their own vending machines and products | Can only manage vending machines under their own account |

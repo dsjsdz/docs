@@ -15,114 +15,238 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
   },
 
   {
-    text: '约定术语',
+    text: '平台使用',
     collapsed: false,
     items: [
-      { text: '设备状态', link: '/machine_status' },
-      { text: '设备模型', link: '/model_types' }
-    ]
-  },
-
-  {
-    text: '签名校验',
-    link: '/signatory'
-  },
-
-  {
-    text: '接口推送文档',
-    collapsed: true,
-    items: [
-      { text: '摘要', link: '/standalone/index' },
-      { text: '1. 批量更新库存', link: '/standalone/batch_update_inventory' },
-      { text: '2. 批量上传订单', link: '/standalone/batch_upload_orders' }
-    ]
-  },
-
-  {
-    text: 'GraphQL 文档',
-    collapsed: true,
-    items: [
-      { text: '摘要', link: '/GraphQL/index' },
-      { text: '1. 取货码', link: '/GraphQL/pickup_code' },
-      { text: '2. 获取货道列表', link: '/GraphQL/channels' },
-      { text: '3. APP在线升级', link: '/GraphQL/upgrade' }
-    ]
-  },
-
-  {
-    text: 'GRPC 文档',
-    collapsed: true,
-    items: [
-      { text: '摘要', link: '/grpc/index' },
-      { text: '1. 设备登录', link: '/grpc/machine.login' },
-      { text: '2. 设备信息', link: '/grpc/machine.profile' },
-      { text: '3. 商户信息', link: '/grpc/merchant' },
-      { text: '4. 货币列表', link: '/grpc/currency' },
-      { text: '5. 补货记录', link: '/grpc/restock' },
-      { text: '6. 今日销售', link: '/grpc/daily_sale' },
-      { text: '7. 订单列表', link: '/grpc/order' },
-      { text: '8. 产品列表', link: '/grpc/product' },
-      { text: '8.1 商品列表', link: '/grpc/good' },
-      { text: '9. 设备广告', link: '/grpc/banner' },
-      { text: '10. 设备公告', link: '/grpc/announcement' },
-      { text: '11. 货道列表', link: '/grpc/channel' },
-      { text: '12. 测试出货', link: '/grpc/debugging' },
-      { text: '13. 栏目列表', link: '/grpc/category' },
-      { text: '14. 出货日志', link: '/grpc/delivery_log' },
-      { text: '15. 设备日志', link: '/grpc/machine_log' },
-      { text: '16. 设备控制', link: '/grpc/power_control' },
-      { text: '17. 定时开关机', link: '/grpc/power_schedule' },
-      { text: '18. 清除定时开关机', link: '/grpc/power_clear' },
-      { text: '19. 配方数据表', link: '/grpc/recipe' },
-      { text: '20. 获取当前设备取货码(未过期)', link: '/grpc/pickup_codes' },
-      { text: '21. 通过接口生成取货码', link: '/grpc/create_pickup_codes' }
-    ]
-  },
-
-  {
-    text: 'MQTT 文档',
-    collapsed: true,
-    items: [
-      { text: '摘要', link: '/mqtt/index' },
+      { text: '摘要', link: '/platform/index' },
+      { text: '语言切换', link: '/platform/language' },
       {
-        text: '订阅 Subscribe',
-        link: '',
+        text: '1. 用户管理',
+        collapsed: false,
         items: [
-          { text: '1. 设备字段更新', link: '/mqtt/subscribe/machine.invalidate' },
-          { text: '2. 设备关机', link: '/mqtt/subscribe/machine.shutdown' },
-          { text: '3. 设备重启', link: '/mqtt/subscribe/machine.reboot' },
-          { text: '4. 设备密码更新', link: '/mqtt/subscribe/password.modified' },
-          { text: '5. 设备测试（h5发起）', link: '/mqtt/subscribe/channel.debugging' },
-          { text: '6. 设备定时开关机(一次)', link: '/mqtt/subscribe/power.schedule.once' },
-          { text: '7. 设备定时开关机(重复)', link: '/mqtt/subscribe/power.schedule.cycle' },
-          { text: '8. 设备清除开关机', link: '/mqtt/subscribe/power.schedule.clear' },
-          { text: '9. 设备配置更新(服务端->客户端)', link: '/mqtt/subscribe/machine.config.push' },
-          { text: '10. 广告推送', link: '/mqtt/subscribe/machine.ads.push' },
-          { text: '11. 广告更新', link: '/mqtt/subscribe/machine.ads.update' },
-          { text: '12. 广告删除', link: '/mqtt/subscribe/machine.ads.delete' },
-          { text: '13. 取货码生成后推送', link: '/mqtt/subscribe/client.pickup_codes.create' },
-          { text: '14. 取货码删除后推送', link: '/mqtt/subscribe/client.pickup_codes.delete' },
-          { text: '15. 恢复出厂设置', link: '/mqtt/subscribe/client.factory.reset' },
-          { text: '16. 一键清除货道故障', link: '/mqtt/subscribe/client.channel.fault.clear' }
+          { text: '1.1 注册/登录', link: '/platform/user.signup' },
+          { text: '1.2 信息更新', link: '/platform/user.profile' },
+          { text: '1.3 登录日志', link: '/platform/user.logs' }
         ]
       },
       {
-        text: '发布 Publish',
-        link: '',
+        text: '2. 商户管理',
+        collapsed: false,
         items: [
-          { text: '1. 温度上报', link: '/mqtt/publish/temperature.put' },
-          { text: '2. 湿度上报', link: '/mqtt/publish/humidity.put' },
-          { text: '3. 心跳检测（定时）', link: '/mqtt/publish/heartbeat' },
-          { text: '4. 离线（遗属消息）', link: '/mqtt/publish/offline' },
-          { text: '5. ENV 上报', link: '/mqtt/publish/machine.env.put' },
-          { text: '6. 产品更新', link: '/mqtt/publish/product.put' },
-          { text: '7. 门锁状态上报', link: '/mqtt/publish/doorlock.status' },
-          { text: '7.1 货道与门锁状态上报', link: '/mqtt/publish/client.channel.status.put' },
-          { text: '8. 批量补货（一键补货）', link: '/mqtt/publish/product.restock' },
-          { text: '9. 设备配置更新(客户端->服务端)', link: '/mqtt/publish/machine.config.put' },
-          { text: '10. 取货码消费后推至服务端', link: '/mqtt/publish/client.pickup_codes.put' }
+          { text: '2.1 开通/加入', link: '/platform/merchant.create' },
+          { text: '2.2 邀请码', link: '/platform/merchant.invite' },
+          { text: '2.3 商户信息', link: '/platform/merchant.profile' },
+          { text: '2.4 开发者中心', link: '/platform/merchant.developer' },
+          { text: '2.5 人员设置', link: '/platform/merchant.employee' },
+          { text: '2.6 告警配置', link: '/platform/alarm.platform' },
+          { text: '2.7 修改管理员', link: '/platform/merchant.owner' }
+        ]
+      },
+      {
+        text: '3. 订单列表',
+        collapsed: false,
+        items: [
+          { text: '3.1 列表数据', link: '/platform/orders' },
+          { text: '3.2 订单详情', link: '/platform/order.detail' }
+        ]
+      },
+      {
+        text: '4. 出货日志',
+        collapsed: false,
+        items: [
+          { text: '4.1 列表数据', link: '/platform/delivery.logs' }
+        ]
+      },
+      {
+        text: '5. 我的商品',
+        collapsed: false,
+        items: [
+          { text: '5.1 计量名称', link: '/platform/good.unit' },
+          { text: '5.2 商品列表', link: '/platform/goods' },
+          { text: '5.3 新增/编辑', link: '/platform/good.create' },
+          { text: '5.4 年龄认证', link: '/platform/good.age_verification' },
+          { text: '5.5 免税商品', link: '/platform/good.is_tax_exempt' },
+          { text: '5.6 商品价格', link: '/platform/good.price' },
+        ]
+      },
+      {
+        text: '6. 补货记录',
+        collapsed: false,
+        items: [
+          { text: '6.1 记录列表', link: '/platform/restocks' }
+        ]
+      },
+      {
+        text: '7. 设备类型',
+        collapsed: false,
+        items: [
+          { text: '7.1 类型列表', link: '/platform/models' },
+          { text: '7.2 创建/编辑', link: '/platform/model.create' },
+          { text: '7.3 货道详情', link: '/platform/model.channel' },
+          { text: '7.4 常见类型', link: '' }
+        ]
+      },
+      {
+        text: '8. 我的设备',
+        collapsed: false,
+        items: [
+          { text: '8.1 设备管理', link: '/platform/machines' },
+          { text: '8.2 创建/编辑', link: '/platform/machine.create' },
+          {
+            text: '8.3 设备详情', collapsed: false,  link: '/platform/machine.detail', items: [
+              { text: '8.3.1 通知栏', link: '/platform/machine.announce' },
+              { text: '8.3.2 设备广告', link: '/platform/machine.ads' },
+              { text: '8.3.3 设备测试', link: '/platform/machine.qrcode' },
+              { text: '8.3.4 设备日志', link: '/platform/machine.logs' },
+              { text: '8.3.5 设备密码', link: '/platform/machine.password' },
+              { text: '8.3.6 取货码', link: '/platform/machine.pickup_code' },
+              { text: '8.3.7 免费领取', link: '/platform/machine.free_purchase' },
+              { text: '8.3.8 优惠券', link: '/platform/machine.coupon' }
+            ]
+          },
+          {
+            text: '8.4 商品列表', collapsed: false, items: [
+              { text: '8.4.1 商品分类', link: '/platform/categories' },
+              { text: '8.4.2 同步货道', link: '/platform/product.sync' },
+              { text: '8.4.3 商品编辑', link: '/platform/product.edit' },
+              { text: '8.4.4 商品上下架', link: '/platform/product.status' },
+              { text: '8.4.5 商品补货', link: '/platform/product.replenish' }
+            ]
+          }
+        ]
+      },
+      {
+        text: '9. 拉面机',
+        collapsed: false,
+        items: [
+          { text: '9.1 拉面食谱', link: '' },
+          { text: '9.2 食谱 i18n', link: '' }
+        ]
+      },
+      {
+        text: '10. 会员系统(Beta)',
+        collapsed: false,
+        link: '/platform/memberships',
+        items: []
+      }
+    ]
+  },
+
+  {
+    text: '开发文档',
+    collapsed: false,
+    items: [
+      {
+        text: '约定',
+        collapsed: false,
+        items: [
+          { text: '设备状态', link: '/machine_status' },
+          { text: '设备模型', link: '/model_types' },
+          {
+            text: '签名校验',
+            link: '/signatory'
+          }
+        ]
+      },
+
+      {
+        text: '单机版',
+        collapsed: true,
+        items: [
+          { text: '摘要', link: '/standalone/index' },
+          { text: '1. 批量更新库存', link: '/standalone/batch_update_inventory' },
+          { text: '2. 批量上传订单', link: '/standalone/batch_upload_orders' }
+        ]
+      },
+
+      {
+        text: 'GraphQL',
+        collapsed: true,
+        items: [
+          { text: '摘要', link: '/GraphQL/index' },
+          { text: '1. 取货码', link: '/GraphQL/pickup_code' },
+          { text: '2. 获取货道列表', link: '/GraphQL/channels' },
+          { text: '3. APP在线升级', link: '/GraphQL/upgrade' }
+        ]
+      },
+
+      {
+        text: 'GRPC',
+        collapsed: true,
+        items: [
+          { text: '摘要', link: '/grpc/index' },
+          { text: '1. 设备登录', link: '/grpc/machine.login' },
+          { text: '2. 设备信息', link: '/grpc/machine.profile' },
+          { text: '3. 商户信息', link: '/grpc/merchant' },
+          { text: '4. 货币列表', link: '/grpc/currency' },
+          { text: '5. 补货记录', link: '/grpc/restock' },
+          { text: '6. 今日销售', link: '/grpc/daily_sale' },
+          { text: '7. 订单列表', link: '/grpc/order' },
+          { text: '8. 产品列表', link: '/grpc/product' },
+          { text: '8.1 商品列表', link: '/grpc/good' },
+          { text: '9. 设备广告', link: '/grpc/banner' },
+          { text: '10. 设备公告', link: '/grpc/announcement' },
+          { text: '11. 货道列表', link: '/grpc/channel' },
+          { text: '12. 测试出货', link: '/grpc/debugging' },
+          { text: '13. 栏目列表', link: '/grpc/category' },
+          { text: '14. 出货日志', link: '/grpc/delivery_log' },
+          { text: '15. 设备日志', link: '/grpc/machine_log' },
+          { text: '16. 设备控制', link: '/grpc/power_control' },
+          { text: '17. 定时开关机', link: '/grpc/power_schedule' },
+          { text: '18. 清除定时开关机', link: '/grpc/power_clear' },
+          { text: '19. 配方数据表', link: '/grpc/recipe' },
+          { text: '20. 获取当前设备取货码(未过期)', link: '/grpc/pickup_codes' },
+          { text: '21. 通过接口生成取货码', link: '/grpc/create_pickup_codes' }
+        ]
+      },
+
+      {
+        text: 'MQTT',
+        collapsed: true,
+        items: [
+          { text: '摘要', link: '/mqtt/index' },
+          {
+            text: '订阅 Subscribe',
+            link: '',
+            items: [
+              { text: '1. 设备字段更新', link: '/mqtt/subscribe/machine.invalidate' },
+              { text: '2. 设备关机', link: '/mqtt/subscribe/machine.shutdown' },
+              { text: '3. 设备重启', link: '/mqtt/subscribe/machine.reboot' },
+              { text: '4. 设备密码更新', link: '/mqtt/subscribe/password.modified' },
+              { text: '5. 设备测试（h5发起）', link: '/mqtt/subscribe/channel.debugging' },
+              { text: '6. 设备定时开关机(一次)', link: '/mqtt/subscribe/power.schedule.once' },
+              { text: '7. 设备定时开关机(重复)', link: '/mqtt/subscribe/power.schedule.cycle' },
+              { text: '8. 设备清除开关机', link: '/mqtt/subscribe/power.schedule.clear' },
+              { text: '9. 设备配置更新(服务端->客户端)', link: '/mqtt/subscribe/machine.config.push' },
+              { text: '10. 广告推送', link: '/mqtt/subscribe/machine.ads.push' },
+              { text: '11. 广告更新', link: '/mqtt/subscribe/machine.ads.update' },
+              { text: '12. 广告删除', link: '/mqtt/subscribe/machine.ads.delete' },
+              { text: '13. 取货码生成后推送', link: '/mqtt/subscribe/client.pickup_codes.create' },
+              { text: '14. 取货码删除后推送', link: '/mqtt/subscribe/client.pickup_codes.delete' },
+              { text: '15. 恢复出厂设置', link: '/mqtt/subscribe/client.factory.reset' },
+              { text: '16. 一键清除货道故障', link: '/mqtt/subscribe/client.channel.fault.clear' }
+            ]
+          },
+          {
+            text: '发布 Publish',
+            link: '',
+            items: [
+              { text: '1. 温度上报', link: '/mqtt/publish/temperature.put' },
+              { text: '2. 湿度上报', link: '/mqtt/publish/humidity.put' },
+              { text: '3. 心跳检测（定时）', link: '/mqtt/publish/heartbeat' },
+              { text: '4. 离线（遗属消息）', link: '/mqtt/publish/offline' },
+              { text: '5. ENV 上报', link: '/mqtt/publish/machine.env.put' },
+              { text: '6. 产品更新', link: '/mqtt/publish/product.put' },
+              { text: '7. 门锁状态上报', link: '/mqtt/publish/doorlock.status' },
+              { text: '7.1 货道与门锁状态上报', link: '/mqtt/publish/client.channel.status.put' },
+              { text: '8. 批量补货（一键补货）', link: '/mqtt/publish/product.restock' },
+              { text: '9. 设备配置更新(客户端->服务端)', link: '/mqtt/publish/machine.config.put' },
+              { text: '10. 取货码消费后推至服务端', link: '/mqtt/publish/client.pickup_codes.put' }
+            ]
+          }
         ]
       }
+
     ]
   },
 
