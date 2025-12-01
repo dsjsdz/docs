@@ -66,7 +66,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '5.3 新增/编辑', link: '/platform/good.create' },
           { text: '5.4 年龄认证', link: '/platform/good.age_verification' },
           { text: '5.5 免税商品', link: '/platform/good.is_tax_exempt' },
-          { text: '5.6 商品价格', link: '/platform/good.price' },
+          { text: '5.6 商品价格', link: '/platform/good.price' }
         ]
       },
       {
@@ -93,7 +93,7 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '8.1 设备管理', link: '/platform/machines' },
           { text: '8.2 创建/编辑', link: '/platform/machine.create' },
           {
-            text: '8.3 设备详情', collapsed: false,  link: '/platform/machine.detail', items: [
+            text: '8.3 设备详情', collapsed: false, link: '/platform/machine.detail', items: [
               { text: '8.3.1 通知栏', link: '/platform/machine.announce' },
               { text: '8.3.2 设备广告', link: '/platform/machine.ads' },
               { text: '8.3.3 设备测试', link: '/platform/machine.qrcode' },
@@ -166,7 +166,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '摘要', link: '/GraphQL/index' },
           { text: '1. 取货码', link: '/GraphQL/pickup_code' },
           { text: '2. 获取货道列表', link: '/GraphQL/channels' },
-          { text: '3. APP在线升级', link: '/GraphQL/upgrade' }
+          { text: '3. APP在线升级', link: '/GraphQL/upgrade' },
+          { text: '4. Query Goods', link: '/GraphQL/goods' }
         ]
       },
 
