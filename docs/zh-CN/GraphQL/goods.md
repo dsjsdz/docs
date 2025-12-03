@@ -19,6 +19,18 @@ query Goods {
             description
             price
             original_price
+            multi_currency_enabled
+            prices {
+                id
+                price
+                original_price
+                currency {
+                    id
+                    name
+                    code
+                    symbol
+                }
+            }
             thumb
             media
             content
@@ -52,8 +64,12 @@ query Goods {
 
 ## 补充信息
 
-| 字段名           | 默认值 | 描述     |
-|---------------|-----|--------|
-| is_returnable | -   | 是否支持退回 |
+| 字段名                    | 默认值 | 描述      |
+|------------------------|-----|---------|
+| is_returnable          | -   | 是否支持退回  |
+| multi_currency_enabled | -   | 多币种价格开关 |
+| prices                 | -   | 多币种价格设置 |
 
 💡 表示该商品是否支持退回或回收（如桶装水的大桶、押物、容器等可回收物品）
+
+💡 `v1.30.0` 不再设置单一 `goods.price`, `goods.original_price`
