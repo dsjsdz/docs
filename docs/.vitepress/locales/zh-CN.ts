@@ -167,7 +167,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
           { text: '1. 取货码', link: '/GraphQL/pickup_code' },
           { text: '2. 获取货道列表', link: '/GraphQL/channels' },
           { text: '3. APP在线升级', link: '/GraphQL/upgrade' },
-          { text: '4. Query Goods', link: '/GraphQL/goods' }
+          { text: '4. Query Goods', link: '/GraphQL/goods' },
+          { text: '5. 设备配置', link: '/GraphQL/machineConfig' }
         ]
       },
 
