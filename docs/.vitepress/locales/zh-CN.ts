@@ -1,4 +1,5 @@
 import { type DefaultTheme, defineConfig } from 'vitepress'
+// @ts-ignore
 import * as app from '../../../package.json'
 
 const Nav: DefaultTheme.NavItem[] = [
@@ -243,7 +244,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
               { text: '7.1 货道与门锁状态上报', link: '/mqtt/publish/client.channel.status.put' },
               { text: '8. 批量补货（一键补货）', link: '/mqtt/publish/product.restock' },
               { text: '9. 设备配置更新(客户端->服务端)', link: '/mqtt/publish/machine.config.put' },
-              { text: '10. 取货码消费后推至服务端', link: '/mqtt/publish/client.pickup_codes.put' }
+              { text: '10. 取货码消费后推至服务端', link: '/mqtt/publish/client.pickup_codes.put' },
+              { text: '11. 更新商品编码slug', link: '/mqtt/publish/client.goods.slug.put' }
             ]
           }
         ]
