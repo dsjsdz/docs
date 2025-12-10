@@ -2,6 +2,15 @@
 
 > 记录项目每个版本的主要更新内容。
 
+## v1.2.25-rc.0 · 2025-12-09
+
+> 主要内容：支持线下APP更新商品编码
+
+### 修改 MQTT
+
+- [11. 更新商品编码slug](/zh-CN/mqtt/publish/client.goods.slug.put)
+- [12. 设备上传使用流量](/zh-CN/mqtt/publish/client.traffic.put)
+
 ## v1.2.24.22 · 2025-11-22
 
 > 主要内容：订单新增字段
