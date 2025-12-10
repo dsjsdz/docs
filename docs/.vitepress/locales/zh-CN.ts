@@ -245,7 +245,8 @@ const SidebarGuide: DefaultTheme.SidebarItem[] = [
               { text: '8. 批量补货（一键补货）', link: '/mqtt/publish/product.restock' },
               { text: '9. 设备配置更新(客户端->服务端)', link: '/mqtt/publish/machine.config.put' },
               { text: '10. 取货码消费后推至服务端', link: '/mqtt/publish/client.pickup_codes.put' },
-              { text: '11. 更新商品编码slug', link: '/mqtt/publish/client.goods.slug.put' }
+              { text: '11. 更新商品编码slug', link: '/mqtt/publish/client.goods.slug.put' },
+              { text: '12. 设备上传使用流量', link: '/mqtt/publish/client.traffic.put' }
             ]
           }
         ]

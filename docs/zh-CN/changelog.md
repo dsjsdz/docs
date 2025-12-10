@@ -9,6 +9,7 @@
 ### 修改 MQTT
 
 - [11. 更新商品编码slug](/zh-CN/mqtt/publish/client.goods.slug.put)
+- [12. 设备上传使用流量](/zh-CN/mqtt/publish/client.traffic.put)
 
 ## v1.2.24.22 · 2025-11-22
 
