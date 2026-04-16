@@ -158,6 +158,3 @@ src-tauri/target/debug/*
 docs/.vitepress/docs
 docs/.vitepress/dist
 docs/.vitepress/cache
-
-# pnpm-lock.yaml
-pnpm-lock.yaml

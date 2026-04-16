@@ -23,7 +23,7 @@ export const common = defineConfig({
   },
 
   sitemap: {
-    hostname: 'https://www.awish.vip/docs',
+    hostname: 'https://docs.awish.vip/',
     transformItems(items) {
       return items.filter((item) => !item.url.includes('migration'))
     }
@@ -36,8 +36,8 @@ export const common = defineConfig({
     ['meta', { property: 'og:locale', content: 'cn' }],
     ['meta', { property: 'og:title', content: '鼎商 | ' }],
     ['meta', { property: 'og:site_name', content: '鼎商开发文档' }],
-    ['meta', { property: 'og:image', content: 'https://www.awish.vip/docs/images/favicon.ico' }],
-    ['meta', { property: 'og:url', content: 'https://www.awish.vip/' }]
+    ['meta', { property: 'og:image', content: 'https://docs.awish.vip/images/favicon.ico' }],
+    ['meta', { property: 'og:url', content: 'https://docs.awish.vip/' }]
     // ['script', { src: 'https://cdn.usefathom.com/script.js', 'data-site': 'AZBRSFGG', 'data-spa': 'auto', defer: '' }]
   ],
 

@@ -1,7 +1,7 @@
 {
-  "name": "docs.awish.com",
+  "name": "docs.awish.vip",
   "private": true,
-  "version": "1.2.29",
+  "version": "1.2.30",
   "appid": "dsf74061d4f3e268c3",
   "type": "module",
   "author": {
@@ -20,5 +20,6 @@
   },
   "dependencies": {
     "markdown-it-mathjax3": "^4.3.2"
-  }
+  },
+  "packageManager": "pnpm@10.30.3"
 }

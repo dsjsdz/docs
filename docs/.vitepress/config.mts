@@ -9,7 +9,7 @@ import { enUS } from './locales/en-US'
 export default defineConfig({
   ...Common,
   lang: 'zh-CN',
-  base: '/docs/',
+  base: '/',
   appearance: 'dark',
 
   locales: {

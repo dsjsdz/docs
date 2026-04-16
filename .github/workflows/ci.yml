@@ -29,33 +29,38 @@ jobs:
           node-version: ${{ matrix.node }}
           check-latest: true
 
-      - uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
+      - uses: pnpm/action-setup@v4
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
       - name: Cache node_modules 📦
         uses: actions/cache@v4
-        id: bun-cache
+        id: pnpm-cache
         with:
-          path: ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-bun-
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies 👨🏻‍💻
-        id: bun-install
-        run: bun install
+        id: pnpm-install
+        run: pnpm install --frozen-lockfile
 
-      #- name: Run linter 👀
-      #  run: bun run lint:eslint
+      # - name: Run linter 👀
+      #   run: pnpm lint:eslint
 
       - name: Build
-        run: bun run docs:build
+        run: pnpm run docs:build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=8192"
 
       - name: Get release dir path
         id: release-dir-path
         run: |
-          dir=${{ secrets.ROOT_DIR }}/docs
+          dir=${{ secrets.ROOT_DIR }}/releases/$(TZ=Asia/Shanghai date +%Y%m%d_%H%M%S)
           echo "dir=$dir" >> $GITHUB_OUTPUT
 
       - name: Deploy to server
@@ -64,14 +69,25 @@ jobs:
         env:
           DEPLOY_KEY: ${{ secrets.SSH_KEY }}
         with:
-          flags: '-azr'
-          options: ''
-          src: './docs/.vitepress/dist/' # 修改 BUILD_PATH 为 dist，默认 build
-          dest: 'root@${{ secrets.SSH_HOST }}:${{ steps.release-dir-path.outputs.dir }}'
+          flags: "-azr"
+          options: ""
+          src: "./docs/.vitepress/dist/" # 修改 BUILD_PATH 为 dist，默认 build
+          dest: "root@${{ secrets.SSH_HOST }}:${{ steps.release-dir-path.outputs.dir }}"
+
+      - name: Create release dir
+        uses: appleboy/ssh-action@master
+        id: create-release-dir
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          key: ${{ secrets.SSH_KEY }}
+          username: root
+          port: 22
+          script: |
+            bash ${{ secrets.ROOT_DIR }}/scripts/deploy.sh
 
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@master
         with:
-          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
+          args: "The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed."
